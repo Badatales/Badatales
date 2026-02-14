@@ -77,16 +77,17 @@ $window.on('resize', function() {
     }, 250);
 });
 
-			$banner.scrollex({
-				bottom:		$header.outerHeight() + 1,
-				terminate:	function() { $header.removeClass('alt'); },
-				enter:		function() { $header.addClass('alt'); },
-				leave:		function() { $header.removeClass('alt'); }
-			});
+		$banner.scrollex({
+    bottom: $header.outerHeight() + 10,  // Changed from +1 to +10
+    terminate: function() { $header.removeClass('alt'); },
+    enter: function() { $header.addClass('alt'); },
+    leave: function() { $header.removeClass('alt'); }
+});
 		}
 
 
 })(jQuery);
+
 
 
 
