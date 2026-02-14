@@ -44,9 +44,9 @@
 		}
 
 	// Scrolly.
-		$('.scrolly')
-			.scrolly({
-				speed: 1500,
+		/$('.scrolly')
+		/	.scrolly({
+		/		speed: 1500,
 				offset: $header.outerHeight()
 			});
 
@@ -79,5 +79,6 @@
 			});
 
 		}
+
 
 })(jQuery);
