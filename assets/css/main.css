@@ -2820,7 +2820,7 @@ input, select, textarea {
 		.wrapper.style1 {
 			background-color: #5B0F1A;
 			color: #c8ece9;
-			padding: 4em 0 3em 0;
+			padding: 3em 0 2em 0;
 		}
 
 			.wrapper.style1 strong, .wrapper.style1 b {
@@ -2978,9 +2978,13 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-			background-color: #ffffff;
-			color: #2e3842
+    		background-color: #2e3842;
+    		color: #2e3842;
 		}
+
+.wrapper.style2 h2, .wrapper.style2 h3, .wrapper.style2 h4, .wrapper.style2 h5, .wrapper.style2 h6 {
+    color: #2e3842;  /* ADD this entire block */
+}
 
 		.wrapper.style3 {
 			background-color: #F2B705;
@@ -4181,6 +4185,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
