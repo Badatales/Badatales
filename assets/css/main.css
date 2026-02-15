@@ -3343,10 +3343,10 @@ input, select, textarea {
 		}
 
 	#menu {
-		-moz-transform: translateX(20em);
-		-webkit-transform: translateX(20em);
-		-ms-transform: translateX(20em);
-		transform: translateX(20em);
+		-moz-transform: translateX(15em);
+		-webkit-transform: translateX(15em);
+		-ms-transform: translateX(15em);
+		transform: translateX(15em);
 		-moz-transition: -moz-transform 0.5s ease;
 		-webkit-transition: -webkit-transform 0.5s ease;
 		-ms-transition: -ms-transform 0.5s ease;
@@ -3361,7 +3361,7 @@ input, select, textarea {
 		position: fixed;
 		right: 0;
 		top: 0;
-		width: 13em;
+		width: 15em;
 		z-index: 10002;
 	}
 
@@ -3919,7 +3919,7 @@ body.is-mobile.landing .wrapper.style4 {
 }
 
 body.is-mobile.landing #footer {
-	background-color: #1d242a;
+	background-color: #5B0F1A;
 }
 
 
@@ -4120,6 +4120,7 @@ body.landing #page-wrapper:after {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
 
 
 
