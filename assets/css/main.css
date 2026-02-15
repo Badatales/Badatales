@@ -3141,6 +3141,7 @@ input, select, textarea {
 
 		.wrapper.style4 {
 			background-color: transparent;
+			padding: 8em 0 6em 0;  /* ADD this line - increased from default 6em/4em */
 		}
 
 		.wrapper.style5 {
@@ -3983,8 +3984,8 @@ body.is-mobile.landing #footer {
 /* Footer */
 
 	#footer {
-		padding: 6em 0 4em 0 ;
-		background-color: rgba(91, 15, 26, 0.9);
+ 		padding: 3em 0 2em 0 ;  /* Changed from 6em/4em to 3em/2em */
+		background-color: rgba(91, 15, 26, 0.8);
 		text-align: center;
 	}
 
@@ -4099,7 +4100,7 @@ body.landing #page-wrapper:after {
 /* Keep the rest of the styles as they were */
 
 	body.landing #footer {
-	    background-color: rgba(91, 15, 26, 0.9);
+	    background-color: rgba(91, 15, 26, 0.8);
 	}
 
 	body.is-mobile.landing #page-wrapper {
@@ -4120,6 +4121,7 @@ body.landing #page-wrapper:after {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
 
 
 
