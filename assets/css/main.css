@@ -3361,7 +3361,7 @@ input, select, textarea {
 		position: fixed;
 		right: 0;
 		top: 0;
-		width: 20em;
+		width: 13em;
 		z-index: 10002;
 	}
 
@@ -3903,7 +3903,7 @@ input, select, textarea {
 }
 
 body.landing #footer {
-	background-color: rgba(29, 36, 42, 0.9);
+	background-color: #5B0F1A;
 }
 
 body.is-mobile.landing #page-wrapper {
@@ -4120,6 +4120,7 @@ body.landing #page-wrapper:after {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
 
 
 
