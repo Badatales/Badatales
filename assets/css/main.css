@@ -2977,7 +2977,8 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-			background-color: #2e3842;
+			background-color: #ffffff;
+			text-color: #2e3842
 		}
 
 		.wrapper.style3 {
@@ -4170,8 +4171,8 @@ body.landing #page-wrapper:after {
 }
 
 .language-switcher a.active {
-    color: #5B0F1A;
-    border-bottom: 2px solid #5B0F1A;
+    color: #F2B705;
+    border-bottom: 2px solid #F2B705;
 }
 
 /* Hide language switcher when header is not alt (i.e., when it becomes visible) */
@@ -4179,6 +4180,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
