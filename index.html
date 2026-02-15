@@ -171,12 +171,38 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>function copyEmail(event) {event.preventDefault();navigator.clipboard.writeText("your@email.com");const icon = event.currentTarget;icon.style.color = "#F2B705"; // gold
-					setTimeout(() => {icon.style.color = "";}, 1000);}</script>});}</script>
+			<script>
+function copyEmail(event) {
+    event.preventDefault();
+
+    navigator.clipboard.writeText("talesofbada@gmail.com")
+        .then(function() {
+            const icon = event.currentTarget;
+
+            // Save original HTML
+            const originalHTML = icon.innerHTML;
+
+            // Change icon color + show checkmark
+            icon.style.color = "#F2B705";
+            icon.innerHTML = '<span class="icon solid fa-check"></span>';
+
+            // Restore after 0.9s
+            setTimeout(function() {
+                icon.style.color = "";
+                icon.innerHTML = originalHTML;
+            }, 900);
+        })
+        .catch(function(err) {
+            console.error("Clipboard copy failed:", err);
+        });
+}
+</script>
+
 
 	</body>
 
 </html>
+
 
 
 
