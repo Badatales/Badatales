@@ -179,18 +179,16 @@ function copyEmail(event) {
         .then(function() {
             const icon = event.currentTarget;
 
-            // Save original HTML
-            const originalHTML = icon.innerHTML;
-
-            // Change icon color + show checkmark
+            // Change color to gold
             icon.style.color = "#F2B705";
-            icon.innerHTML = '<span class="icon solid fa-check"></span>';
 
-            // Restore after 0.9s
+            // Restore original color after 1 second
             setTimeout(function() {
                 icon.style.color = "";
-                icon.innerHTML = originalHTML;
-            }, 900);
+            }, 1000);
+
+            // Optional confirmation
+            alert("Email copied to clipboard");
         })
         .catch(function(err) {
             console.error("Clipboard copy failed:", err);
@@ -199,9 +197,11 @@ function copyEmail(event) {
 </script>
 
 
+
 	</body>
 
 </html>
+
 
 
 
