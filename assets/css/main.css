@@ -4150,6 +4150,27 @@ body.landing #page-wrapper:after {
 
 
 
+.language-switcher {
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.language-switcher a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.language-switcher a:hover {
+    color: #00bcd4;
+}
+
+.language-switcher a.active {
+    color: #00bcd4;
+    border-bottom: 2px solid #00bcd4;
+}
 
 
 
