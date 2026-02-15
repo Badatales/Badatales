@@ -4126,6 +4126,28 @@ body.landing #page-wrapper:after {
 
 
 
+#copyMessage {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #F2B705;
+    color: #000;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#copyMessage.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 
 
