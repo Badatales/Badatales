@@ -2978,7 +2978,7 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-    		background-color: #2e3842;
+    		background-color: #ffffff;
     		color: #2e3842;
 		}
 
@@ -4185,6 +4185,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
