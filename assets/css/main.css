@@ -3827,11 +3827,13 @@ input, select, textarea {
 	}*/
 /* FIXED BACKGROUND SECTIONS - Replace the corresponding sections in your main.css with these */
 
+/* FIXED BACKGROUND SECTIONS - Version 2 - Replace in your main.css */
+
+/* Main > header - FIXED VERSION */
 #main > header {
 	padding: 12em 0 10em 0;
 	position: relative;
 	text-align: center;
-	overflow: hidden;
 }
 
 #main > header:before {
@@ -3845,9 +3847,14 @@ input, select, textarea {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	z-index: -1;
+	z-index: 0;
 	will-change: transform;
 	transform: translateZ(0);
+}
+
+#main > header > * {
+	position: relative;
+	z-index: 1;
 }
 
 #main > header h2 {
@@ -4072,7 +4079,7 @@ body.landing #page-wrapper {
 	padding-top: 0;
 }
 
-body.landing #page-wrapper:before {
+body.landing #page-wrapper:after {
 	content: '';
 	position: fixed;
 	top: 0;
@@ -4086,6 +4093,7 @@ body.landing #page-wrapper:before {
 	z-index: -1;
 	will-change: transform;
 	transform: translateZ(0);
+	pointer-events: none;
 }
 
 /* Keep the rest of the styles as they were */
@@ -4112,3 +4120,4 @@ body.landing #page-wrapper:before {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
