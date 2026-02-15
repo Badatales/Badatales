@@ -4099,7 +4099,7 @@ body.landing #page-wrapper:after {
 /* Keep the rest of the styles as they were */
 
 	body.landing #footer {
-		background-color: rgba(29, 36, 42, 0.9);
+		background-color: #5B0F1A;
 	}
 
 	body.is-mobile.landing #page-wrapper {
@@ -4120,6 +4120,7 @@ body.landing #page-wrapper:after {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
 
 
 
