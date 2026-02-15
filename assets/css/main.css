@@ -4174,8 +4174,11 @@ body.landing #page-wrapper:after {
     border-bottom: 2px solid #00bcd4;
 }
 
-
-
+/* Hide language switcher when header is not alt (i.e., when it becomes visible) */
+#header:not(.alt) .language-switcher {
+    opacity: 0;
+    pointer-events: none;
+}
 
 
 
