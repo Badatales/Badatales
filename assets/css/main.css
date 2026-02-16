@@ -2989,14 +2989,12 @@ input, select, textarea {
 .wrapper.style2 .image {
 	overflow: hidden; 
 	border-radius: 15px;     /* radius must be on the container */
-}
+	display: inline-block;}
 .wrapper.style2 .image img {
-    padding: 2em;   /* space around the image */
 	width: 100%;  /* ADD - makes image 95% of container width */
     margin: 0 auto;  /* ADD - centers the image */
     display: block;  /* ADD - required for centering */
-	transition: transform 0.5s ease, filter 0.5s ease; /* ADD - zoom */
-}
+	transition: transform 0.5s ease, filter 0.5s ease; /* ADD - zoom */}
 .wrapper.style2 .image:hover img {
     transform: scale(1.1);   /* 110% zoom */
     filter: brightness(1.05);
@@ -4204,6 +4202,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
