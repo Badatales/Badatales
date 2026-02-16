@@ -2987,12 +2987,12 @@ input, select, textarea {
     color: #2e3842;  /* ADD this entire block */
 }
 .wrapper.style2 .image {
-    padding: 2em;   /* space around the image */
 	overflow: hidden; 
 	border-radius: 15px;     /* radius must be on the container */
 }
 .wrapper.style2 .image img {
-    width: 100%;  /* ADD - makes image 95% of container width */
+    padding: 2em;   /* space around the image */
+	width: 100%;  /* ADD - makes image 95% of container width */
     margin: 0 auto;  /* ADD - centers the image */
     display: block;  /* ADD - required for centering */
 	transition: transform 0.5s ease, filter 0.5s ease; /* ADD - zoom */
@@ -4204,6 +4204,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
