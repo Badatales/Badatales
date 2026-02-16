@@ -2995,9 +2995,9 @@ input, select, textarea {
 	width: 100%;  /* ADD - makes image 100% of container width */
     margin: 0 auto;  /* ADD - centers the image */
     display: block;  /* ADD - required for centering */
-	transition: transform 0.5s ease, filter 0.5s ease; /* ADD - zoom */}
+	transition: transform 0.7s ease, filter 0.7s ease; /* ADD - zoom speed */}
 .wrapper.style2 .image:hover img {
-    transform: scale(1.1);   /* 110% zoom */
+    transform: scale(1.05);   /* 105% zoom */
     filter: brightness(1.05);
 }
 
@@ -4203,6 +4203,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
