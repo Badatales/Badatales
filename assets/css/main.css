@@ -2978,42 +2978,45 @@ input, select, textarea {
 
 			}
 
+/* --- GLOBAL STYLES (Mobile & PC) --- */
 		.wrapper.style2 {
     		background-color: #ffffff;
     		color: #2e3842;
-			
-		}
+			}
 
 .wrapper.style2 h2, .wrapper.style2 h3, .wrapper.style2 h4, .wrapper.style2 h5, .wrapper.style2 h6 {
-    color: #2e3842;  /* ADD this entire block */
+    color: #2e3842;  
 }
+
+/* Base mobile image behavior (no margins, simple block) */
 .wrapper.style2 .image {
-	overflow: hidden; 
-	border-radius: 25px;     /* radius must be on the container */
-	display: inline-block;
-	margin: 45px;}
-/* This disables or adjusts the margin on mobile devices */
-@media screen and (max-width: 736px) {
+    display: block;
+    width: 100%;
+}
+
+.wrapper.style2 .image img {
+    width: 100%;
+    display: block;
+}
+
+/* --- PC ONLY STYLES (Tablets & Desktops) --- */
+@media screen and (min-width: 737px) {
     .wrapper.style2 .image {
-		/* This sets: Top: 2em, Right: 0, Bottom: 2em, Left: 0 */
-        margin: 2em 0 !important; 
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        display: block;   /* Changes from inline to block for better stacking */
+        display: inline-block;
+        width: auto;      /* Let it sit next to text */
+        margin: 45px;     /* Full 45px margin only on PC */
+    }
+
+    .wrapper.style2 .image img {
+        /* Only animate and zoom on PC */
+        transition: transform 0.7s ease, filter 0.7s ease;
+    }
+
+    .wrapper.style2 .image:hover img {
+        transform: scale(1.05);
+        filter: brightness(1.05);
     }
 }
-.wrapper.style2 .image img {
-	width: 100%;  /* ADD - makes image 100% of container width */
-    margin: 0 auto;  /* ADD - centers the image */
-    display: block;  /* ADD - required for centering */
-	transition: transform 0.7s ease, filter 0.7s ease; /* ADD - zoom speed */}
-.wrapper.style2 .image:hover img {
-    transform: scale(1.05);   /* 105% zoom */
-    filter: brightness(1.05);
-}
-
-
 
 
 		.wrapper.style3 {
@@ -4215,6 +4218,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
