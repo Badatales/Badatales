@@ -2987,7 +2987,7 @@ input, select, textarea {
     color: #2e3842;  /* ADD this entire block */
 }
 .wrapper.style2 .image {
-    padding: 0em;   /* space around the image */
+    padding: 2em;   /* space around the image */
 	overflow: hidden; 
 	border-radius: 15px;     /* radius must be on the container */
 }
@@ -4204,6 +4204,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
