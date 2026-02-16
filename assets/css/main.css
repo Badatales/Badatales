@@ -3002,6 +3002,8 @@ input, select, textarea {
 /* --- PC ONLY STYLES (Tablets & Desktops) --- */
 @media screen and (min-width: 737px) {
     .wrapper.style2 .image {
+		overflow: hidden; 
+		border-radius: 25px;     /* radius must be on the container */
         display: inline-block;
         width: auto;      /* Let it sit next to text */
         margin: 45px;     /* Full 45px margin only on PC */
@@ -4218,6 +4220,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
