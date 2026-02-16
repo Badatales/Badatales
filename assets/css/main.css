@@ -2989,6 +2989,7 @@ input, select, textarea {
 .wrapper.style2 .image {
     padding: 2em;   /* space around the image */
 	overflow: hidden; 
+	border-radius: 15px;     /* radius must be on the container */
 }
 .wrapper.style2 .image img {
     border-radius: 15px;  /* ADD - makes edges rounded */
@@ -2999,6 +3000,7 @@ input, select, textarea {
 }
 .wrapper.style2 .image:hover img {
     transform: scale(1.1);   /* 110% zoom */
+    filter: brightness(1.05);
 }
 
 
@@ -4202,6 +4204,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
