@@ -2992,7 +2992,6 @@ input, select, textarea {
 	border-radius: 15px;     /* radius must be on the container */
 }
 .wrapper.style2 .image img {
-    border-radius: 15px;  /* ADD - makes edges rounded */
     width: 95%;  /* ADD - makes image 85% of container width */
     margin: 0 auto;  /* ADD - centers the image */
     display: block;  /* ADD - required for centering */
@@ -4204,6 +4203,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
