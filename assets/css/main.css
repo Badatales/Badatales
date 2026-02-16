@@ -2995,9 +2995,12 @@ input, select, textarea {
 /* This disables or adjusts the margin on mobile devices */
 @media screen and (max-width: 736px) {
     .wrapper.style2 .image {
-        margin: 0 0 2em 0 !important; /* Removes side margins, keeps bottom spacing */
-        width: 100%;                  /* Ensures it fits the mobile screen */
-        display: block;               /* Changes from inline to block for better stacking */
+		/* This sets: Top: 2em, Right: 0, Bottom: 2em, Left: 0 */
+        margin: 2em 0 !important; 
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        display: block;   /* Changes from inline to block for better stacking */
     }
 }
 .wrapper.style2 .image img {
@@ -4212,6 +4215,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
