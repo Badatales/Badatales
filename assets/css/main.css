@@ -2986,20 +2986,20 @@ input, select, textarea {
 .wrapper.style2 h2, .wrapper.style2 h3, .wrapper.style2 h4, .wrapper.style2 h5, .wrapper.style2 h6 {
     color: #2e3842;  /* ADD this entire block */
 }
-.wrapper.style2 .image {
-    padding: 2em;   /* space around the image */
-	overflow: hidden; 
-	border-radius: 15px;     /* radius must be on the container */
+.wrapper.style2 .spotlight .image {
+    padding: 2em;
+    overflow: hidden;
+    border-radius: 15px;
 }
-.wrapper.style2 .image img {
-    width: 95%;  /* ADD - makes image 85% of container width */
-    margin: 0 auto;  /* ADD - centers the image */
-    display: block;  /* ADD - required for centering */
-	transition: transform 0.5s ease, filter 0.5s ease; /* ADD - zoom */
+
+.wrapper.style2 .spotlight .image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
 }
-.wrapper.style2 .image:hover img {
-    transform: scale(1.1);   /* 110% zoom */
-    filter: brightness(1.05);
+
+.wrapper.style2 .spotlight .image:hover img {
+    transform: scale(1.1);
 }
 
 
@@ -4203,6 +4203,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
