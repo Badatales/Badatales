@@ -2988,13 +2988,20 @@ input, select, textarea {
 }
 .wrapper.style2 .image {
     padding: 2em;   /* space around the image */
+	overflow: hidden; 
 }
 .wrapper.style2 .image img {
     border-radius: 15px;  /* ADD - makes edges rounded */
     width: 95%;  /* ADD - makes image 85% of container width */
     margin: 0 auto;  /* ADD - centers the image */
     display: block;  /* ADD - required for centering */
+	transition: transform 0.5s ease, filter 0.5s ease; /* ADD - zoom */
 }
+.wrapper.style2 .image:hover img {
+    transform: scale(1.1);   /* 110% zoom */
+}
+
+
 
 		.wrapper.style3 {
 			background-color: #F2B705;
@@ -4195,6 +4202,7 @@ body.landing #page-wrapper:after {
     opacity: 0;
     pointer-events: none;
 }
+
 
 
 
