@@ -4264,6 +4264,25 @@ body.landing #page-wrapper:after {
     margin-bottom: 2em;
 }
 
+/* Forces the header to be transparent and float over the image on internal pages */
+#header {
+    background: transparent !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-shadow: none !important;
+}
+
+/* Ensure the Hamburger icon is visible and consistent */
+.menuToggle {
+    color: #fff !important;
+}
+
+/* Keep the footer dark and consistent */
+#footer {
+    background-color: #1d242a !important;
+
+
 
 
 
