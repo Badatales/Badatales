@@ -4226,7 +4226,7 @@ body.landing #page-wrapper:after {
 /* --- ABOUT US PAGE CUSTOM STYLES --- */
 
 /* 1. Hero Banner (16:7 ratio) */
-#banner {
+.page-about #banner {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg");
     background-size: cover;
     background-position: center;
@@ -4302,5 +4302,6 @@ body.landing #page-wrapper:after {
 #header .menuToggle {
     color: #ffffff !important;
 }
+
 
 
