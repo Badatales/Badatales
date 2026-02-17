@@ -4227,13 +4227,15 @@ body.landing #page-wrapper:after {
 
 /* 1. Hero Banner (16:7 ratio) */
 #banner {
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../images/about-hero.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 	width: 100%;
     aspect-ratio: 16 / 7;
-    min-height: 300px;
+	height: auto !important;      /* Overrides any 100vh or 40vh */
+    min-height: 0 !important;    /* Removes the 300px minimum */
+    padding: 0 !important;       /* Removes internal spacing that adds height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4300,4 +4302,5 @@ body.landing #page-wrapper:after {
 #header .menuToggle {
     color: #ffffff !important;
 }
+
 
