@@ -4242,17 +4242,41 @@ body.landing #page-wrapper:after {
 }
 
 /* 2. Narrow Yellow Intro Bar */
-.wrapper.about-intro {
+.page-about .wrapper.about-intro {
     padding: 3em 0 1em 0 !important;
     background-color: #F2B705 !important;
+    background-image: none !important; /* Prevents desktop bleed-over */
 }
-.about-intro h2, 
-.about-intro p {
+
+.page-about .about-intro h2, 
+.page-about .about-intro p {
     color: #2e3842 !important;
 }
-.about-intro h2 {
+
+.page-about .about-intro h2 {
     margin-bottom: 0.5em;
     border-bottom: none !important;
+}
+
+/* --- mobile specific files --- */
+/* This stops the index banner from appearing on the yellow bar and hero on mobile */
+
+body.is-mobile.page-about #banner,
+body.is-mobile.page-about .wrapper.style4.about-intro {
+    background-image: none !important; /* Kills the banner.jpg ghosting */
+}
+
+/* Ensure the Hero Image still shows the correct About photo on mobile */
+body.is-mobile.page-about #banner {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* Force the yellow background on mobile for the intro bar */
+body.is-mobile.page-about .wrapper.style4.about-intro {
+    background-color: #F2B705 !important;
+}
 }
 
 /* 3. White Content Area (Style 3) */
@@ -4303,6 +4327,7 @@ body.landing #page-wrapper:after {
 #header .menuToggle {
     color: #ffffff !important;
 }
+
 
 
 
