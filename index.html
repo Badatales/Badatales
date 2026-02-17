@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <link rel="alternate" hreflang="en" href="./en/index.html" />
+    <link rel="alternate" hreflang="cs" href="./cs/index.html" />
+    
+    <script>
+        (function() {
+            // 1. Priority 1: User's manual selection (Cookie/LocalStorage)
+            const savedLang = localStorage.getItem('preferredLanguage');
+            
+            // 2. Priority 2: Browser Language
+            const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+            
+            if (savedLang) {
+                window.location.replace(savedLang);
+            } else if (browserLang.includes('cs') || browserLang.includes('cz')) {
+                window.location.replace('./cs/index.html');
+            } else {
+                // Priority 3: Primary Default (English)
+                window.location.replace('./en/index.html');
+            }
+        })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=./en/index.html">
+</head>
+<body>
+    <p>Redirecting to <a href="./en/index.html">English version</a>...</p>
+</body>
+</html>
