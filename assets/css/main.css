@@ -4227,18 +4227,18 @@ body.landing #page-wrapper:after {
 
 /* 1. Hero Banner (16:7 ratio) */
 .page-about #banner {
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-	width: 100%;
-    aspect-ratio: 16 / 7;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+	width: 100% !important;
+    aspect-ratio: 16 / 7 !important;
 	height: auto !important;      /* Overrides any 100vh or 40vh */
     min-height: 0 !important;    /* Removes the 300px minimum */
     padding: 0 !important;       /* Removes internal spacing that adds height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* 2. Narrow Yellow Intro Bar */
@@ -4246,7 +4246,8 @@ body.landing #page-wrapper:after {
     padding: 3em 0 1em 0 !important;
     background-color: #F2B705 !important;
 }
-.about-intro h2, .about-intro p {
+.about-intro h2, 
+.about-intro p {
     color: #2e3842 !important;
 }
 .about-intro h2 {
@@ -4261,20 +4262,20 @@ body.landing #page-wrapper:after {
 }
 #main .wrapper.style3 p.alt-shade {
     background: rgba(0, 0, 0, 0.05) !important;
-    padding: 1.5em;
-    border-radius: 4px;
-    margin-bottom: 2em;
+    padding: 1.5em !important;
+    border-radius: 4px !important;
+    margin-bottom: 2em !important;
 }
 
 /* 4. Header & Menu Logic for About Page */
 
 /* Base Header Style (Sticky) */
 #header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10000;
-    transition: background-color 0.5s ease;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 10000 !important;
+    transition: background-color 0.5s ease !important;
 }
 
 /* Transparent State (Top of page) - Added .page-about to increase strength */
@@ -4302,6 +4303,7 @@ body.landing #page-wrapper:after {
 #header .menuToggle {
     color: #ffffff !important;
 }
+
 
 
 
