@@ -4223,12 +4223,9 @@ body.landing #page-wrapper:after {
 
 
 
-
-
 /* --- ABOUT US PAGE CUSTOM STYLES --- */
 
-/* 1. Hero Banner (16:6 ratio) 
-   Note: Changed ID to #banner so the scroll-detection JavaScript works */
+/* 1. Hero Banner (16:6 ratio) */
 #banner {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../images/about-hero.jpg");
     background-size: cover;
@@ -4245,17 +4242,14 @@ body.landing #page-wrapper:after {
 /* 2. Narrow Yellow Intro Bar */
 .wrapper.about-intro {
     padding: 3em 0 1em 0 !important;
-    background-color: #F2B705 !important; /* Forces the yellow from index */
+    background-color: #F2B705 !important;
 }
-
+.about-intro h2, .about-intro p {
+    color: #2e3842 !important;
+}
 .about-intro h2 {
     margin-bottom: 0.5em;
     border-bottom: none !important;
-    color: #2e3842 !important; /* Dark text for yellow background */
-}
-
-.about-intro p {
-    color: #2e3842 !important;
 }
 
 /* 3. White Content Area (Style 3) */
@@ -4263,43 +4257,46 @@ body.landing #page-wrapper:after {
     background-color: #ffffff !important;
     color: #2e3842 !important;
 }
-
 #main .wrapper.style3 p.alt-shade {
-    background: rgba(0, 0, 0, 0.05) !important; /* Subtle grey shade */
+    background: rgba(0, 0, 0, 0.05) !important;
     padding: 1.5em;
     border-radius: 4px;
     margin-bottom: 2em;
 }
 
-/* 4. Header Scroll & Sticky Behavior */
+/* 4. Header & Menu Logic for About Page */
+
+/* Base Header Style (Sticky) */
 #header {
-    background-color: #2e3842 !important; /* Solid color when scrolling */
-    position: fixed; /* Keep it stuck to the top */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 10000;
     transition: background-color 0.5s ease;
 }
 
-/* State when at the very top (Requires class="alt" in HTML) */
-#header.alt {
+/* Transparent State (Top of page) - Added .page-about to increase strength */
+.page-about #header.alt {
     background-color: transparent !important;
     box-shadow: none !important;
 }
 
-/* Logo and Hamburger colors */
-#header h1 a, 
-#header .menuToggle {
-    color: #ffffff !important;
-}
-
-/* This changes the solid color of the bar after you scroll */
+/* Solid State (After scroll) - Your custom dark red */
 .page-about #header {
     background-color: #5B0F1A !important; 
 }
 
-/* This changes the background of the actual slide-out hamburger menu */
+/* Slide-out Hamburger Menu - Yellow background with dark text */
 .page-about #menu {
     background-color: #F2B705 !important;
-			color: #2e3842 !important;
+}
+.page-about #menu ul li a {
+    color: #2e3842 !important;
+    border-bottom-color: rgba(46, 56, 66, 0.2) !important;
+}
+
+/* Logo and Hamburger Toggle colors */
+#header h1 a, 
+#header .menuToggle {
+    color: #ffffff !important;
 }
