@@ -9,7 +9,7 @@
 	var	$window = $(window),
 		$body = $('body'),
 		$wrapper = $('#page-wrapper'),
-		$banner = $('#banner'),
+		$banner = $('#banner, #banner-about'),
 		$header = $('#header');
 
 	// Breakpoints.
@@ -87,6 +87,7 @@ $window.on('resize', function() {
 
 
 })(jQuery);
+
 
 
 
