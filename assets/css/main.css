@@ -4225,13 +4225,44 @@ body.landing #page-wrapper:after {
 
 
 
+/* --- ABOUT US PAGE CUSTOM STYLES --- */
 
+/* 1. Hero Banner with 16:6 approx ratio */
+#about-banner {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../images/about-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    /* This creates a 16:6 aspect ratio feel (height is roughly 37% of width) */
+    height: 40vh; 
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+/* 2. Narrow Yellow Intro Bar */
+.wrapper.about-intro {
+    padding: 3em 0 1em 0; /* Making it "narrower" vertically */
+}
+.about-intro h2 {
+    margin-bottom: 0.5em;
+    border-bottom: none !important; /* Cleaner look for just a title */
+}
 
+/* 3. Text Shading for Style 3 */
+.wrapper.style3 {
+    background-color: #ffffff;
+    color: #2e3842;
+}
 
-
-
-
+.wrapper.style3 p.alt-shade {
+    background: rgba(0, 0, 0, 0.03); /* Very subtle grey shade */
+    padding: 1.5em;
+    border-radius: 4px;
+    margin-bottom: 2em;
+}
 
 
 
