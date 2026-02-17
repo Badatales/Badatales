@@ -4227,14 +4227,14 @@ body.landing #page-wrapper:after {
 
 /* --- ABOUT US PAGE CUSTOM STYLES --- */
 
-/* 1. Hero Banner with 16:6 approx ratio */
-#about-banner {
+/* 1. Hero Banner (16:6 ratio) 
+   Note: Changed ID to #banner so the scroll-detection JavaScript works */
+#banner {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../images/about-hero.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    /* This creates a 16:6 aspect ratio feel (height is roughly 37% of width) */
     height: 40vh; 
     min-height: 300px;
     display: flex;
@@ -4244,59 +4244,51 @@ body.landing #page-wrapper:after {
 
 /* 2. Narrow Yellow Intro Bar */
 .wrapper.about-intro {
-    padding: 3em 0 1em 0; /* Making it "narrower" vertically */
+    padding: 3em 0 1em 0 !important;
+    background-color: #F2B705 !important; /* Forces the yellow from index */
 }
+
 .about-intro h2 {
     margin-bottom: 0.5em;
-    border-bottom: none !important; /* Cleaner look for just a title */
+    border-bottom: none !important;
+    color: #2e3842 !important; /* Dark text for yellow background */
 }
 
-/* 3. Text Shading for Style 3 */
-.wrapper.style3 {
-    background-color: #ffffff;
-    color: #2e3842;
+.about-intro p {
+    color: #2e3842 !important;
 }
 
-.wrapper.style3 p.alt-shade {
-    background: rgba(0, 0, 0, 0.03); /* Very subtle grey shade */
+/* 3. White Content Area (Style 3) */
+#main .wrapper.style3 {
+    background-color: #ffffff !important;
+    color: #2e3842 !important;
+}
+
+#main .wrapper.style3 p.alt-shade {
+    background: rgba(0, 0, 0, 0.05) !important; /* Subtle grey shade */
     padding: 1.5em;
     border-radius: 4px;
     margin-bottom: 2em;
 }
 
-/* Forces the header to be transparent and float over the image on internal pages */
+/* 4. Header Scroll & Sticky Behavior */
 #header {
-    background: transparent !important;
-    position: absolute;
+    background-color: #2e3842 !important; /* Solid color when scrolling */
+    position: fixed; /* Keep it stuck to the top */
     top: 0;
     width: 100%;
+    z-index: 10000;
+    transition: background-color 0.5s ease;
+}
+
+/* State when at the very top (Requires class="alt" in HTML) */
+#header.alt {
+    background-color: transparent !important;
     box-shadow: none !important;
 }
 
-/* Ensure the Hamburger icon is visible and consistent */
-.menuToggle {
-    color: #fff !important;
+/* Logo and Hamburger colors */
+#header h1 a, 
+#header .menuToggle {
+    color: #ffffff !important;
 }
-
-/* Keep the footer dark and consistent */
-#footer {
-    background-color: #1d242a !important;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
