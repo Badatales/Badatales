@@ -4292,3 +4292,14 @@ body.landing #page-wrapper:after {
 #header .menuToggle {
     color: #ffffff !important;
 }
+
+/* This changes the solid color of the bar after you scroll */
+.page-about #header {
+    background-color: #5B0F1A !important; 
+}
+
+/* This changes the background of the actual slide-out hamburger menu */
+.page-about #menu {
+    background-color: #F2B705 !important;
+			color: #2e3842 !important;
+}
