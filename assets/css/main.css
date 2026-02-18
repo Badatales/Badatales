@@ -4347,11 +4347,18 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 ========================================================= */
 
 
-#banner-articles {
-    background-image: url("../images/articles-hero.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.page-articles #banner-articles {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/articles-hero.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+	width: 100% !important;
+	height: auto !important;      /* Overrides any 100vh or 40vh */
+    min-height: 0 !important;    /* Removes the 300px minimum */
+    padding: 0 !important;       /* Removes internal spacing that adds height */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
 /* #banner-articles {
     width: 100%;
@@ -4501,6 +4508,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
