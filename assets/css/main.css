@@ -4223,6 +4223,12 @@ body.landing #page-wrapper:after {
 
 
 
+
+
+
+
+
+
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
 /* 1. Hero Banner (16:7 ratio) */
@@ -4329,6 +4335,134 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 
+
+
+
+
+
+
+
+/* --- Articles Landing Page Styles --- */
+
+/* 16:9 Hero Banner */
+#banner-articles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../images/articles-hero.jpg"); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 16 / 9;
+    text-align: center;
+    color: #fff;
+}
+
+/* Header Override for Articles Page */
+.page-articles #header.alt {
+    background-color: transparent !important;
+}
+
+/* Solid state: Golden Yellow background, Grey text */
+.page-articles #header:not(.alt) {
+    background-color: #F2B705 !important;
+}
+.page-articles #header:not(.alt) h1 a, 
+.page-articles #header:not(.alt) nav ul li a {
+    color: #2e3842 !important;
+}
+
+/* Hamburger Menu: Grey Background, White Text */
+#menu {
+    background-color: #2e3842 !important;
+}
+#menu ul li a {
+    color: #ffffff !important;
+    border-bottom-color: rgba(255,255,255,0.1) !important;
+}
+
+/* Filter Pills */
+.filter-container {
+    text-align: center;
+    margin-bottom: 3em;
+}
+.filter-pills {
+    list-style: none;
+    padding: 0;
+}
+.filter-pills li {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.5em 1.5em;
+    margin: 0.5em;
+    border-radius: 50px;
+    border: 2px solid #5B0F1A;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+.filter-pills li.active, .filter-pills li:hover {
+    background-color: #5B0F1A;
+    color: #fff;
+}
+
+/* Article Grid */
+.article-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    margin-bottom: 3em;
+}
+
+.article-card {
+    text-align: left;
+}
+
+.article-card .image-wrapper {
+    overflow: hidden;
+    line-height: 0;
+}
+
+.article-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.article-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+.article-card h3 {
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+/* Mobile: Stack 1 per row */
+@media screen and (max-width: 736px) {
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Individual Article Content Styles --- */
+.content-photo {
+    width: 80%;
+    margin: 2em auto;
+    display: block;
+    border-radius: 12px; /* Rounded corners as requested */
+    overflow: hidden;
+}
+
+.content-photo img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.content-photo:hover img {
+    transform: scale(1.05);
+}
 
 
 
