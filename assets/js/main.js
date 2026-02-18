@@ -1,9 +1,3 @@
-/*
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	var	$window = $(window),
@@ -32,23 +26,19 @@
 		if (browser.mobile)
 			$body.addClass('is-mobile');
 		else {
-
 			breakpoints.on('>medium', function() {
 				$body.removeClass('is-mobile');
 			});
-
 			breakpoints.on('<=medium', function() {
 				$body.addClass('is-mobile');
 			});
-
 		}
 
 	// Scrolly.
-		$('.scrolly')
-			.scrolly({
-				speed: 1500,
-				offset: $header.outerHeight()
-			});
+		$('.scrolly').scrolly({
+			speed: 1500,
+			offset: $header.outerHeight()
+		});
 
 	// Menu.
 		$('#menu')
@@ -66,117 +56,85 @@
 			});
 
 	// Header.
-		if ($banner.length > 0
-		&&	$header.hasClass('alt')) {
+		if ($banner.length > 0 && $header.hasClass('alt')) {
+			$window.on('resize', function() {
+				$window.trigger('scroll');
+			});
 
-			var resizeTimer;
-$window.on('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-        $window.trigger('scroll');
-    }, 250);
-});
-
-		$banner.scrollex({
-    bottom: $header.outerHeight() + 10,  // Changed from +1 to +10
-    terminate: function() { $header.removeClass('alt'); },
-    enter: function() { $header.addClass('alt'); },
-    leave: function() { $header.removeClass('alt'); }
-});
+			$banner.scrollex({
+				bottom: $header.outerHeight() + 10,
+				terminate: function() { $header.removeClass('alt'); },
+				enter: function() { $header.addClass('alt'); },
+				leave: function() { $header.removeClass('alt'); }
+			});
 		}
 
+	/* =========================================================
+	   ARTICLES PAGE LOGIC
+	========================================================= */
+	if ($body.hasClass('page-articles')) {
+
+		const buttons = document.querySelectorAll('.filter-btn');
+		const articles = document.querySelectorAll('.article-card');
+		const $articleCards = $('.article-card'); 
+		let activeFilters = [];
+
+		buttons.forEach(btn => {
+			btn.addEventListener('click', function () {
+				const filter = this.dataset.filter;
+
+				if (filter === "all") {
+					activeFilters = [];
+					buttons.forEach(b => b.classList.remove('active'));
+					this.classList.add('active');
+					applyFilters();
+					return;
+				}
+
+				this.classList.toggle('active');
+				if (activeFilters.includes(filter)) {
+					activeFilters = activeFilters.filter(f => f !== filter);
+				} else {
+					activeFilters.push(filter);
+				}
+
+				document.querySelector('[data-filter="all"]').classList.remove('active');
+				applyFilters();
+			});
+		});
+
+		function applyFilters() {
+			articles.forEach(article => {
+				const country = article.dataset.country;
+				const type = article.dataset.type;
+				const matches = activeFilters.every(filter =>
+					filter === country || filter === type
+				);
+
+				if (activeFilters.length === 0 || matches) {
+					$(article).fadeIn(300);
+				} else {
+					$(article).hide();
+				}
+			});
+		}
+
+		// Load More Logic
+		var visibleCount = 6;
+		function updateVisibility() {
+			$articleCards.hide().slice(0, visibleCount).fadeIn(300);
+			if (visibleCount >= $articleCards.length) {
+				$('#loadMore').hide();
+			}
+		}
+
+		updateVisibility();
+
+		$('#loadMore').on('click', function (e) {
+			e.preventDefault();
+			visibleCount += 6;
+			updateVisibility();
+		});
+	}
 
 })(jQuery);
-
-
-
-/* =========================================================
-   ARTICLES PAGE LOGIC
-   Runs ONLY on articles landing page
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Only run if we're on articles page
-    if (!document.body.classList.contains("page-articles")) return;
-
-    /* ================= AND FILTER LOGIC ================= */
-
-    const buttons = document.querySelectorAll('.filter-btn');
-    const articles = document.querySelectorAll('.article-card');
-    let activeFilters = [];
-
-    buttons.forEach(btn => {
-        btn.addEventListener('click', function () {
-
-            const filter = this.dataset.filter;
-
-            if (filter === "all") {
-                activeFilters = [];
-                buttons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                applyFilters();
-                return;
-            }
-
-            this.classList.toggle('active');
-
-            if (activeFilters.includes(filter)) {
-                activeFilters = activeFilters.filter(f => f !== filter);
-            } else {
-                activeFilters.push(filter);
-            }
-
-            document.querySelector('[data-filter="all"]').classList.remove('active');
-            applyFilters();
-        });
-    });
-
-    function applyFilters() {
-
-        articles.forEach(article => {
-
-            const country = article.dataset.country;
-            const type = article.dataset.type;
-
-            const matches = activeFilters.every(filter =>
-                filter === country || filter === type
-            );
-
-            if (activeFilters.length === 0 || matches) {
-                article.style.display = "block";
-            } else {
-                article.style.display = "none";
-            }
-
-        });
-    }
-
-    /* ================= LOAD MORE ================= */
-const $articles = $('.article-card'); // <--- ADD THIS LINE
-var visibleCount = 6;
-
-function updateVisibility() {
-    $articles.hide().slice(0, visibleCount).fadeIn(300);
-
-    if (visibleCount >= $articles.length) {
-        $('#loadMore').hide();
-    }
-}
-
-updateVisibility();
-
-$('#loadMore').on('click', function (e) {
-    e.preventDefault();
-    visibleCount += 6;
-    updateVisibility();
-});
-
-
-
-
-
-
-
-
-
