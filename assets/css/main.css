@@ -4346,35 +4346,73 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
    ARTICLES LANDING PAGE STYLES
 ========================================================= */
 
+
 #banner-articles {
+    background-image: url("../images/articles-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+/* #banner-articles {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: url("../../images/articles-hero.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;*/
 }
 
 #banner-articles h2 {
     color: white;
     font-size: 3rem;
 }
+/* =====================================================
+   ARTICLE FILTER TAGS
+===================================================== */
 
-/* Filters */
-.filter-btn {
-    border: 2px solid #5B0F1A;
-    background: transparent;
-    color: #5B0F1A;
-    border-radius: 999px;
-    padding: 0.6em 1.4em;
-    margin: 0.4em;
-    cursor: pointer;
-    transition: 0.3s ease;
+.filters {
+    margin-top: -2rem; /* pull closer to hero */
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    background: #f2f2f2; /* lighter gray */
+    color: #444;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Circular icon */
+.filter-btn .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    margin-right: 6px;
+    line-height: 1;
+}
+
+/* Active (selected) tag */
 .filter-btn.active {
-    background: #5B0F1A;
-    color: white;
+    background: #e63946; /* red */
+    color: #ffffff; /* white text */
+}
+
+/* Active icon must also be white */
+.filter-btn.active .icon {
+    color: #ffffff;
 }
 
 /* Grid */
@@ -4403,6 +4441,26 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-card:hover img {
     transform: scale(1.08);
     filter: brightness(1.1);
+}
+
+
+/* =====================================================
+   LOAD MORE BUTTON STYLE
+===================================================== */
+
+.load-more-wrapper {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+#loadMore {
+    font-size: 1.5rem;
+    color: #888;
+    transition: 0.3s;
+}
+
+#loadMore:hover {
+    color: #e63946;
 }
 
 
@@ -4443,6 +4501,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
