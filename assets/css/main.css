@@ -4342,127 +4342,108 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 
-/* --- Articles Landing Page Styles --- */
+/* =========================================================
+   ARTICLES LANDING PAGE STYLES
+========================================================= */
 
-/* 16:9 Hero Banner */
 #banner-articles {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../../images/articles-hero.jpg"); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
-    aspect-ratio: 16 / 9;
-    text-align: center;
-    color: #fff;
-}
-
-/* Header Override for Articles Page */
-.page-articles #header.alt {
-    background-color: transparent !important;
-}
-
-/* Solid state: Golden Yellow background, Grey text */
-.page-articles #header:not(.alt) {
-    background-color: #F2B705 !important;
-}
-.page-articles #header:not(.alt) h1 a, 
-.page-articles #header:not(.alt) nav ul li a {
-    color: #2e3842 !important;
-}
-
-/* Hamburger Menu: Grey Background, White Text */
-#menu {
-    background-color: #2e3842 !important;
-}
-#menu ul li a {
-    color: #ffffff !important;
-    border-bottom-color: rgba(255,255,255,0.1) !important;
-}
-
-/* Filter Pills */
-.filter-container {
-    text-align: center;
-    margin-bottom: 3em;
-}
-.filter-pills {
-    list-style: none;
-    padding: 0;
-}
-.filter-pills li {
-    display: inline-block;
-    cursor: pointer;
-    padding: 0.5em 1.5em;
-    margin: 0.5em;
-    border-radius: 50px;
-    border: 2px solid #5B0F1A;
-    transition: all 0.3s ease;
-    font-weight: 600;
-}
-.filter-pills li.active, .filter-pills li:hover {
-    background-color: #5B0F1A;
-    color: #fff;
-}
-
-/* Article Grid */
-.article-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
-    margin-bottom: 3em;
-}
-
-.article-card {
-    text-align: left;
-}
-
-.article-card .image-wrapper {
-    overflow: hidden;
-    line-height: 0;
-}
-
-.article-card img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
+    background: url("../../images/articles-hero.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.article-card:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.8);
+#banner-articles h2 {
+    color: white;
+    font-size: 3rem;
 }
 
-.article-card h3 {
-    margin-top: 1em;
-    font-size: 1.2em;
+/* Filters */
+.filter-btn {
+    border: 2px solid #5B0F1A;
+    background: transparent;
+    color: #5B0F1A;
+    border-radius: 999px;
+    padding: 0.6em 1.4em;
+    margin: 0.4em;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-/* Mobile: Stack 1 per row */
-@media screen and (max-width: 736px) {
-    .article-grid {
+.filter-btn.active {
+    background: #5B0F1A;
+    color: white;
+}
+
+/* Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .articles-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* --- Individual Article Content Styles --- */
-.content-photo {
-    width: 80%;
-    margin: 2em auto;
-    display: block;
-    border-radius: 12px; /* Rounded corners as requested */
+/* Hover */
+.article-card .thumb {
     overflow: hidden;
 }
 
-.content-photo img {
+.article-card img {
     width: 100%;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.content-photo:hover img {
+.article-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+
+/* =========================================================
+   INDIVIDUAL ARTICLE PAGE STYLES
+========================================================= */
+
+.article-banner img {
+    width: 100%;
+    display: block;
+}
+
+.article-tags span {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.4em 1em;
+    background: #F2B705;
+    color: #2e3842;
+    border-radius: 999px;
+}
+
+.article-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.article-image {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.article-image img {
+    width: 80%;
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+}
+
+.article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
