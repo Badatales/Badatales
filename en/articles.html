@@ -1,59 +1,101 @@
+<!-- =========================================================
+     ARTICLES LANDING PAGE
+     - Hero (16:9)
+     - AND filter logic
+     - 2-column grid
+     - Load more (10 at a time)
+========================================================= -->
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Our Stories | Badatales</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
 <body class="landing page-articles">
-    <div id="page-wrapper">
-        <header id="header" class="alt">
-            <h1><a href="index.html">Badatales</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
 
-        <section id="banner-articles">
-            <div class="inner">
-                <h2>Our Stories</h2>
-            </div>
-        </section>
+<div id="page-wrapper">
 
-        <section id="main" class="wrapper style5">
-            <div class="inner">
-                
-                <div class="filter-container">
-                    <ul class="filter-pills">
-                        <li class="active" data-filter="all">All</li>
-                        <li data-filter="scotland">Scotland</li>
-                        <li data-filter="alaska">Alaska</li>
-                        <li data-filter="tips">Tips</li>
-                        <li data-filter="stories">Stories</li>
-                    </ul>
+    <!-- ================= HEADER ================= -->
+    <header id="header" class="alt">
+        <h1><a href="index.html">Badatales</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section id="banner-articles">
+        <div class="inner">
+            <h2>Our Stories</h2>
+        </div>
+    </section>
+
+
+    <!-- ================= FILTERS ================= -->
+    <section class="wrapper style5 filters-section">
+        <div class="inner">
+
+            <div class="filters">
+
+                <!-- Country -->
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="scotland">Scotland</button>
+                    <button class="filter-btn" data-filter="alaska">Alaska</button>
+                    <button class="filter-btn" data-filter="usa">USA</button>
                 </div>
 
-                <div class="article-grid">
-                    <article class="article-card scotland stories">
-                        <a href="article-single.html" class="image-link">
-                            <div class="image-wrapper">
-                                <img src="images/scotland-thumb.jpg" alt="" />
-                            </div>
-                            <h3>Exploring the Quiraing</h3>
-                        </a>
-                    </article>
-
-                    <article class="article-card alaska tips">
-                        <a href="article-single.html" class="image-link">
-                            <div class="image-wrapper">
-                                <img src="images/alaska-thumb.jpg" alt="" />
-                            </div>
-                            <h3>5 Tips for Denali</h3>
-                        </a>
-                    </article>
+                <!-- Type -->
+                <div class="filter-group">
+                    <button class="filter-btn" data-filter="locations">Locations</button>
+                    <button class="filter-btn" data-filter="stories">Stories</button>
+                    <button class="filter-btn" data-filter="tips">Tips</button>
                 </div>
 
-                <ul class="actions special">
-                    <li><a href="#" class="button primary">Load More</a></li>
-                </ul>
             </div>
-        </section>
-    </div>
-</body>
+
+        </div>
+    </section>
+
+
+    <!-- ================= ARTICLES GRID ================= -->
+    <section class="wrapper style5">
+        <div class="inner">
+
+            <div class="articles-grid">
+
+                <!-- Example Article -->
+                <article class="article-card"
+                         data-country="scotland"
+                         data-type="tips">
+
+                    <a href="articles/scotland-weather-tips/">
+                        <div class="thumb">
+                            <img src="../images/testtip-thumb.jpg" alt="">
+                        </div>
+                        <h3>5 Tips for Surviving Scottish Weather</h3>
+                    </a>
+
+                </article>
+
+                <!-- Always add new articles ABOVE older ones -->
+
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container">
+                <button id="loadMore" class="button primary">Load More</button>
+            </div>
+
+        </div>
+    </section>
+
+</div>
