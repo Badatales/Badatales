@@ -154,27 +154,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ================= LOAD MORE ================= */
 
-    const loadMoreBtn = document.getElementById("loadMore");
-    let visibleCount = 10;
+var visibleCount = 6;
 
-    function updateVisibility() {
-        articles.forEach((article, index) => {
-            article.style.display = index < visibleCount ? "block" : "none";
-        });
+function updateVisibility() {
+    $articles.hide().slice(0, visibleCount).fadeIn(300);
+
+    if (visibleCount >= $articles.length) {
+        $('#loadMore').hide();
     }
+}
 
+updateVisibility();
+
+$('#loadMore').on('click', function (e) {
+    e.preventDefault();
+    visibleCount += 6;
     updateVisibility();
-
-    loadMoreBtn.addEventListener("click", function () {
-        visibleCount += 10;
-        updateVisibility();
-
-        if (visibleCount >= articles.length) {
-            loadMoreBtn.style.display = "none";
-        }
-    });
-
 });
+
+
+
 
 
 
