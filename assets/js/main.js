@@ -90,6 +90,92 @@ $window.on('resize', function() {
 
 
 
+/* =========================================================
+   ARTICLES PAGE LOGIC
+   Runs ONLY on articles landing page
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Only run if we're on articles page
+    if (!document.body.classList.contains("page-articles")) return;
+
+    /* ================= AND FILTER LOGIC ================= */
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    const articles = document.querySelectorAll('.article-card');
+    let activeFilters = [];
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function () {
+
+            const filter = this.dataset.filter;
+
+            if (filter === "all") {
+                activeFilters = [];
+                buttons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                applyFilters();
+                return;
+            }
+
+            this.classList.toggle('active');
+
+            if (activeFilters.includes(filter)) {
+                activeFilters = activeFilters.filter(f => f !== filter);
+            } else {
+                activeFilters.push(filter);
+            }
+
+            document.querySelector('[data-filter="all"]').classList.remove('active');
+            applyFilters();
+        });
+    });
+
+    function applyFilters() {
+
+        articles.forEach(article => {
+
+            const country = article.dataset.country;
+            const type = article.dataset.type;
+
+            const matches = activeFilters.every(filter =>
+                filter === country || filter === type
+            );
+
+            if (activeFilters.length === 0 || matches) {
+                article.style.display = "block";
+            } else {
+                article.style.display = "none";
+            }
+
+        });
+    }
+
+    /* ================= LOAD MORE ================= */
+
+    const loadMoreBtn = document.getElementById("loadMore");
+    let visibleCount = 10;
+
+    function updateVisibility() {
+        articles.forEach((article, index) => {
+            article.style.display = index < visibleCount ? "block" : "none";
+        });
+    }
+
+    updateVisibility();
+
+    loadMoreBtn.addEventListener("click", function () {
+        visibleCount += 10;
+        updateVisibility();
+
+        if (visibleCount >= articles.length) {
+            loadMoreBtn.style.display = "none";
+        }
+    });
+
+});
+
 
 
 
