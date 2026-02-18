@@ -4347,16 +4347,18 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 ========================================================= */
 
 
-.page-articles banner-articles {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: url("../../images/articles-hero.jpg") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.page-articles #banner-articles {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url("../../images/articles-hero.jpg") center/cover no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 250px !important; /* Safety for mobile */
 
-#banner-articles h2 {
+.page-articles #banner-articles h2 {
     color: white;
     font-size: 3rem;
 }
@@ -4495,6 +4497,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
