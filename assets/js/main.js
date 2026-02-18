@@ -9,7 +9,7 @@
 	var	$window = $(window),
 		$body = $('body'),
 		$wrapper = $('#page-wrapper'),
-		$banner = $('#banner, #banner-about'),
+		$banner = $('#banner, #banner-about, #banner-articles'),
 		$header = $('#header');
 
 	// Breakpoints.
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ================= LOAD MORE ================= */
-
+const $articles = $('.article-card'); // <--- ADD THIS LINE
 var visibleCount = 6;
 
 function updateVisibility() {
@@ -171,6 +171,7 @@ $('#loadMore').on('click', function (e) {
     visibleCount += 6;
     updateVisibility();
 });
+
 
 
 
