@@ -4251,14 +4251,14 @@ body.landing #page-wrapper:after {
 
 /* H2 Styling for both subpages */
 #banner-articles h2, #banner-about h2 {
-    font-size: 2.5em !important; /* Adjust this to your liking */
+    font-size: 1.75em !important; /* Adjust this to your liking */
     letter-spacing: 0.225em;
     text-transform: uppercase;
     display: inline-block;
     padding: 0.5em 1em;
     margin: 0 0 1em 0;
-    border-top: solid 2px rgba(255, 255, 255, 1);
-    border-bottom: solid 2px rgba(255, 255, 255, 1);
+    border-top: solid 1px rgba(255, 255, 255, 1);
+    border-bottom: solid 1px rgba(255, 255, 255, 1);
 }
 
 
@@ -4676,6 +4676,7 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
+
 
 
 
