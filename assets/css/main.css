@@ -3646,7 +3646,7 @@ input, select, textarea {
 			z-index: 1;
 		}
 
-			#banner h2:before, #banner h2:after, #banner-about:before, #banner-about:after, banner-articles:before, banner-articles:after {
+#banner h2:before, #banner h2:after, #banner-about h2:before, #banner-about h2:after, #banner-articles h2:before, #banner-articles h2:after {
 				-moz-transition: width 0.85s ease;
 				-webkit-transition: width 0.85s ease;
 				-ms-transition: width 0.85s ease;
@@ -3663,15 +3663,17 @@ input, select, textarea {
 				width: 100%;
 			}
 
-			#banner h2:before, #banner-about:before, banner-articles:before {
-				top: 0;
-				left: 0;
-			}
+			/* Before (top line) */
+#banner h2:before, #banner-about h2:before, #banner-articles h2:before {
+    top: 0;
+    left: 0;
+}
 
-			#banner h2:after, #banner-about:after, banner-articles:after {
-				bottom: 0;
-				right: 0;
-			}
+/* After (bottom line) */
+#banner h2:after, #banner-about h2:after, #banner-articles h2:after {
+    bottom: 0;
+    right: 0;
+}
 
 		#banner p, #banner-about p, #banner-articles p {
 			letter-spacing: 0.225em;
@@ -4278,14 +4280,14 @@ body.page-about #page-wrapper:after {
 #banner-about {
     position: relative;
     width: 100%;
-    /* 1. Calculate height to show the FULL image */
-    /* If your image is 1400x788, the ratio is 56.28% */
-    height: 788px; 
-	max-height: 90vh; /* Never taller than 90% of the user's screen */
+    height: 100vh;           /* Match index: full viewport height */
+    max-height: 100vh;
+    min-height: 35em;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: none;
 }
 
 #banner-about:before {
@@ -4294,34 +4296,17 @@ body.page-about #page-wrapper:after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 788px; /* Match the parent height */
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg"); 
-	background-position: center !important;
-	background-repeat: no-repeat;
-    
-    /* 2. Changed from 'cover' to 'contain' or '100% 100%' */
-    background-size: cover; 
-    
+    height: 100%;            /* Fill the full viewport, like the index does */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: -1;
     will-change: transform;
     transform: translateZ(0);
 }
 
-   #banner-about:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 788px; /* Or your preferred height */
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg"); 
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    z-index: -1; /* Keeps it behind the content */
-    will-change: transform;
-    transform: translateZ(0);
-}
+  
 
 /* 2. Narrow Yellow Intro Bar */
 .page-about .wrapper.about-intro {
@@ -4417,6 +4402,11 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 
+
+body.page-articles #page-wrapper:after {
+    display: none;
+}
+
 /* --- ARTICLES PAGE HERO --- */
 
 .page-articles #banner-articles {
@@ -4490,18 +4480,24 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     color: #ffffff !important;
 }
 
+.page-articles #main {
+    position: relative;
+    z-index: 1;          /* Lower than the menu */
+    background: #ffffff !important;
+    margin-top: 0;
+}
+
+.page-articles #menu {
+    z-index: 10001 !important;   /* Must beat #main's stacking context */
+}
+
 
 /* =====================================================
    ARTICLE GRID & FILTERS (Your existing logic)
 ===================================================== */
 
 /* Ensure the grid slides OVER the fixed photo */
-.page-articles #main {
-    position: relative;
-    z-index: 2;
-    background: #ffffff !important;
-    margin-top: 0;
-}
+
 
 .filters {
     padding-top: 2rem;
@@ -4680,6 +4676,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     top: 0;
     left: 0;
 }
+
 
 
 
