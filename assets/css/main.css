@@ -4231,8 +4231,11 @@ body.landing #page-wrapper:after {
 
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
-/* 1. Hero Banner: The "Smooth Fixed" Version */
+/* --- ABOUT PAGE CUSTOM STYLES --- */
+
+/* 1. Hero Banner: Simple, Fixed, and Fluid */
 .page-about #banner-about {
+    /* 1. Layout & Shape */
     position: relative;
     width: 100% !important;
     aspect-ratio: 16 / 7 !important;
@@ -4242,35 +4245,20 @@ body.landing #page-wrapper:after {
     align-items: center !important;
     justify-content: center !important;
     padding: 0 !important;
-    overflow: hidden; /* Clips the background layer */
-    background: none !important; /* Clears standard background */
-}
+    overflow: hidden;
 
-/* This is the secret layer that makes it fluid and fixed */
-.page-about #banner-about::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* 2. Background Logic */
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
-    background-attachment: fixed; /* Keep this for the desktop 'fixed' feel */
-    
-    /* Hardware Acceleration: This makes it fluid */
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important; /* The "pinned" effect */
+
+    /* 3. Fluidity Hack (Hardware Acceleration) */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     will-change: transform;
     transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    
-    z-index: -1;
-}
-
-/* Ensure content inside banner stays on top */
-.page-about #banner-about .inner {
-    position: relative;
-    z-index: 1;
 }
 
 /* 2. Narrow Yellow Intro Bar */
@@ -4523,6 +4511,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
