@@ -3606,7 +3606,7 @@ input, select, textarea {
 
 /* Banner */
 
-	#banner {
+	#banner, #banner-about, #banner-articles {
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3627,7 +3627,7 @@ input, select, textarea {
 		text-align: center;
 	}
 
-		#banner h2 {
+		#banner h2, #banner-about h2, #banner-articles h2 {
 			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
 			-ms-transform: scale(1);
@@ -3671,7 +3671,7 @@ input, select, textarea {
 				right: 0;
 			}
 
-		#banner p {
+		#banner p, #banner-about p, #banner-articles p {
 			letter-spacing: 0.225em;
 			text-transform: uppercase;
 		}
@@ -4553,6 +4553,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
