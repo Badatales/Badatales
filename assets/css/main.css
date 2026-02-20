@@ -4227,6 +4227,35 @@ body.landing #page-wrapper:after {
 
 
 
+/* --- UNIVERSAL BANNER POSITIONING --- */
+
+/* This ensures Articles and About banners use the same centering as Home */
+#banner-articles, #banner-about {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 0 2em !important; /* Standard side padding */
+}
+
+/* This targets the inner box to match the homepage vertical offset */
+#banner-articles .inner, #banner-about .inner {
+    /* The homepage banner often has a slight upward bias */
+    padding: 2em 0; 
+    margin-top: -5vh; /* This offset usually matches the homepage visual center */
+}
+
+/* Ensure the font matches exactly */
+#banner-articles h2, #banner-about h2 {
+    margin: 0 0 1em 0;
+    padding: 0;
+    font-size: 3.5em; /* Match Spectral homepage h2 size */
+    letter-spacing: 0.225em;
+    text-transform: uppercase;
+}
+
+
 
 
 /* --- ABOUT PAGE CUSTOM STYLES --- */
@@ -4550,6 +4579,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
