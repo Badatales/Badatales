@@ -4305,8 +4305,8 @@ body.page-about #page-wrapper:after {
     width: 100%;
     height: 788px; /* Match the parent height */
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg"); 
-    background-position: center top; /* Start from the top to ensure full height visibility */
-    background-repeat: no-repeat;
+	background-position: center !important;
+	background-repeat: no-repeat;
     
     /* 2. Changed from 'cover' to 'contain' or '100% 100%' */
     background-size: cover; 
@@ -4455,8 +4455,8 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                       url("../../images/articles-hero.jpg") !important;
     background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
+	background-position: center !important;
+	background-attachment: fixed !important;
     z-index: -1;
     will-change: transform;
     transform: translateZ(0);
@@ -4601,9 +4601,12 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 #banner, 
 #banner-articles, 
 #banner-about {
-    height: 70vh !important; /* Reduced from 100vh to show more width */
-    min-height: 25em !important;
-    padding: 2em 1em !important;
+    height: 50vh !important; /* Reduced from 100vh to show more width */
+    min-height: 30em !important;
+    padding: 3em 1.5em !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
 }
 
     /* 2. Sync the text container */
@@ -4638,13 +4641,17 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 #banner-about:before {
     position: absolute !important;
     background-attachment: scroll !important;
-    background-size: cover !important; 
-    background-position: center center !important; /* Ensures the middle is always visible */
+    background-size: cover !important;
+    
+    /* This shifts the focal point to the left side of your photo */
+    background-position: left center !important; 
+    
     height: 100% !important;
     width: 100% !important;
     top: 0;
     left: 0;
 }
+
 
 
 
