@@ -4277,7 +4277,7 @@ body.page-about #page-wrapper:after {
 }
 
 /* --- ABOUT PAGE HERO --- */
-#banner-about {
+.page-about #banner-about {
     position: relative;
     width: 100%;
     height: 100vh;           /* Match index: full viewport height */
@@ -4290,7 +4290,7 @@ body.page-about #page-wrapper:after {
     background: none;
 }
 
-#banner-about:before {
+.page-about #banner-about:before {
     content: '';
     position: fixed;
     top: 0;
@@ -4664,7 +4664,7 @@ body.page-articles #page-wrapper:after {
 
 /* 4. Fix Mobile Image Zoom (Static scroll) */
 .page-articles #banner-articles:before,
-#banner-about:before {
+.page-about #banner-about:before {
     position: absolute !important;
     background-attachment: scroll !important;
     background-size: cover !important;
@@ -4674,6 +4674,7 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
+
 
 
 
