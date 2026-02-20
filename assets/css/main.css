@@ -4443,6 +4443,12 @@ body.page-articles #page-wrapper:after {
     transform: translateZ(0);
 }
 
+body.is-mobile.page-articles #banner {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/articles-hero.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
 /* Header & Menu Logic for Articles Page */
 
 /* Base Header Style (Sticky) */
@@ -4674,6 +4680,7 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
+
 
 
 
