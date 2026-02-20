@@ -4249,7 +4249,7 @@ body.landing #page-wrapper:after {
 /* Resize the headers specifically for subpages */
 #banner-articles h2, 
 #banner-about h2 {
-    font-size: 2.0em !important; /* Shrunk from 3.5em */
+    font-size: 2.0em !important; 
     letter-spacing: 0.15em;       /* Slightly tighter tracking */
     margin-bottom: 0.5em;
     line-height: 1.2;
@@ -4267,15 +4267,15 @@ body.landing #page-wrapper:after {
 #banner-articles h2, 
 #banner-about h2 {
     /* 1. The Bottom Line */
-    border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+    border-bottom: solid 2px rgba(255, 255, 255, 1);
     
     /* 2. The Top Line */
-    border-top: solid 2px rgba(255, 255, 255, 0.125);
+    border-top: solid 2px rgba(255, 255, 255, 1);
     
     /* 3. Spacing and Polish */
     display: inline-block;
     margin: 0 0 1em 0;
-    padding: 0.5em 2em; /* This controls how far the lines extend past the text */
+    padding: 0.5em 1em; /* This controls how far the lines extend past the text */
     text-transform: uppercase;
     letter-spacing: 0.225em;
 }
@@ -4603,6 +4603,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
