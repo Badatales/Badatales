@@ -4662,21 +4662,19 @@ body.page-articles #page-wrapper:after {
         margin: 0 0 1em 0 !important;
     }
 
-    /* 4. Fix Mobile Image Zoom (Static scroll) */
-#banner-articles:before, 
+/* 4. Fix Mobile Image Zoom (Static scroll) */
+.page-articles #banner-articles:before,
 #banner-about:before {
     position: absolute !important;
     background-attachment: scroll !important;
     background-size: cover !important;
-    
-    /* This shifts the focal point to the left side of your photo */
-    background-position: left center !important; 
-    
+    background-position: center !important;
     height: 100% !important;
     width: 100% !important;
     top: 0;
     left: 0;
 }
+
 
 
 
