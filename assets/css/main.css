@@ -4397,7 +4397,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     left: 0;
     width: 100%;
     height: 100%; /* Fills the viewport */
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                       url("../../images/articles-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
@@ -4550,6 +4550,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
