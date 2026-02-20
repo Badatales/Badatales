@@ -3606,7 +3606,9 @@ input, select, textarea {
 
 /* Banner */
 
-	#banner {
+#banner, 
+#banner-articles, 
+#banner-about {
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -4227,9 +4229,9 @@ body.landing #page-wrapper:after {
 
 
 
-/* --- UNIVERSAL BANNER POSITIONING --- */
+/* --- UNIVERSAL BANNER POSITIONING ---
 
-/* This ensures Articles and About banners use the same centering as Home */
+/* This ensures Articles and About banners use the same centering as Home
 #banner-articles, #banner-about {
     display: flex !important;
     flex-direction: column !important;
@@ -4240,6 +4242,7 @@ body.landing #page-wrapper:after {
 }
 
 /* This targets the inner box to match the homepage vertical offset */
+
 #banner-articles .inner, #banner-about .inner {
     /* The homepage banner often has a slight upward bias */
     padding: 2em 0; 
@@ -4270,47 +4273,6 @@ body.landing #page-wrapper:after {
     padding: 0.5em 1em; /* This controls how far the lines extend past the text */
     text-transform: uppercase;
     letter-spacing: 0.225em;
-}
-
-/* Mobile Overrides for all Banners */
-@media screen and (max-width: 736px) {
-    #banner-about:before, 
-    #banner-articles:before {
-        /* This kills the zoom/jitter effect */
-        position: absolute !important; 
-        background-attachment: scroll !important; 
-        height: 100% !important;
-    }
-
-    #banner-about, 
-    #banner-articles {
-        /* Match the homepage mobile height */
-        height: 100vh !important; 
-        min-height: 30em !important; 
-    }
-}
-
-
-/* Optimized Mobile Header Match */
-@media screen and (max-width: 736px) {
-    #banner-articles h2, 
-    #banner-about h2 {
-        /* 1. The Font Size Match */
-        font-size: 1.75em !important; 
-        letter-spacing: 0.125em !important;
-        
-        /* 2. The Lines Match */
-        /* Homepage lines get thinner and closer on mobile */
-        padding: 0.5em 1em !important; 
-        border-top-width: 2px !important;
-        border-bottom-width: 2px !important;
-        
-        /* 3. The Layout Match */
-        line-height: 1.25em !important;
-        width: 85% !important; /* Prevents text from touching screen edges */
-        margin: 0 auto 1em auto !important;
-        display: inline-block !important;
-    }
 }
 
 
@@ -4353,14 +4315,6 @@ body.page-about #page-wrapper:after {
     will-change: transform;
     transform: translateZ(0);
 }
-
-   /* Fix the image MOBILE */
-@media screen and (max-width: 736px) {
-        #banner-about {
-        height: 400px !important;
-        min-height: 400px !important;
-        background: none !important; /* Clear any ghost images */
-    }
 
     #banner-about:before {
         content: '';
@@ -4571,11 +4525,6 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     gap: 2rem;
 }
 
-@media (max-width: 768px) {
-    .articles-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* Hover */
 .article-card .thumb {
@@ -4592,25 +4541,6 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     filter: brightness(1.1);
 }
 
-
-/* =====================================================
-   LOAD MORE BUTTON STYLE
-===================================================== */
-
-.load-more-wrapper {
-    text-align: center;
-    margin: 3rem 0;
-}
-
-#loadMore {
-    font-size: 1.5rem;
-    color: #888;
-    transition: 0.3s;
-}
-
-#loadMore:hover {
-    color: #e63946;
-}
 
 
 /* =========================================================
@@ -4652,6 +4582,69 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* --- THE MOBILE TWIN OVERRIDE (max-width: 736px) --- */
+@media screen and (max-width: 736px) {
+
+    /* 1. Force all banners to same height and padding */
+    #banner, 
+    #banner-articles, 
+    #banner-about {
+        height: 100vh !important;
+        min-height: 30em !important;
+        padding: 4em 2em !important; /* Spectral default mobile padding */
+    }
+
+    /* 2. Sync the text container */
+    #banner .inner, 
+    #banner-articles .inner, 
+    #banner-about .inner {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 3. Sync the H2 (The Lines and Font) */
+    #banner h2, 
+    #banner-articles h2, 
+    #banner-about h2 {
+        font-size: 1.75em !important; 
+        letter-spacing: 0.125em !important;
+        line-height: 1.25em !important;
+        
+        /* The Spectral Signature Lines */
+        border-top: solid 2px rgba(255, 255, 255, 0.125) !important;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.125) !important;
+        padding: 0.5em 1em !important;
+        
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 90% !important;
+        margin: 0 0 1em 0 !important;
+    }
+
+    /* 4. Fix Mobile Image Zoom (Static scroll) */
+    #banner-articles:before, 
+    #banner-about:before {
+        position: absolute !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+        height: 100% !important;
+        width: 100% !important;
+        top: 0;
+        left: 0;
+    }
+}
 
 
 
