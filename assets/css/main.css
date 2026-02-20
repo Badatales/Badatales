@@ -4435,9 +4435,9 @@ body.page-articles #page-wrapper:after {
     height: 100%; /* Fills the viewport */
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                       url("../../images/articles-hero.jpg") !important;
-    background-size: cover !important;
-	background-position: center !important;
-	background-attachment: fixed !important;
+   	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: -1;
     will-change: transform;
     transform: translateZ(0);
@@ -4677,6 +4677,7 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
+
 
 
 
