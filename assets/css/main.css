@@ -4249,7 +4249,7 @@ body.landing #page-wrapper:after {
 /* Resize the headers specifically for subpages */
 #banner-articles h2, 
 #banner-about h2 {
-    font-size: 2.5em !important; /* Shrunk from 3.5em */
+    font-size: 2.0em !important; /* Shrunk from 3.5em */
     letter-spacing: 0.15em;       /* Slightly tighter tracking */
     margin-bottom: 0.5em;
     line-height: 1.2;
@@ -4586,6 +4586,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
