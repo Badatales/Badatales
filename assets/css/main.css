@@ -4410,13 +4410,6 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     backface-visibility: hidden;
 }
 
-.page-articles #banner-articles h2 {
-    color: white;
-    font-size: 3rem;
-    position: relative;
-    z-index: 1;
-}
-
 /* =====================================================
    ARTICLE GRID & FILTERS (Your existing logic)
 ===================================================== */
@@ -4560,6 +4553,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
