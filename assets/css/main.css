@@ -4232,12 +4232,23 @@ body.landing #page-wrapper:after {
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
 /* 1. Hero Banner (16:7 ratio) */
+.page-about #banner {
+    background-image: none !important; /* Remove the image from the main box */
+    background-color: transparent !important;
+    position: relative;
+    overflow: hidden;
+}
+
 .page-about #banner-about {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
-    background-repeat: no-repeat !important;
-	width: 100% !important;
+	background-attachment: fixed; /* The magic line */
+    z-index: -1;
+	top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 16 / 7 !important;
 	height: auto !important;      /* Overrides any 100vh or 40vh */
     min-height: 0 !important;    /* Removes the 300px minimum */
@@ -4497,6 +4508,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
