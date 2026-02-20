@@ -3606,7 +3606,7 @@ input, select, textarea {
 
 /* Banner */
 
-	#banner, #banner-about, #banner-articles {
+	#banner {
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -4376,38 +4376,35 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .page-articles #banner-articles {
     position: relative;
     width: 100% !important;
-    /* Aspect ratio for a 1280px wide image to show fully */
-    aspect-ratio: 16 / 9 !important; 
-    height: auto !important;
-    min-height: 300px !important;
+    
+    /* 1. This forces it to fill the screen exactly */
+    height: 100vh !important; 
+    min-height: 35em !important; /* Keeps it from getting too short on tiny screens */
+    
     display: flex !important;
+    flex-direction: column;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden;
-    background: none !important; /* Clear the default background */
+    background: none !important;
 }
 
-/* The Fixed Fluid Layer */
+/* Ensure the fixed background layer also fills the whole screen */
 .page-articles #banner-articles:before {
     content: '';
-    position: fixed; /* Keeps it pinned */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Fills the viewport */
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                       url("../../images/articles-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
-    background-repeat: no-repeat !important;
     background-attachment: fixed !important;
     z-index: -1;
-
-    /* Fluidity Hack */
     will-change: transform;
     transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 /* =====================================================
@@ -4553,6 +4550,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
