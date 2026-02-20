@@ -4276,6 +4276,13 @@ body.landing #page-wrapper:after {
 }
 
 
+
+
+
+
+
+
+
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
 /* Hide homepage background on other pages */
@@ -4461,6 +4468,44 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     will-change: transform;
     transform: translateZ(0);
 }
+
+/* Header & Menu Logic for Articles Page */
+
+/* Base Header Style (Sticky) */
+#header {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 10000 !important;
+    transition: background-color 0.5s ease !important;
+}
+
+/* Transparent State (Top of page) - Added .page-about to increase strength */
+.page-articles #header.alt {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Solid State (After scroll) - Your yellow */
+.page-articles #header {
+    background-color: #F2B705 !important; 
+}
+
+/* Slide-out Hamburger Menu - Yellow background with dark text */
+.page-articles #menu {
+    background-color: #2e3842 !important;
+}
+.page-articles #menu ul li a {
+    color: #ffffff !important;
+    border-bottom-color: rgba(46, 56, 66, 0.2) !important;
+}
+
+/* Logo and Hamburger Toggle colors */
+#header h1 a, 
+#header .menuToggle {
+    color: #2e3842 !important;
+}
+
 
 /* =====================================================
    ARTICLE GRID & FILTERS (Your existing logic)
@@ -4651,6 +4696,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     top: 0;
     left: 0;
 }
+
 
 
 
