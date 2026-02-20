@@ -4354,13 +4354,28 @@ body.page-about #page-wrapper:after {
     transform: translateZ(0);
 }
 
-/* Adjust for smaller screens so it doesn't stay 788px tall on a phone */
+   /* Fix the image MOBILE */
 @media screen and (max-width: 736px) {
-    #banner-about, #banner-about:before {
-        height: 400px; /* Scaled down for mobile */
-        position: absolute; /* Disable fixed on mobile for better scrolling */
+        #banner-about {
+        height: 400px !important;
+        min-height: 400px !important;
+        background: none !important; /* Clear any ghost images */
     }
-}
+
+    #banner-about:before {
+        content: '';
+        position: absolute !important; /* Switch from fixed to absolute for mobile */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100% !important;
+        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                          url("../../images/about-hero.jpg") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: scroll !important; /* Essential for mobile performance */
+        z-index: -1;
+    }
 
 /* 2. Narrow Yellow Intro Bar */
 .page-about .wrapper.about-intro {
@@ -4635,6 +4650,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
