@@ -4239,9 +4239,15 @@ body.page-about #page-wrapper:after {
 /* --- ABOUT PAGE HERO --- */
 #banner-about {
     position: relative;
-    height: 56.25vw; /* 16:9 aspect ratio */
-    max-height: 60vh;
+    width: 100%;
+    /* 1. Calculate height to show the FULL image */
+    /* If your image is 1400x788, the ratio is 56.28% */
+    height: 788px; 
+	max-height: 90vh; /* Never taller than 90% of the user's screen */
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #banner-about:before {
@@ -4249,20 +4255,25 @@ body.page-about #page-wrapper:after {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg"); 
-    background-position: center center;
+    width: 100%;
+    height: 788px; /* Match the parent height */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg"); 
+    background-position: center top; /* Start from the top to ensure full height visibility */
     background-repeat: no-repeat;
-    background-size: cover;
+    
+    /* 2. Changed from 'cover' to 'contain' or '100% 100%' */
+    background-size: cover; 
+    
     z-index: -1;
     will-change: transform;
     transform: translateZ(0);
 }
-/* On mobile, switch to scrolling background */
-@media screen and (max-width: 980px) {
-    #banner-about:before {
-        position: absolute;
+
+/* Adjust for smaller screens so it doesn't stay 788px tall on a phone */
+@media screen and (max-width: 736px) {
+    #banner-about, #banner-about:before {
+        height: 400px; /* Scaled down for mobile */
+        position: absolute; /* Disable fixed on mobile for better scrolling */
     }
 }
 
@@ -4516,6 +4527,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
