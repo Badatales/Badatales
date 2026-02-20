@@ -4232,34 +4232,34 @@ body.landing #page-wrapper:after {
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
 /* --- ABOUT PAGE HERO --- */
-.page-about #banner-about {
+#banner-about {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* The Pinned Image */
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important; /* This is the key */
-    background-repeat: no-repeat;
-
-    /* Fluidity / GPU Acceleration */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: transform;
-    transform: translateZ(0);
-    z-index: 1;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    max-height: 60vh;
+    overflow: hidden;
 }
 
-/* Ensure the next section slides OVER the fixed image */
-.page-about #main {
-    position: relative;
-    z-index: 2;
-    background: #ffffff; /* Or your preferred color */
+#banner-about:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* On mobile, switch to scrolling background */
+@media screen and (max-width: 980px) {
+    #banner-about:before {
+        position: absolute;
+    }
 }
 
 /* 2. Narrow Yellow Intro Bar */
@@ -4512,6 +4512,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
