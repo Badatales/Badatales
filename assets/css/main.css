@@ -4231,34 +4231,35 @@ body.landing #page-wrapper:after {
 
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
-/* --- ABOUT PAGE CUSTOM STYLES --- */
-
-/* 1. Hero Banner: Simple, Fixed, and Fluid */
+/* --- ABOUT PAGE HERO --- */
 .page-about #banner-about {
-    /* 1. Layout & Shape */
     position: relative;
-    width: 100% !important;
-    aspect-ratio: 16 / 7 !important;
-    height: auto !important;
-    min-height: 250px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    overflow: hidden;
-
-    /* 2. Background Logic */
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* The Pinned Image */
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important; /* The "pinned" effect */
+    background-attachment: fixed !important; /* This is the key */
+    background-repeat: no-repeat;
 
-    /* 3. Fluidity Hack (Hardware Acceleration) */
+    /* Fluidity / GPU Acceleration */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     will-change: transform;
     transform: translateZ(0);
+    z-index: 1;
+}
+
+/* Ensure the next section slides OVER the fixed image */
+.page-about #main {
+    position: relative;
+    z-index: 2;
+    background: #ffffff; /* Or your preferred color */
 }
 
 /* 2. Narrow Yellow Intro Bar */
@@ -4511,6 +4512,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
