@@ -4237,13 +4237,16 @@ body.landing #page-wrapper:after {
     background-color: transparent !important;
     position: relative;
     overflow: hidden;
+	background-attachment: scroll !important;
 }
 
 .page-about #banner-about {
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/about-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
-	background-attachment: fixed; /* The magic line */
+	background-attachment: fixed;
+    will-change: transform; 
+    transform: translateZ(0); 
     z-index: -1;
 	top: 0;
     left: 0;
@@ -4508,6 +4511,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
