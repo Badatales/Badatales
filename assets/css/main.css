@@ -4448,6 +4448,9 @@ body.is-mobile.page-articles #banner {
     background-size: cover !important;
     background-position: center !important;
 }
+body.is-mobile.page-articles #banner-articles:before {
+    display: none !important;
+}
 
 /* Header & Menu Logic for Articles Page */
 
@@ -4680,6 +4683,7 @@ body.is-mobile.page-articles #banner {
     top: 0;
     left: 0;
 }
+
 
 
 
