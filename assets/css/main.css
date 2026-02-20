@@ -4255,14 +4255,6 @@ body.landing #page-wrapper:after {
     line-height: 1.2;
 }
 
-/* Adjust for Mobile (so it doesn't break into 3 lines) */
-@media screen and (max-width: 736px) {
-    #banner-articles h2, 
-    #banner-about h2 {
-        font-size: 1.75em !important;
-    }
-}
-
 /* Recreating the top and bottom lines for subpage headers */
 #banner-articles h2, 
 #banner-about h2 {
@@ -4280,6 +4272,46 @@ body.landing #page-wrapper:after {
     letter-spacing: 0.225em;
 }
 
+/* Mobile Overrides for all Banners */
+@media screen and (max-width: 736px) {
+    #banner-about:before, 
+    #banner-articles:before {
+        /* This kills the zoom/jitter effect */
+        position: absolute !important; 
+        background-attachment: scroll !important; 
+        height: 100% !important;
+    }
+
+    #banner-about, 
+    #banner-articles {
+        /* Match the homepage mobile height */
+        height: 100vh !important; 
+        min-height: 30em !important; 
+    }
+}
+
+
+/* Optimized Mobile Header Match */
+@media screen and (max-width: 736px) {
+    #banner-articles h2, 
+    #banner-about h2 {
+        /* 1. The Font Size Match */
+        font-size: 1.75em !important; 
+        letter-spacing: 0.125em !important;
+        
+        /* 2. The Lines Match */
+        /* Homepage lines get thinner and closer on mobile */
+        padding: 0.5em 1em !important; 
+        border-top-width: 2px !important;
+        border-bottom-width: 2px !important;
+        
+        /* 3. The Layout Match */
+        line-height: 1.25em !important;
+        width: 85% !important; /* Prevents text from touching screen edges */
+        margin: 0 auto 1em auto !important;
+        display: inline-block !important;
+    }
+}
 
 
 /* --- ABOUT PAGE CUSTOM STYLES --- */
@@ -4603,6 +4635,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
