@@ -4246,15 +4246,22 @@ body.landing #page-wrapper:after {
     margin-top: -5vh; /* This offset usually matches the homepage visual center */
 }
 
-/* Ensure the font matches exactly */
-#banner-articles h2, #banner-about h2 {
-    margin: 0 0 1em 0;
-    padding: 0;
-    font-size: 3.5em; /* Match Spectral homepage h2 size */
-    letter-spacing: 0.225em;
-    text-transform: uppercase;
+/* Resize the headers specifically for subpages */
+#banner-articles h2, 
+#banner-about h2 {
+    font-size: 2.5em !important; /* Shrunk from 3.5em */
+    letter-spacing: 0.15em;       /* Slightly tighter tracking */
+    margin-bottom: 0.5em;
+    line-height: 1.2;
 }
 
+/* Adjust for Mobile (so it doesn't break into 3 lines) */
+@media screen and (max-width: 736px) {
+    #banner-articles h2, 
+    #banner-about h2 {
+        font-size: 1.75em !important;
+    }
+}
 
 
 
@@ -4579,6 +4586,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
