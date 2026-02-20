@@ -3644,7 +3644,7 @@ input, select, textarea {
 			z-index: 1;
 		}
 
-			#banner h2:before, #banner h2:after {
+			#banner h2:before, #banner h2:after, #banner-about:before, #banner-about:after, banner-articles:before, banner-articles:after {
 				-moz-transition: width 0.85s ease;
 				-webkit-transition: width 0.85s ease;
 				-ms-transition: width 0.85s ease;
@@ -3661,12 +3661,12 @@ input, select, textarea {
 				width: 100%;
 			}
 
-			#banner h2:before {
+			#banner h2:before, #banner-about:before, banner-articles:before {
 				top: 0;
 				left: 0;
 			}
 
-			#banner h2:after {
+			#banner h2:after, #banner-about:after, banner-articles:after {
 				bottom: 0;
 				right: 0;
 			}
@@ -3676,11 +3676,11 @@ input, select, textarea {
 			text-transform: uppercase;
 		}
 
-			#banner p a {
+			#banner p a, #banner-about p a, #banner-articles p a {
 				color: inherit;
 			}
 
-		#banner .more {
+		#banner .more, #banner-about .more, #banner-articles .more {
 			-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
 			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
 			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
@@ -3711,7 +3711,7 @@ input, select, textarea {
 			z-index: 1;
 		}
 
-			#banner .more:after {
+			#banner .more:after, #banner-about .more:after, #banner-articles .more:after {
 				background-image: url("images/arrow.svg");
 				background-position: center;
 				background-repeat: no-repeat;
@@ -3726,7 +3726,7 @@ input, select, textarea {
 				width: 1.5em;
 			}
 
-		#banner:after {
+		#banner:after, #banner-about:after, #banner-articles:after {
 			pointer-events: none;
 			-moz-transition: opacity 3s ease-in-out;
 			-webkit-transition: opacity 3s ease-in-out;
@@ -3749,21 +3749,21 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
-			#banner {
+			#banner, #banner-about, #banner-articles {
 				padding: 7em 3em 5em 3em ;
 				height: auto;
 				min-height: 0;
 			}
 
-				#banner h2 {
+				#banner h2, #banner-about h2, #banner-articles h2 {
 					font-size: 1.25em;
 				}
 
-				#banner br {
+				#banner br, #banner-about br, #banner-articles br {
 					display: none;
 				}
 
-				#banner .more {
+				#banner .more, #banner-about .more, #banner-articles .more {
 					display: none;
 				}
 
@@ -4550,6 +4550,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
