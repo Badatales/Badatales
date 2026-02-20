@@ -4468,6 +4468,7 @@ body.page-articles #page-wrapper:after {
 /* Slide-out Hamburger Menu - Yellow background with dark text */
 .page-articles #menu {
     background-color: #2e3842 !important;
+    z-index: 100000 !important;
 }
 .page-articles #menu ul li a {
     color: #ffffff !important;
@@ -4676,6 +4677,7 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
+
 
 
 
