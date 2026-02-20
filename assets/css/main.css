@@ -4503,7 +4503,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 /* Logo and Hamburger Toggle colors */
 #header h1 a, 
 #header .menuToggle {
-    color: #2e3842 !important;
+    color: #ffffff !important;
 }
 
 
@@ -4696,6 +4696,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     top: 0;
     left: 0;
 }
+
 
 
 
