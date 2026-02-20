@@ -4229,50 +4229,34 @@ body.landing #page-wrapper:after {
 
 
 
-/* --- UNIVERSAL BANNER POSITIONING ---
-
-/* This ensures Articles and About banners use the same centering as Home
+/* --- UNIVERSAL BANNER POSITIONING --- */
 #banner-articles, #banner-about {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 0 2em !important; /* Standard side padding */
+    padding: 0 2em !important;
+    height: 100vh !important; /* Unified height to match index */
+    min-height: 35em !important;
 }
-
-/* This targets the inner box to match the homepage vertical offset */
 
 #banner-articles .inner, #banner-about .inner {
-    /* The homepage banner often has a slight upward bias */
     padding: 2em 0; 
-    margin-top: -5vh; /* This offset usually matches the homepage visual center */
+    margin-top: -5vh; /* Homepage offset */
+    z-index: 2;
 }
 
-/* Resize the headers specifically for subpages */
-#banner-articles h2, 
-#banner-about h2 {
-    font-size: 1.75em !important; 
-    letter-spacing: 0.15em;       /* Slightly tighter tracking */
-    margin-bottom: 0.5em;
-    line-height: 1.2;
-}
-
-/* Recreating the top and bottom lines for subpage headers */
-#banner-articles h2, 
-#banner-about h2 {
-    /* 1. The Bottom Line */
-    border-bottom: solid 2px rgba(255, 255, 255, 1);
-    
-    /* 2. The Top Line */
-    border-top: solid 2px rgba(255, 255, 255, 1);
-    
-    /* 3. Spacing and Polish */
-    display: inline-block;
-    margin: 0 0 1em 0;
-    padding: 0.5em 1em; /* This controls how far the lines extend past the text */
-    text-transform: uppercase;
+/* H2 Styling for both subpages */
+#banner-articles h2, #banner-about h2 {
+    font-size: 2.5em !important; /* Adjust this to your liking */
     letter-spacing: 0.225em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 0 0 1em 0;
+    border-top: solid 2px rgba(255, 255, 255, 1);
+    border-bottom: solid 2px rgba(255, 255, 255, 1);
 }
 
 
@@ -4696,6 +4680,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     top: 0;
     left: 0;
 }
+
 
 
 
