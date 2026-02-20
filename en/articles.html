@@ -5,7 +5,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../assets/css/main.css" />
-        <script src="../assets/js/main.js"></script>
         <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
 
@@ -107,4 +106,44 @@
         </div>
     </section>
 </article>
+<footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.instagram.com/badatales/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://www.tiktok.com/@badatales" target="_blank" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
+                    <li><a href="https://www.youtube.com/@Badatales" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                    <li><a href="#" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="mailto:talesofbada@gmail.com" class="icon solid fa-envelope" onclick="copyEmail(event)"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Spectral by ajlkn. Edited by Badatales</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <div id="copyMessage">Email copied ✓</div>
+
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+        
+        <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText("talesofbada@gmail.com").then(function() {
+                    const message = document.getElementById("copyMessage");
+                    message.classList.add("show");
+                    setTimeout(function() { message.classList.remove("show"); }, 1500);
+                }).catch(function(err) { console.error("Clipboard copy failed:", err); });
+            }
+        </script>
+
+    </body>
+</html>
+
+			
 </div>
