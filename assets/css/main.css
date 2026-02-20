@@ -4263,6 +4263,23 @@ body.landing #page-wrapper:after {
     }
 }
 
+/* Recreating the top and bottom lines for subpage headers */
+#banner-articles h2, 
+#banner-about h2 {
+    /* 1. The Bottom Line */
+    border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+    
+    /* 2. The Top Line */
+    border-top: solid 2px rgba(255, 255, 255, 0.125);
+    
+    /* 3. Spacing and Polish */
+    display: inline-block;
+    margin: 0 0 1em 0;
+    padding: 0.5em 2em; /* This controls how far the lines extend past the text */
+    text-transform: uppercase;
+    letter-spacing: 0.225em;
+}
+
 
 
 /* --- ABOUT PAGE CUSTOM STYLES --- */
@@ -4586,6 +4603,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
