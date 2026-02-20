@@ -4371,33 +4371,66 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 
-
-/* =========================================================
-   ARTICLES LANDING PAGE STYLES
-========================================================= */
-
+/* --- ARTICLES PAGE HERO --- */
 
 .page-articles #banner-articles {
+    position: relative;
     width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                url("../../images/articles-hero.jpg") center/cover no-repeat !important;
+    /* Aspect ratio for a 1280px wide image to show fully */
+    aspect-ratio: 16 / 9 !important; 
+    height: auto !important;
+    min-height: 300px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: auto !important;
-    min-height: 250px !important; /* Safety for mobile */
+    overflow: hidden;
+    background: none !important; /* Clear the default background */
+}
+
+/* The Fixed Fluid Layer */
+.page-articles #banner-articles:before {
+    content: '';
+    position: fixed; /* Keeps it pinned */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                      url("../../images/articles-hero.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    z-index: -1;
+
+    /* Fluidity Hack */
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 
 .page-articles #banner-articles h2 {
     color: white;
     font-size: 3rem;
+    position: relative;
+    z-index: 1;
 }
+
 /* =====================================================
-   ARTICLE FILTER TAGS
+   ARTICLE GRID & FILTERS (Your existing logic)
 ===================================================== */
 
+/* Ensure the grid slides OVER the fixed photo */
+.page-articles #main {
+    position: relative;
+    z-index: 2;
+    background: #ffffff !important;
+    margin-top: 0;
+}
+
 .filters {
-    margin-top: -2rem; /* pull closer to hero */
+    padding-top: 2rem;
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -4527,6 +4560,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .article-image img:hover {
     transform: scale(1.05);
 }
+
 
 
 
