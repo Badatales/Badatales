@@ -4547,7 +4547,7 @@ body.page-articles #page-wrapper:after {
     display: inline-flex;
     align-items: center;
     height: auto;
-    padding: 0.59em 1.2em;   /* top/bottom controls vertical size */
+    padding: 0.9em 1.2em;   /* top/bottom controls vertical size */
     background: transparent;
     border: 0.2px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
@@ -4750,6 +4750,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
