@@ -4660,7 +4660,14 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
+
+	.page-articles #banner-articles {
+        overflow: visible !important;
+        min-height: 0 !important;
+        height: 50vh !important;
+    }
 }
+
 
 
 
