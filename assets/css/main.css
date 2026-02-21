@@ -4540,7 +4540,7 @@ body.page-articles #page-wrapper:after {
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.8em;
     font-weight: 400;
-    letter-spacing: 0.225em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #ffffff;
 
@@ -4549,7 +4549,7 @@ body.page-articles #page-wrapper:after {
     height: 1.6em;
     padding: 0 1.2em;           /* more breathing room around text */
     background: transparent;
-    border: 0.5px solid rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
     cursor: pointer;
     white-space: nowrap;
@@ -4586,7 +4586,7 @@ body.page-articles #page-wrapper:after {
     color: #aaa;
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.8em;
-    letter-spacing: 0.225em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 3rem 0 1rem 0;
     display: none;
@@ -4609,7 +4609,6 @@ body.page-articles #page-wrapper:after {
         left: 1em;
     }
 }
-
 
 
 
@@ -4746,6 +4745,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
