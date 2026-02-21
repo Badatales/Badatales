@@ -4443,13 +4443,14 @@ body.page-articles #page-wrapper:after {
     transform: translateZ(0);
 }
 
-body.is-mobile.page-articles #banner {
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../images/articles-hero.jpg") !important;
+body.is-mobile.page-articles #banner-articles {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../../images/articles-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
 }
+
 body.is-mobile.page-articles #banner-articles:before {
-    display: none !important;
+    content: none !important;
 }
 
 /* Header & Menu Logic for Articles Page */
@@ -4683,6 +4684,7 @@ body.is-mobile.page-articles #banner-articles:before {
     top: 0;
     left: 0;
 }
+
 
 
 
