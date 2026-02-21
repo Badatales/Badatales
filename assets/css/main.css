@@ -4546,8 +4546,8 @@ body.page-articles #page-wrapper:after {
 
     display: inline-flex;
     align-items: center;
-    height: 1.6em;
-    padding: 0.7em 1.2em;           /* more breathing room around text */
+    height: auto;
+    padding: 0.45em 1.2em;   /* top/bottom controls vertical size */
     background: transparent;
     border: 0.3px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
@@ -4569,7 +4569,7 @@ body.page-articles #page-wrapper:after {
 /* Active — yellow fill, no border */
 .filter-btn.active {
     background-color: #F2B705;
-    border-color: #F2B705;
+    border-color: none;
     color: #2e3842;
 }
 
@@ -4750,6 +4750,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
