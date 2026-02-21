@@ -40,37 +40,80 @@
         </div>
     </section>
 
+
+<!-- =====================================================
+     FILTER BAR
+     Replace your current <section class="wrapper style5 filters-section">
+     block with this. It sits OUTSIDE #main, directly after #banner-articles,
+     so it's flush with no white gap in between.
+
+     In your articles.html, the order should be:
+       1. #banner-articles
+       2. This filter bar (below)
+       3. <article id="main"> ... grid ... </article>
+===================================================== -->
+
+<div class="filter-bar">
+
+    <!-- ROW 1: Countries -->
+    <div class="filter-row filter-row--countries">
+
+        <!-- "All" pinned left -->
+        <button class="filter-btn all-btn active" data-filter="all">All</button>
+
+        <!-- Spacer pushes country tags to centre -->
+        <span class="filter-spacer" aria-hidden="true"></span>
+
+        <button class="filter-btn" data-filter="scotland">Scotland</button>
+        <button class="filter-btn" data-filter="alaska">Alaska</button>
+        <button class="filter-btn" data-filter="usa">USA</button>
+
+        <!-- Second spacer mirrors the left side for true centering -->
+        <span class="filter-spacer" aria-hidden="true"></span>
+
+    </div>
+
+    <!-- ROW 2: Types -->
+    <div class="filter-row filter-row--types">
+
+        <!-- Spacer left — no "All" here, so we need one spacer each side -->
+        <span class="filter-spacer" aria-hidden="true"></span>
+
+        <button class="filter-btn" data-filter="locations">Locations</button>
+        <button class="filter-btn" data-filter="stories">Stories</button>
+        <button class="filter-btn" data-filter="tips">Tips</button>
+
+        <!-- Spacer right -->
+        <span class="filter-spacer" aria-hidden="true"></span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HOW TO ADD A NEW TAG LATER:
+
+     Countries row — add inside filter-row--countries,
+     before the second .filter-spacer:
+       <button class="filter-btn" data-filter="norway">Norway</button>
+
+     Types row — add inside filter-row--types,
+     before the second .filter-spacer:
+       <button class="filter-btn" data-filter="food">Food</button>
+
+     Then in main.js, add the new value to the correct array:
+       const countryFilters = ['scotland', 'alaska', 'usa', 'norway'];
+       const typeFilters    = ['locations', 'stories', 'tips', 'food'];
+
+     And tag your article cards with the matching data attribute:
+       data-country="norway"  OR  data-type="food"
+===================================================== -->
+
+
+			
     <article id="main">  
-
-
-
-
-
-	    <section class="wrapper style5 filters-section">
-        <div class="inner">
-
-            <div class="filters">
-
-                <!-- Country -->
-                <div class="filter-group">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="scotland">Scotland</button>
-                    <button class="filter-btn" data-filter="alaska">Alaska</button>
-                    <button class="filter-btn" data-filter="usa">USA</button>
-                </div>
-
-                <!-- Type -->
-                <div class="filter-group">
-                    <button class="filter-btn" data-filter="locations">Locations</button>
-                    <button class="filter-btn" data-filter="stories">Stories</button>
-                    <button class="filter-btn" data-filter="tips">Tips</button>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
 
     <!-- ================= ARTICLES GRID ================= -->
     <section class="wrapper style5">
