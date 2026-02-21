@@ -4610,46 +4610,194 @@ body.page-articles #page-wrapper:after {
     }
 }
 
+/* =====================================================
+   ARTICLE GRID — Row-based layout
+   Each .article-row is a wrapper section with 2 cards.
+   Shades cycle every 3 rows matching spotlight pattern.
+   Image style matches wrapper.style2 exactly.
+===================================================== */
 
+/* ── Row wrappers (replace .wrapper.style5 grid section) ── */
 
-
-
-
-
-
-/* Grid */
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+.article-row {
+    background-color: #ffffff;
+    padding: 3em 0;
 }
 
+/* Cycling shades — matches spotlight rgba values */
+.article-row:nth-child(3n + 1) {
+    background-color: rgba(0, 0, 0, 0.075);
+}
 
-/* Hover */
-.article-card .thumb {
+.article-row:nth-child(3n + 2) {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.article-row:nth-child(3n + 3) {
+    background-color: rgba(0, 0, 0, 0.225);
+}
+
+/* Inner container — matches .wrapper > .inner width */
+.article-row > .inner {
+    width: 60em;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5em;
+}
+
+@media screen and (max-width: 1280px) {
+    .article-row > .inner {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .article-row > .inner {
+        width: 100%;
+        padding: 0 3em;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .article-row > .inner {
+        grid-template-columns: 1fr;   /* single column on mobile */
+        padding: 0 2em;
+        gap: 2em;
+    }
+}
+
+/* ── Article card ────────────────────────────────── */
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border: none;
+    color: inherit;
+}
+
+/* ── Image — matches style2 exactly ─────────────── */
+
+.article-card .image {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 25px;        /* same as style2 PC */
+    background: #e0e0e0;
+}
+
+.article-card .image img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.7s ease, filter 0.7s ease;  /* same as style2 */
+}
+
+.article-card:hover .image img {
+    transform: scale(1.05);         /* same as style2 */
+    filter: brightness(1.05);       /* same as style2 */
+}
+
+/* ── Card body — text below image ───────────────── */
+
+.article-card .card-body {
+    padding: 1.1em 0.25em 0.5em 0.25em;
+}
+
+/* Tag badge — red, small, above title */
+.article-card .card-tag {
+    display: inline-block;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #5B0F1A;
+    margin-bottom: 0.5em;
+}
+
+/* Title — dark, clean */
+.article-card .card-title {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: #2e3842;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    margin: 0 0 0.5em 0;
+    /* Clamp to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.article-card img {
-    width: 100%;
-    transition: transform 0.4s ease, filter 0.4s ease;
+/* Excerpt — lighter grey */
+.article-card .card-excerpt {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #888;
+    line-height: 1.6;
+    letter-spacing: 0;
+    text-transform: none;
+    margin: 0;
+    /* Clamp to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.article-card:hover img {
-    transform: scale(1.08);
-    filter: brightness(1.1);
+/* ── Mobile — remove border-radius, matches style2 mobile ── */
+@media screen and (max-width: 736px) {
+
+    .article-card .image {
+        border-radius: 0;       /* style2 mobile has no radius */
+    }
+
+    .article-card .image img {
+        /* No zoom/brightness on mobile — same as style2 */
+        transition: none;
+    }
+
+    .article-card:hover .image img {
+        transform: none;
+        filter: none;
+    }
 }
+
+/* ── Load More wrapper ───────────────────────────── */
+
+.load-more-wrapper {
+    text-align: center;
+    padding: 3em 0 2em 0;
+    background-color: rgba(0, 0, 0, 0.225); /* matches last row shade */
+}
+
+/* ── No results message ─────────────────────────── */
 
 .articles-no-results {
     text-align: center;
-    color: #999;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    padding: 2rem 0 1rem 0;
+    color: #888;
     font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    display: none; /* JS controls visibility */
+    padding: 3em 0;
+    display: none;
+    background: #ffffff;
 }
+
+
+
+
+
+
 
 
 
@@ -4750,6 +4898,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
