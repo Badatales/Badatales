@@ -4492,13 +4492,11 @@ body.page-articles #page-wrapper:after {
     z-index: 10001 !important;   /* Must beat #main's stacking context */
 }
 
-
 /* =====================================================
    ARTICLE GRID & FILTERS (Your existing logic)
 ===================================================== */
 
 /* Ensure the grid slides OVER the fixed photo */
-
 
 .filters {
     padding-top: 2rem;
@@ -4567,6 +4565,20 @@ body.page-articles #page-wrapper:after {
     transform: scale(1.08);
     filter: brightness(1.1);
 }
+
+.articles-no-results {
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    padding: 2rem 0 1rem 0;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    text-transform: uppercase;
+    display: none; /* JS controls visibility */
+}
+
+
+
 
 
 
@@ -4664,6 +4676,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
