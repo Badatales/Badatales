@@ -6,8 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../assets/css/main.css" />
         <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-
-
         <link rel="alternate" hreflang="en" href="https://badatales.github.io/Badatales/en/articles.html" />
         <link rel="alternate" hreflang="cs" href="https://badatales.github.io/Badatales/cs/clanky.html" />
     </head>
@@ -25,130 +23,46 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-									 <li><a href="articles.html">Articles</a></li>
+                                    <li><a href="articles.html">Articles</a></li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </nav>
-               </header>
+            </header>
 
-    <section id="banner-articles">   <!-- Outside #main -->
-        <div class="inner">
-            <h2>Our Stories</h2>
-            <p>Read about our journies <br>from all around the world!</p>
-        </div>
-    </section>
+            <section id="banner-articles">
+                <div class="inner">
+                    <h2>Our Stories</h2>
+                    <p>Read about our journeys <br>from all around the world!</p>
+                </div>
+            </section>
 
-
-<!-- =====================================================
-     FILTER BAR
-     Replace your current <section class="wrapper style5 filters-section">
-     block with this. It sits OUTSIDE #main, directly after #banner-articles,
-     so it's flush with no white gap in between.
-
-     In your articles.html, the order should be:
-       1. #banner-articles
-       2. This filter bar (below)
-       3. <article id="main"> ... grid ... </article>
-===================================================== -->
-
-<div class="filter-bar">
-
-    <!-- ROW 1: Countries -->
-    <div class="filter-row filter-row--countries">
-
-        <!-- "All" pinned left -->
-        <button class="filter-btn all-btn active" data-filter="all">All</button>
-
-        <!-- Spacer pushes country tags to centre -->
-        <span class="filter-spacer" aria-hidden="true"></span>
-
-        <button class="filter-btn" data-filter="scotland">Scotland</button>
-        <button class="filter-btn" data-filter="alaska">Alaska</button>
-        <button class="filter-btn" data-filter="usa">USA</button>
-
-        <!-- Second spacer mirrors the left side for true centering -->
-        <span class="filter-spacer" aria-hidden="true"></span>
-
-    </div>
-
-    <!-- ROW 2: Types -->
-    <div class="filter-row filter-row--types">
-
-        <!-- Spacer left — no "All" here, so we need one spacer each side -->
-        <span class="filter-spacer" aria-hidden="true"></span>
-
-        <button class="filter-btn" data-filter="locations">Locations</button>
-        <button class="filter-btn" data-filter="stories">Stories</button>
-        <button class="filter-btn" data-filter="tips">Tips</button>
-
-        <!-- Spacer right -->
-        <span class="filter-spacer" aria-hidden="true"></span>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     HOW TO ADD A NEW TAG LATER:
-
-     Countries row — add inside filter-row--countries,
-     before the second .filter-spacer:
-       <button class="filter-btn" data-filter="norway">Norway</button>
-
-     Types row — add inside filter-row--types,
-     before the second .filter-spacer:
-       <button class="filter-btn" data-filter="food">Food</button>
-
-     Then in main.js, add the new value to the correct array:
-       const countryFilters = ['scotland', 'alaska', 'usa', 'norway'];
-       const typeFilters    = ['locations', 'stories', 'tips', 'food'];
-
-     And tag your article cards with the matching data attribute:
-       data-country="norway"  OR  data-type="food"
-===================================================== -->
-
-
-			
-    <article id="main">  
-
-    <!-- ================= ARTICLES GRID ================= -->
-    <section class="wrapper style5">
-        <div class="inner">
-
-            <div class="articles-grid">
-
-                <!-- Example Article -->
-                <a class="article-card" href="articles/scotland-weather-tips/" data-country="scotland" data-type="tips">
-    <div class="thumb">
-        <img src="articles/scotland-weather-tips/hero.jpg" alt="Scotland weather tips" />
-        <span class="card-tag-badge"><span class="dot"></span>Tips</span>
-    </div>
-    <div class="card-body">
-        <h3 class="card-title">5 Tips for Surviving Scottish Weather</h3>
-        <p class="card-excerpt">Your 1–2 sentence teaser goes here.</p>
-    </div>
-</a>
-				
-
-                <!-- Always add new articles ABOVE older ones -->
-
+            <div class="filter-bar">
+                <div class="filter-row filter-row--countries">
+                    <button class="filter-btn all-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="scotland">Scotland</button>
+                    <button class="filter-btn" data-filter="alaska">Alaska</button>
+                    <button class="filter-btn" data-filter="usa">USA</button>
+                </div>
+                <div class="filter-row filter-row--types">
+                    <button class="filter-btn" data-filter="locations">Locations</button>
+                    <button class="filter-btn" data-filter="stories">Stories</button>
+                    <button class="filter-btn" data-filter="tips">Tips</button>
+                </div>
             </div>
 
-            <!-- Load More -->
-          <div class="load-more-wrapper">
-    <a href="#" id="loadMore" class="scrolly">
-        <span class="icon solid fa-chevron-down"></span>
-    </a>
-</div>
+            <article id="main">
+                <div id="articlesContainer"></div>
+                <p class="articles-no-results" id="noResults" style="display:none;">No articles found for this combination.</p>
+                <div class="load-more-wrapper" id="loadMoreWrapper" style="display:none;">
+                    <a href="#" id="loadMore">
+                        <span class="icon solid fa-chevron-down"></span>
+                    </a>
+                </div>
+            </article>
 
-        </div>
-    </section>
-</article>
-<footer id="footer">
+            <footer id="footer">
                 <ul class="icons">
                     <li><a href="https://www.instagram.com/badatales/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
                     <li><a href="https://www.tiktok.com/@badatales" target="_blank" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
@@ -157,7 +71,8 @@
                     <li><a href="mailto:talesofbada@gmail.com" class="icon solid fa-envelope" onclick="copyEmail(event)"><span class="label">Email</span></a></li>
                 </ul>
                 <ul class="copyright">
-                    <li>&copy; Spectral by ajlkn. Edited by Badatales</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <li>&copy; Spectral by ajlkn. Edited by Badatales</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                 </ul>
             </footer>
 
@@ -172,7 +87,7 @@
         <script src="../assets/js/breakpoints.min.js"></script>
         <script src="../assets/js/util.js"></script>
         <script src="../assets/js/main.js"></script>
-        
+
         <script>
             function copyEmail(event) {
                 event.preventDefault();
@@ -186,6 +101,3 @@
 
     </body>
 </html>
-
-			
-</div>
