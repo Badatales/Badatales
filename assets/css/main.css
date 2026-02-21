@@ -4619,9 +4619,12 @@ body.page-articles #page-wrapper:after {
 @media screen and (max-width: 736px) {
 
     /* 1. Force all banners to same height and padding */
-    #banner, #banner-articles, #banner-about {
+    #banner, 
+    .page-articles #banner-articles, 
+    .page-about #banner-about {
         height: 50vh !important;
-        min-height: 30em !important;
+        min-height: 0 !important;
+        overflow: visible !important;
         padding: 3em 1.5em !important;
         display: flex !important;
         flex-direction: column !important;
@@ -4660,13 +4663,8 @@ body.page-articles #page-wrapper:after {
     top: 0;
     left: 0;
 }
-
-	.page-articles #banner-articles {
-        overflow: visible !important;
-        min-height: 0 !important;
-        height: 50vh !important;
-    }
 }
+
 
 
 
