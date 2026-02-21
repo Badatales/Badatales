@@ -4490,10 +4490,13 @@ body.page-articles #page-wrapper:after {
 }
 
 /* =====================================================
-   FILTER BAR — matches #header dimensions exactly
-   Each row = 3em tall (same as the header)
-   Font: 0.8em, letter-spacing: 0.225em, uppercase
-   Tags: sharp corners, 1px border, no effects
+   FILTER BAR
+   - Both rows: #5B0F1A (your red)
+   - 1px white hairline between rows
+   - Each row: 3em (matches #header height)
+   - Font: 0.8em / letter-spacing: 0.225em / uppercase
+   - Tags: sharp corners, 1px border, no effects
+   - "All" absolutely positioned left; tags truly centred
 ===================================================== */
 
 .filter-bar {
@@ -4502,38 +4505,38 @@ body.page-articles #page-wrapper:after {
     z-index: 1;
 }
 
-/* ── Two rows ──────────────────────────────────────── */
+/* ── Rows ──────────────────────────────────────────── */
 
 .filter-row {
+    position: relative;          /* needed for absolute "All" */
     display: flex;
     align-items: center;
+    justify-content: center;     /* tags centre by default */
     width: 100%;
     height: 3em;
     padding: 0 1.5em;
     box-sizing: border-box;
     gap: 0.75em;
+    background-color: #5B0F1A;
 }
 
-/* Countries row — lighter grey */
+/* 1px white hairline between the two rows */
 .filter-row.filter-row--countries {
-    background-color: #4a5764;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Types row — main grey */
-.filter-row.filter-row--types {
-    background-color: #2e3842;
-}
+/* ── "All" button — absolute left, out of flow ─────── */
 
-/* ── Spacers for centering ─────────────────────────── */
-
-.filter-spacer {
-    flex: 1;
+.filter-btn.all-btn {
+    position: absolute;
+    left: 1.5em;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* ── Filter buttons ────────────────────────────────── */
 
 .filter-btn {
-    /* Exact match to #header nav link style */
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.8em;
     font-weight: 400;
@@ -4541,13 +4544,12 @@ body.page-articles #page-wrapper:after {
     text-transform: uppercase;
     color: #ffffff;
 
-    /* Shape — sharp, no rounding */
     display: inline-flex;
     align-items: center;
-    height: 1.75em;
-    padding: 0 0.9em;
+    height: 1.6em;
+    padding: 0 0.8em;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 0;
     cursor: pointer;
     white-space: nowrap;
@@ -4561,7 +4563,7 @@ body.page-articles #page-wrapper:after {
 }
 
 .filter-btn:hover {
-    border-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.75);
 }
 
 /* Active — yellow fill, dark text */
@@ -4575,11 +4577,6 @@ body.page-articles #page-wrapper:after {
     background-color: #F2B705;
     border-color: #F2B705;
     color: #2e3842;
-}
-
-/* "All" — left-pinned, slight separation from country tags */
-.filter-row--countries .filter-btn.all-btn {
-    margin-right: 0.5em;
 }
 
 /* ── No results message ─────────────────────────────── */
@@ -4602,16 +4599,16 @@ body.page-articles #page-wrapper:after {
     .filter-row {
         height: auto;
         min-height: 3em;
-        padding: 0.5em 1em;
+        padding: 0.6em 1em 0.6em 4em;  /* left padding makes room for absolute "All" */
         flex-wrap: wrap;
+        justify-content: center;
         gap: 0.5em;
     }
 
-    .filter-spacer {
-        display: none;
+    .filter-btn.all-btn {
+        left: 1em;
     }
 }
-
 
 
 
@@ -4752,6 +4749,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
