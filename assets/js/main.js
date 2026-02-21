@@ -69,72 +69,150 @@
 			});
 		}
 
+
+
+
+
+
+	
 	/* =========================================================
 	   ARTICLES PAGE LOGIC
 	========================================================= */
 	if ($body.hasClass('page-articles')) {
 
-		const buttons = document.querySelectorAll('.filter-btn');
-		const articles = document.querySelectorAll('.article-card');
-		const $articleCards = $('.article-card'); 
-		let activeFilters = [];
+		const buttons     = document.querySelectorAll('.filter-btn');
+		const articles    = document.querySelectorAll('.article-card');
+		const $articleCards = $('.article-card');
+		const grid        = document.querySelector('.articles-grid');
 
+		// Track one active filter per group separately
+		let activeCountry = null;   // e.g. "scotland", null = any
+		let activeType    = null;   // e.g. "tips",     null = any
+
+		// Country filters
+		const countryFilters = ['scotland', 'alaska', 'usa'];
+		// Type filters
+		const typeFilters    = ['locations', 'stories', 'tips'];
+
+		// "No results" message — injected once, reused
+		let $noResults = $('<p class="articles-no-results">No articles found for this combination.</p>');
+		$(grid).after($noResults);
+		$noResults.hide();
+
+		// ── Load More ──────────────────────────────────────
+		var BATCH = 6;
+		var visibleCount = BATCH;
+
+		function getMatchingCards() {
+			return $articleCards.filter(function () {
+				const country = this.dataset.country || '';
+				const type    = this.dataset.type    || '';
+				const countryOk = !activeCountry || country === activeCountry;
+				const typeOk    = !activeType    || type    === activeType;
+				return countryOk && typeOk;
+			});
+		}
+
+		function applyFilters() {
+			// Reset pagination when filters change
+			visibleCount = BATCH;
+
+			const $matching = getMatchingCards();
+
+			// Hide all cards first
+			$articleCards.hide();
+
+			if ($matching.length === 0) {
+				$noResults.fadeIn(200);
+				$('#loadMore').hide();
+				return;
+			}
+
+			$noResults.hide();
+
+			// Show first batch of matching cards
+			$matching.slice(0, visibleCount).fadeIn(300);
+
+			// Load More visibility
+			if (visibleCount >= $matching.length) {
+				$('#loadMore').hide();
+			} else {
+				$('#loadMore').show();
+			}
+		}
+
+		// ── Button click handler ───────────────────────────
 		buttons.forEach(btn => {
 			btn.addEventListener('click', function () {
 				const filter = this.dataset.filter;
 
-				if (filter === "all") {
-					activeFilters = [];
+				if (filter === 'all') {
+					// Clear everything
+					activeCountry = null;
+					activeType    = null;
 					buttons.forEach(b => b.classList.remove('active'));
 					this.classList.add('active');
 					applyFilters();
 					return;
 				}
 
-				this.classList.toggle('active');
-				if (activeFilters.includes(filter)) {
-					activeFilters = activeFilters.filter(f => f !== filter);
-				} else {
-					activeFilters.push(filter);
+				// Determine which group this filter belongs to
+				const isCountry = countryFilters.includes(filter);
+				const isType    = typeFilters.includes(filter);
+
+				if (isCountry) {
+					if (activeCountry === filter) {
+						// Clicking the already-active country → deselect
+						activeCountry = null;
+						this.classList.remove('active');
+					} else {
+						// Deactivate any other country button
+						countryFilters.forEach(c => {
+							document.querySelector(`[data-filter="${c}"]`)?.classList.remove('active');
+						});
+						activeCountry = filter;
+						this.classList.add('active');
+					}
+				} else if (isType) {
+					if (activeType === filter) {
+						// Clicking the already-active type → deselect
+						activeType = null;
+						this.classList.remove('active');
+					} else {
+						// Deactivate any other type button
+						typeFilters.forEach(t => {
+							document.querySelector(`[data-filter="${t}"]`)?.classList.remove('active');
+						});
+						activeType = filter;
+						this.classList.add('active');
+					}
 				}
 
-				document.querySelector('[data-filter="all"]').classList.remove('active');
+				// If nothing active at all, snap "All" back on
+				if (!activeCountry && !activeType) {
+					document.querySelector('[data-filter="all"]').classList.add('active');
+				} else {
+					document.querySelector('[data-filter="all"]').classList.remove('active');
+				}
+
 				applyFilters();
 			});
 		});
 
-		function applyFilters() {
-			articles.forEach(article => {
-				const country = article.dataset.country;
-				const type = article.dataset.type;
-				const matches = activeFilters.every(filter =>
-					filter === country || filter === type
-				);
-
-				if (activeFilters.length === 0 || matches) {
-					$(article).fadeIn(300);
-				} else {
-					$(article).hide();
-				}
-			});
-		}
-
-		// Load More Logic
-		var visibleCount = 6;
-		function updateVisibility() {
-			$articleCards.hide().slice(0, visibleCount).fadeIn(300);
-			if (visibleCount >= $articleCards.length) {
-				$('#loadMore').hide();
-			}
-		}
-
-		updateVisibility();
-
+		// ── Load More ──────────────────────────────────────
 		$('#loadMore').on('click', function (e) {
 			e.preventDefault();
-			visibleCount += 6;
-			updateVisibility();
+			visibleCount += BATCH;
+
+			const $matching = getMatchingCards();
+			$matching.slice(0, visibleCount).fadeIn(300);
+
+			if (visibleCount >= $matching.length) {
+				$(this).hide();
+			}
 		});
+
+		// ── Initial render ─────────────────────────────────
+		applyFilters();
 	}
 
-})(jQuery);
