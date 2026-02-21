@@ -4547,9 +4547,9 @@ body.page-articles #page-wrapper:after {
     display: inline-flex;
     align-items: center;
     height: 1.6em;
-    padding: 0 0.8em;
+    padding: 0 1.2em;           /* more breathing room around text */
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 0.5px solid rgba(255, 255, 255, 0.35);
     border-radius: 0;
     cursor: pointer;
     white-space: nowrap;
@@ -4566,16 +4566,16 @@ body.page-articles #page-wrapper:after {
     border-color: rgba(255, 255, 255, 0.75);
 }
 
-/* Active — yellow fill, dark text */
+/* Active — yellow fill, no border */
 .filter-btn.active {
     background-color: #F2B705;
-    border-color: #F2B705;
+    border-color: transparent;
     color: #2e3842;
 }
 
 .filter-btn.active:hover {
     background-color: #F2B705;
-    border-color: #F2B705;
+    border-color: transparent;
     color: #2e3842;
 }
 
@@ -4609,7 +4609,6 @@ body.page-articles #page-wrapper:after {
         left: 1em;
     }
 }
-
 
 
 
@@ -4749,6 +4748,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
