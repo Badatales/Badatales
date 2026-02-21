@@ -216,3 +216,4 @@
 		applyFilters();
 	}
 
+})(jQuery);   
