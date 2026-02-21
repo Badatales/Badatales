@@ -1,10 +1,18 @@
 [
+    
     {
         "slug": "scotland-weather-tips",
         "title": "5 Tips for Surviving Scottish Weather",
         "country": "scotland",
         "type": "tips",
         "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north."
+    },
+    {
+        "slug": "alaska",
+        "title": "alaska",
+        "country": "alaska",
+        "type": "tips",
+        "excerpt": "Beenthere, donethat"
     },
     {
         "slug": "glencoe",
