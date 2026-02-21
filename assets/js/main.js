@@ -76,144 +76,190 @@
 
 	
 	/* =========================================================
-	   ARTICLES PAGE LOGIC
+	   ARTICLES PAGE LOGIC — JSON driven
+	   Replace the entire articles block in main.js with this.
 	========================================================= */
 	if ($body.hasClass('page-articles')) {
 
-		const buttons     = document.querySelectorAll('.filter-btn');
-		const articles    = document.querySelectorAll('.article-card');
-		const $articleCards = $('.article-card');
-		const grid        = document.querySelector('.articles-grid');
+		const BATCH          = 6;
+		const container      = document.getElementById('articlesContainer');
+		const noResults      = document.getElementById('noResults');
+		const loadMoreWrap   = document.getElementById('loadMoreWrapper');
+		const loadMoreBtn    = document.getElementById('loadMore');
+		const filterBtns     = document.querySelectorAll('.filter-btn');
 
-		// Track one active filter per group separately
-		let activeCountry = null;   // e.g. "scotland", null = any
-		let activeType    = null;   // e.g. "tips",     null = any
-
-		// Country filters
 		const countryFilters = ['scotland', 'alaska', 'usa'];
-		// Type filters
 		const typeFilters    = ['locations', 'stories', 'tips'];
 
-		// "No results" message — injected once, reused
-		let $noResults = $('<p class="articles-no-results">No articles found for this combination.</p>');
-		$(grid).after($noResults);
-		$noResults.hide();
+		let allArticles   = [];
+		let activeCountry = null;
+		let activeType    = null;
+		let visibleCount  = BATCH;
 
-		// ── Load More ──────────────────────────────────────
-		var BATCH = 6;
-		var visibleCount = BATCH;
+		// ── Helpers ────────────────────────────────────────
+		function cap(str) {
+			return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+		}
 
-		function getMatchingCards() {
-			return $articleCards.filter(function () {
-				const country = this.dataset.country || '';
-				const type    = this.dataset.type    || '';
-				const countryOk = !activeCountry || country === activeCountry;
-				const typeOk    = !activeType    || type    === activeType;
+		function tagLabel(country, type) {
+			const parts = [cap(type), cap(country)].filter(Boolean);
+			return parts.join(' · ');
+		}
+
+		// ── Build a single card element ────────────────────
+		function buildCard(article) {
+			const a = document.createElement('a');
+			a.className        = 'article-card';
+			a.href             = 'articles/' + article.slug + '/';
+			a.dataset.country  = article.country || '';
+			a.dataset.type     = article.type    || '';
+
+			a.innerHTML = `
+				<div class="image">
+					<img src="articles/${article.slug}/hero.jpg"
+					     alt="${article.title}"
+					     loading="lazy" />
+				</div>
+				<div class="card-body">
+					<span class="card-tag">${tagLabel(article.country, article.type)}</span>
+					<h3 class="card-title">${article.title}</h3>
+					<p class="card-excerpt">${article.excerpt}</p>
+				</div>`;
+
+			return a;
+		}
+
+		// ── Build a row section (pair of 2 cards) ──────────
+		// nth-child shading applied via inline style since
+		// dynamically injected elements don't get nth-child reliably
+		function buildRow(cardA, cardB, rowIndex) {
+			const shades = [
+				'rgba(0,0,0,0.075)',
+				'rgba(0,0,0,0.15)',
+				'rgba(0,0,0,0.225)'
+			];
+			const section = document.createElement('section');
+			section.className = 'article-row';
+			section.style.backgroundColor = shades[rowIndex % 3];
+
+			const inner = document.createElement('div');
+			inner.className = 'inner';
+			inner.appendChild(cardA);
+			if (cardB) inner.appendChild(cardB);
+			section.appendChild(inner);
+			return section;
+		}
+
+		// ── Filter matching ────────────────────────────────
+		function getMatching() {
+			return allArticles.filter(a => {
+				const countryOk = !activeCountry || a.country === activeCountry;
+				const typeOk    = !activeType    || a.type    === activeType;
 				return countryOk && typeOk;
 			});
 		}
 
-		function applyFilters() {
-			// Reset pagination when filters change
-			visibleCount = BATCH;
+		// ── Render ─────────────────────────────────────────
+		function render() {
+			container.innerHTML = '';
+			const matching = getMatching();
+			const slice    = matching.slice(0, visibleCount);
 
-			const $matching = getMatchingCards();
-
-			// Hide all cards first
-			$articleCards.hide();
-
-			if ($matching.length === 0) {
-				$noResults.fadeIn(200);
-				$('#loadMore').hide();
+			if (matching.length === 0) {
+				noResults.style.display    = 'block';
+				loadMoreWrap.style.display = 'none';
 				return;
 			}
 
-			$noResults.hide();
+			noResults.style.display = 'none';
 
-			// Show first batch of matching cards
-			$matching.slice(0, visibleCount).fadeIn(300);
-
-			// Load More visibility
-			if (visibleCount >= $matching.length) {
-				$('#loadMore').hide();
-			} else {
-				$('#loadMore').show();
+			for (let i = 0; i < slice.length; i += 2) {
+				const cardA = buildCard(slice[i]);
+				const cardB = slice[i + 1] ? buildCard(slice[i + 1]) : null;
+				container.appendChild(buildRow(cardA, cardB, Math.floor(i / 2)));
 			}
+
+			loadMoreWrap.style.display = visibleCount >= matching.length ? 'none' : 'block';
 		}
 
-		// ── Button click handler ───────────────────────────
-		buttons.forEach(btn => {
+		// ── Filter buttons ─────────────────────────────────
+		filterBtns.forEach(btn => {
 			btn.addEventListener('click', function () {
 				const filter = this.dataset.filter;
 
 				if (filter === 'all') {
-					// Clear everything
 					activeCountry = null;
 					activeType    = null;
-					buttons.forEach(b => b.classList.remove('active'));
+					filterBtns.forEach(b => b.classList.remove('active'));
 					this.classList.add('active');
-					applyFilters();
+					visibleCount = BATCH;
+					render();
 					return;
 				}
 
-				// Determine which group this filter belongs to
 				const isCountry = countryFilters.includes(filter);
 				const isType    = typeFilters.includes(filter);
 
 				if (isCountry) {
 					if (activeCountry === filter) {
-						// Clicking the already-active country → deselect
 						activeCountry = null;
 						this.classList.remove('active');
 					} else {
-						// Deactivate any other country button
 						countryFilters.forEach(c => {
-							document.querySelector(`[data-filter="${c}"]`)?.classList.remove('active');
+							document.querySelector('[data-filter="' + c + '"]')?.classList.remove('active');
 						});
 						activeCountry = filter;
 						this.classList.add('active');
 					}
 				} else if (isType) {
 					if (activeType === filter) {
-						// Clicking the already-active type → deselect
 						activeType = null;
 						this.classList.remove('active');
 					} else {
-						// Deactivate any other type button
 						typeFilters.forEach(t => {
-							document.querySelector(`[data-filter="${t}"]`)?.classList.remove('active');
+							document.querySelector('[data-filter="' + t + '"]')?.classList.remove('active');
 						});
 						activeType = filter;
 						this.classList.add('active');
 					}
 				}
 
-				// If nothing active at all, snap "All" back on
 				if (!activeCountry && !activeType) {
 					document.querySelector('[data-filter="all"]').classList.add('active');
 				} else {
 					document.querySelector('[data-filter="all"]').classList.remove('active');
 				}
 
-				applyFilters();
+				visibleCount = BATCH;
+				render();
 			});
 		});
 
 		// ── Load More ──────────────────────────────────────
-		$('#loadMore').on('click', function (e) {
+		loadMoreBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 			visibleCount += BATCH;
-
-			const $matching = getMatchingCards();
-			$matching.slice(0, visibleCount).fadeIn(300);
-
-			if (visibleCount >= $matching.length) {
-				$(this).hide();
-			}
+			render();
 		});
 
-		// ── Initial render ─────────────────────────────────
-		applyFilters();
+		// ── Fetch JSON and boot ────────────────────────────
+		fetch('articles.json')
+			.then(res => {
+				if (!res.ok) throw new Error('Could not load articles.json');
+				return res.json();
+			})
+			.then(data => {
+				allArticles = data;
+				render();
+			})
+			.catch(err => {
+				console.error('Articles failed to load:', err);
+				noResults.textContent   = 'Articles could not be loaded.';
+				noResults.style.display = 'block';
+			});
+
 	}
+	
 
 })(jQuery);   
+
