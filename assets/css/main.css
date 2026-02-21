@@ -4509,7 +4509,7 @@ body.page-articles #page-wrapper:after {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     border-radius: 20px;
-    background: #5B0F1A;
+    background: #ffffff;
     color: #2e3842;
     border: none;
     cursor: pointer;
@@ -4673,6 +4673,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
