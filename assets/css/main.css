@@ -4490,87 +4490,81 @@ body.page-articles #page-wrapper:after {
 }
 
 /* =====================================================
-   FILTER BAR — Two-row strip flush under hero banner
-   Add this to your main.css articles section
+   FILTER BAR — matches #header dimensions exactly
+   Each row = 3em tall (same as the header)
+   Font: 0.8em, letter-spacing: 0.225em, uppercase
+   Tags: sharp corners, 1px border, no effects
 ===================================================== */
 
-/* Remove old filters wrapper padding/centering */
-.filters {
-    padding: 0 !important;
-    margin: 0 !important;
-    display: block !important;
+.filter-bar {
+    width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
-/* Strip the old .filters-section wrapper padding so it sits flush */
-.page-articles .filters-section {
-    padding: 0 !important;
-    margin: 0 !important;
-    background: none !important;
-}
-
-/* ── The two rows ─────────────────────────────────── */
+/* ── Two rows ──────────────────────────────────────── */
 
 .filter-row {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 2.75rem;          /* ~1cm on most screens */
-    padding: 0 2.5rem;
+    height: 3em;
+    padding: 0 1.5em;
     box-sizing: border-box;
-    gap: 0.5rem;
+    gap: 0.75em;
 }
 
 /* Countries row — lighter grey */
 .filter-row.filter-row--countries {
-    background-color: #4a5764;   /* lighter than #2e3842 */
+    background-color: #4a5764;
 }
 
-/* Types row — your main grey */
+/* Types row — main grey */
 .filter-row.filter-row--types {
     background-color: #2e3842;
 }
 
-/* ── "All" button — pinned left, separated by a gap ── */
+/* ── Spacers for centering ─────────────────────────── */
 
-.filter-row--countries .filter-btn.all-btn {
-    margin-right: 1rem;          /* visual gap between All and country tags */
-    flex-shrink: 0;
+.filter-spacer {
+    flex: 1;
 }
 
-/* ── Individual filter buttons ───────────────────── */
+/* ── Filter buttons ────────────────────────────────── */
 
 .filter-btn {
+    /* Exact match to #header nav link style */
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 400;
+    letter-spacing: 0.225em;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    /* Shape — sharp, no rounding */
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    height: 1.6rem;
-    padding: 0 0.85rem;
-    font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-radius: 999px;
+    height: 1.75em;
+    padding: 0 0.9em;
     background: transparent;
-    color: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0;
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
-    transition: background-color 0.18s ease,
-                color 0.18s ease,
-                border-color 0.18s ease;
-    /* kill any inherited button styles */
     outline: none;
     line-height: 1;
+
+    transition: border-color 0.15s ease,
+                background-color 0.15s ease,
+                color 0.15s ease;
 }
 
 .filter-btn:hover {
-    border-color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.85);
 }
 
-/* Active state — yellow fill, grey text */
+/* Active — yellow fill, dark text */
 .filter-btn.active {
     background-color: #F2B705;
     border-color: #F2B705;
@@ -4578,57 +4572,45 @@ body.page-articles #page-wrapper:after {
 }
 
 .filter-btn.active:hover {
-    background-color: #ffc820;
-    border-color: #ffc820;
+    background-color: #F2B705;
+    border-color: #F2B705;
     color: #2e3842;
 }
 
-/* ── Center the country + type tags (not All) ──────
-   We use a flex spacer approach:
-   [All] [spacer] [Scotland] [Alaska] [USA] [spacer]
-   The two spacers push the tag group to centre
-   while All stays left-aligned.
-─────────────────────────────────────────────────── */
-
-.filter-spacer {
-    flex: 1;    /* fills remaining space, pushing tags to centre */
+/* "All" — left-pinned, slight separation from country tags */
+.filter-row--countries .filter-btn.all-btn {
+    margin-right: 0.5em;
 }
 
-/* ── No results message ─────────────────────────── */
+/* ── No results message ─────────────────────────────── */
 
 .articles-no-results {
     text-align: center;
-    color: #999;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    padding: 3rem 0 1rem 0;
+    color: #aaa;
     font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 0.225em;
     text-transform: uppercase;
+    padding: 3rem 0 1rem 0;
+    display: none;
 }
 
-/* ── Mobile — stack rows taller, allow wrapping ─── */
+/* ── Mobile ─────────────────────────────────────────── */
 
 @media screen and (max-width: 736px) {
 
     .filter-row {
         height: auto;
-        min-height: 2.75rem;
-        padding: 0.5rem 1rem;
+        min-height: 3em;
+        padding: 0.5em 1em;
         flex-wrap: wrap;
-        gap: 0.4rem;
+        gap: 0.5em;
     }
 
     .filter-spacer {
-        display: none;   /* on mobile tags just wrap naturally */
-    }
-
-    .filter-row--countries .filter-btn.all-btn {
-        margin-right: 0.25rem;
+        display: none;
     }
 }
-
-
-
 
 
 
@@ -4770,6 +4752,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
