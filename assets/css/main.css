@@ -4483,6 +4483,7 @@ body.page-articles #page-wrapper:after {
     z-index: 1;          /* Lower than the menu */
     background: #ffffff !important;
     margin-top: 0;
+	min-height: 60vh; 
 }
 
 .page-articles #menu {
@@ -4686,6 +4687,8 @@ body.page-articles #page-wrapper:after {
     overflow: hidden;
     border-radius: 25px;        /* same as style2 PC */
     background: #e0e0e0;
+	aspect-ratio: 16 / 9;    
+    position: relative;     
 }
 
 .article-card .image img {
@@ -4898,6 +4901,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
