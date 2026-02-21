@@ -4443,17 +4443,6 @@ body.page-articles #page-wrapper:after {
     transform: translateZ(0);
 }
 
-body.is-mobile.page-articles #banner-articles {
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../../images/articles-hero.jpg") !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: scroll !important;
-}
-
-body.is-mobile.page-articles #banner-articles:before {
-    display: none !important;
-}
-
 /* Header & Menu Logic for Articles Page */
 
 /* Base Header Style (Sticky) */
@@ -4626,73 +4615,67 @@ body.is-mobile.page-articles #banner-articles:before {
 
 
 
-
-
-
-
-
 /* --- THE MOBILE TWIN OVERRIDE (max-width: 736px) --- */
 @media screen and (max-width: 736px) {
 
     /* 1. Force all banners to same height and padding */
-#banner, 
-#banner-articles, 
-#banner-about {
-    height: 50vh !important; /* Reduced from 100vh to show more width */
-    min-height: 30em !important;
-    padding: 3em 1.5em !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-}
+    #banner, #banner-articles, #banner-about {
+        height: 50vh !important;
+        min-height: 30em !important;
+        padding: 3em 1.5em !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
 
     /* 2. Sync the text container */
-    #banner .inner, 
-    #banner-articles .inner, 
-    #banner-about .inner {
+    #banner .inner, #banner-articles .inner, #banner-about .inner {
         padding: 0 !important;
         margin: 0 !important;
     }
 
-    /* 3. Sync the H2 (The Lines and Font) */
-    #banner h2, 
-    #banner-articles h2, 
-    #banner-about h2 {
-        font-size: 1.75em !important; 
+    /* 3. Sync the H2 */
+    #banner h2, #banner-articles h2, #banner-about h2 {
+        font-size: 1.75em !important;
         letter-spacing: 0.125em !important;
         line-height: 1.25em !important;
-        
-        /* The Spectral Signature Lines */
         border-top: solid 2px rgba(255, 255, 255, 0.125) !important;
         border-bottom: solid 2px rgba(255, 255, 255, 0.125) !important;
         padding: 0.5em 1em !important;
-        
         display: inline-block !important;
         width: auto !important;
         max-width: 90% !important;
         margin: 0 0 1em 0 !important;
     }
 
-/* 4. Fix Mobile Image Zoom (Static scroll) */
-.page-articles #banner-articles:before,
-.page-about #banner-about:before {
-    position: absolute !important;
-    background-attachment: scroll !important;
-    background-size: cover !important;
-    background-position: center !important;
-    height: 100% !important;
-    width: 100% !important;
-    top: 0;
-    left: 0;
+    /* 4. Fix about page only - articles handled separately below */
+    .page-about #banner-about:before {
+        position: absolute !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+        height: 100% !important;
+        width: 100% !important;
+        top: 0;
+        left: 0;
+    }
+
+    /* 5. Articles mobile - bypass :before entirely */
+    body.is-mobile.page-articles #banner-articles {
+        background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../../images/articles-hero.jpg") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: scroll !important;
+    }
+
+    body.is-mobile.page-articles #banner-articles:before {
+        width: 0 !important;
+        height: 0 !important;
+        background: none !important;
+        position: absolute !important;
+    }
+
 }
-
-
-
-
-
-
-
-
 
 
 
