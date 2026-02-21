@@ -4447,10 +4447,11 @@ body.is-mobile.page-articles #banner-articles {
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../../images/articles-hero.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
+    background-attachment: scroll !important;
 }
 
 body.is-mobile.page-articles #banner-articles:before {
-    content: none !important;
+    display: none !important;
 }
 
 /* Header & Menu Logic for Articles Page */
@@ -4684,6 +4685,7 @@ body.is-mobile.page-articles #banner-articles:before {
     top: 0;
     left: 0;
 }
+
 
 
 
