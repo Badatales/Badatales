@@ -4425,7 +4425,17 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     padding-top: 1.5em;
 }
 
+@media screen and (max-width: 736px) {
+    .page-about #cta .icons.major {
+        width: auto !important;
+        align-self: center;
+    }
 
+    .page-about #cta .actions.stacked li:last-child {
+        display: flex !important;
+        justify-content: center !important;
+    }
+}
 
 
 
@@ -4969,6 +4979,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
