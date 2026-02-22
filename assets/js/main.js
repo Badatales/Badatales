@@ -249,7 +249,7 @@
 	var featuresEl = document.querySelector('#three .features');
 	if (featuresEl) {
 
-		fetch('en/articles.json')
+		fetch('articles.json')
 			.then(function(res) {
 				if (!res.ok) throw new Error('Could not load articles.json');
 				return res.json();
@@ -310,3 +310,4 @@
 	}
 
 })(jQuery);
+
