@@ -4582,8 +4582,8 @@ body.page-articles #page-wrapper:after {
     color: #ffffff;
     display: inline-flex;
     align-items: center;
-    height: 1.6em;
-    padding: 0.7em 1.2em;
+    height: auto;
+    padding: 1em 2.5em;
     background: transparent;
     border: 0.3px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
@@ -4932,6 +4932,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
