@@ -4042,6 +4042,12 @@ body.is-mobile.landing #footer {
     padding: 0;
     overflow: hidden;
     cursor: pointer;
+	box-shadow: inset 0 0 0 0px rgba(255,255,255,0);
+    transition: box-shadow 0.6s ease;
+}
+
+#three .features li:hover {
+    box-shadow: inset 0 0 0 3px rgba(255,255,255,0.8);
 }
 
 #three .features li a.feature-card {
@@ -4052,12 +4058,7 @@ body.is-mobile.landing #footer {
     position: relative;
     text-decoration: none;
     border: none;
-    box-shadow: inset 0 0 0 0px rgba(255,255,255,0);
-    transition: box-shadow 0.6s ease;
-}
 
-#three .features li a.feature-card:hover {
-    box-shadow: inset 0 0 0 3px rgba(255,255,255,0.8);
 }
 
 #three .features li .feature-img {
@@ -4093,15 +4094,16 @@ body.is-mobile.landing #footer {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.25em 1.5em;
+    padding: 1.5em;
     z-index: 2;
     color: #ffffff;
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 0.85em;
+    font-size: 1em;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.15em;
     line-height: 1.4;
-    text-transform: none;
+    text-transform: uppercase;
+    text-align: center;
     margin: 0;
     transition: opacity 0.6s ease;
 }
@@ -5073,6 +5075,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
