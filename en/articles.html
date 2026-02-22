@@ -38,19 +38,37 @@
                 </div>
             </section>
 
-            <div class="filter-bar">
-                <div class="filter-row filter-row--countries">
-                    <button class="filter-btn all-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="scotland">Scotland</button>
-                    <button class="filter-btn" data-filter="alaska">Alaska</button>
-                    <button class="filter-btn" data-filter="usa">USA</button>
-                </div>
-                <div class="filter-row filter-row--types">
-                    <button class="filter-btn" data-filter="locations">Locations</button>
-                    <button class="filter-btn" data-filter="stories">Stories</button>
-                    <button class="filter-btn" data-filter="tips">Tips</button>
-                </div>
-            </div>
+       
+<div class="filter-bar">
+
+    <!-- Upper half: All Articles button + hint text -->
+    <div class="filter-bar__top">
+        <button class="button primary filter-btn all-btn active" data-filter="all">
+            All Articles
+        </button>
+        <p class="filter-bar__hint">Or filter our articles by tags</p>
+    </div>
+
+    <!-- Lower half: countries | vertical divider | types -->
+    <div class="filter-bar__tags">
+
+        <div class="filter-tag-group">
+            <button class="filter-btn" data-filter="scotland">Scotland</button>
+            <button class="filter-btn" data-filter="alaska">Alaska</button>
+            <button class="filter-btn" data-filter="usa">USA</button>
+        </div>
+
+        <div class="filter-divider" aria-hidden="true"></div>
+
+        <div class="filter-tag-group">
+            <button class="filter-btn" data-filter="locations">Locations</button>
+            <button class="filter-btn" data-filter="stories">Stories</button>
+            <button class="filter-btn" data-filter="tips">Tips</button>
+        </div>
+
+    </div>
+
+</div>
 
             <article id="main">
                 <div id="articlesContainer"></div>
