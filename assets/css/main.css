@@ -4426,9 +4426,10 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 @media screen and (max-width: 736px) {
-    .page-about #cta .inner .actions {
-        max-width: none !important;
-        width: 100% !important;
+    .page-about .icon.major {
+        height: calc(3em + 2px);
+        width: calc(3em + 2px);
+        line-height: 3em;
     }
 }
 
@@ -4974,6 +4975,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
