@@ -4034,14 +4034,12 @@ body.is-mobile.landing #footer {
    
    Each .features li becomes a clickable article card.
    Image is strongly suppressed by default with yellow+grey
-   overlay. On hover: full brightness, dark gradient at
-   bottom keeps title readable.
+   overlay. On hover: full brightness
 ===================================================== */
 
 /* ── Make each li a positioned container for the image ── */
-
 #three .features li {
-    padding: 0;               /* remove default padding — image fills the block */
+    padding: 0;
     overflow: hidden;
     cursor: pointer;
 }
@@ -4050,13 +4048,17 @@ body.is-mobile.landing #footer {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 18em;         /* consistent block height */
+    min-height: 18em;
     position: relative;
     text-decoration: none;
     border: none;
+    box-shadow: inset 0 0 0 0px rgba(255,255,255,0);
+    transition: box-shadow 0.6s ease;
 }
 
-/* ── Hero image — fills the block ───────────────────── */
+#three .features li a.feature-card:hover {
+    box-shadow: inset 0 0 0 3px rgba(255,255,255,0.8);
+}
 
 #three .features li .feature-img {
     position: absolute;
@@ -4065,47 +4067,26 @@ body.is-mobile.landing #footer {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: opacity 0.6s ease, filter 0.6s ease;
-
-    /* Default: strongly suppressed */
-    opacity: 0.55;
+    opacity: 0.5;
     filter: grayscale(20%) brightness(0.8);
+    transition: opacity 0.6s ease, filter 0.6s ease;
 }
 
-/* ── Yellow+grey overlay — the tinted layer ─────────── */
-/* Sits above the image, below the text.
-   mix-blend-mode: multiply lets the image tint show through
-   while the existing nth-child rgba overlays add the
-   progressively darker yellow shading. */
+#three .features li:hover .feature-img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
 
-#three .features li a.feature-card::before {
-    content: '';
+.feature-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(242, 183, 5, 0.5); 
-    transition: opacity 0.6s ease;
     z-index: 1;
-}
-
-/* ── Dark gradient at bottom — keeps title readable ─── */
-
-#three .features li a.feature-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60%;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    z-index: 2;
     transition: opacity 0.6s ease;
 }
 
-/* ── Title over the image ────────────────────────────── */
+#three .features li:hover .feature-overlay {
+    opacity: 0;
+}
 
 #three .features li .feature-title {
     position: absolute;
@@ -4113,7 +4094,7 @@ body.is-mobile.landing #footer {
     left: 0;
     right: 0;
     padding: 1.25em 1.5em;
-    z-index: 3;
+    z-index: 2;
     color: #ffffff;
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.85em;
@@ -4122,46 +4103,24 @@ body.is-mobile.landing #footer {
     line-height: 1.4;
     text-transform: none;
     margin: 0;
+    transition: opacity 0.6s ease;
 }
 
-/* ── Hover — full brightness, overlay fades ─────────── */
-
-#three .features li:hover .feature-img {
-    opacity: 1;
-    filter: grayscale(0%) brightness(1);
+#three .features li:hover .feature-title {
+    opacity: 0;
 }
-
-#three .features li:hover a.feature-card::before {
-    opacity: 0;         /* yellow+grey overlay disappears */
-}
-
-/* Bottom gradient stays on hover so title stays readable */
-#three .features li:hover a.feature-card::after {
-    opacity: 1;
-}
-
-/* ── Keep the nth-child background overlays ─────────── */
-/* They sit behind the image and tint the yellow background.
-   No change needed — they work as-is. */
-
-/* ── Mobile ──────────────────────────────────────────── */
 
 @media screen and (max-width: 736px) {
-
     #three .features li a.feature-card {
         min-height: 14em;
     }
-
-    /* Restore border separator from original mobile style */
     #three .features li {
-        border-top: solid 2px rgba(255, 255, 255, 0.3);
+        border-top: solid 2px rgba(255,255,255,0.3);
     }
-
     #three .features li:first-child {
         border-top: 0;
     }
 }
-
 
 
 
@@ -5114,6 +5073,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
