@@ -4427,9 +4427,9 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 @media screen and (max-width: 736px) {
     .page-about .icon.major {
-        height: calc(3em + 2px);
-        width: calc(3em + 2px);
-        line-height: 3em;
+        height: calc(4em + 2px);
+        width: calc(4em + 2px);
+        line-height: 4em;
     }
 }
 
@@ -4975,6 +4975,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
