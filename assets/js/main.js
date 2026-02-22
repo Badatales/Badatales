@@ -69,15 +69,8 @@
 			});
 		}
 
-
-
-
-
-
-	
 	/* =========================================================
 	   ARTICLES PAGE LOGIC — JSON driven
-	   Replace the entire articles block in main.js with this.
 	========================================================= */
 	if ($body.hasClass('page-articles')) {
 
@@ -96,7 +89,6 @@
 		let activeType    = null;
 		let visibleCount  = BATCH;
 
-		// ── Helpers ────────────────────────────────────────
 		function cap(str) {
 			return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
 		}
@@ -106,7 +98,6 @@
 			return parts.join(' · ');
 		}
 
-		// ── Build a single card element ────────────────────
 		function buildCard(article) {
 			const a = document.createElement('a');
 			a.className        = 'article-card';
@@ -129,9 +120,6 @@
 			return a;
 		}
 
-		// ── Build a row section (pair of 2 cards) ──────────
-		// nth-child shading applied via inline style since
-		// dynamically injected elements don't get nth-child reliably
 		function buildRow(cardA, cardB, rowIndex) {
 			const shades = [
 				'rgba(0,0,0,0.075)',
@@ -150,7 +138,6 @@
 			return section;
 		}
 
-		// ── Filter matching ────────────────────────────────
 		function getMatching() {
 			return allArticles.filter(a => {
 				const countryOk = !activeCountry || a.country === activeCountry;
@@ -159,7 +146,6 @@
 			});
 		}
 
-		// ── Render ─────────────────────────────────────────
 		function render() {
 			container.innerHTML = '';
 			const matching = getMatching();
@@ -182,7 +168,6 @@
 			loadMoreWrap.style.display = visibleCount >= matching.length ? 'none' : 'block';
 		}
 
-		// ── Filter buttons ─────────────────────────────────
 		filterBtns.forEach(btn => {
 			btn.addEventListener('click', function () {
 				const filter = this.dataset.filter;
@@ -235,14 +220,12 @@
 			});
 		});
 
-		// ── Load More ──────────────────────────────────────
 		loadMoreBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 			visibleCount += BATCH;
 			render();
 		});
 
-		// ── Fetch JSON and boot ────────────────────────────
 		fetch('articles.json')
 			.then(res => {
 				if (!res.ok) throw new Error('Could not load articles.json');
@@ -259,7 +242,71 @@
 			});
 
 	}
-	
 
-})(jQuery);   
+	/* =========================================================
+	   FEATURES GRID — Random articles for index.html
+	========================================================= */
+	var featuresEl = document.querySelector('#three .features');
+	if (featuresEl) {
 
+		fetch('en/articles.json')
+			.then(function(res) {
+				if (!res.ok) throw new Error('Could not load articles.json');
+				return res.json();
+			})
+			.then(function(articles) {
+
+				var shuffled = articles
+					.map(function(a) { return { a: a, sort: Math.random() }; })
+					.sort(function(x, y) { return x.sort - y.sort; })
+					.map(function(x) { return x.a; })
+					.slice(0, 6);
+
+				featuresEl.innerHTML = '';
+
+				var shades = [
+					'rgba(0,0,0,0.035)',
+					'rgba(0,0,0,0.07)',
+					'rgba(0,0,0,0.105)',
+					'rgba(0,0,0,0.14)',
+					'rgba(0,0,0,0.175)',
+					'rgba(0,0,0,0.21)'
+				];
+
+				shuffled.forEach(function(article, i) {
+
+					var li = document.createElement('li');
+					li.style.backgroundColor = shades[i];
+
+					if (i === 0) li.style.borderTopLeftRadius = '3px';
+					if (i === 1) li.style.borderTopRightRadius = '3px';
+					if (i === 4) li.style.borderBottomLeftRadius = '3px';
+					if (i === 5) li.style.borderBottomRightRadius = '3px';
+
+					var a = document.createElement('a');
+					a.className = 'feature-card';
+					a.href = 'en/articles/' + article.slug + '/';
+
+					var img = document.createElement('img');
+					img.className = 'feature-img';
+					img.src = 'en/articles/' + article.slug + '/hero.jpg';
+					img.alt = article.title;
+					img.loading = 'lazy';
+
+					var title = document.createElement('h3');
+					title.className = 'feature-title';
+					title.textContent = article.title;
+
+					a.appendChild(img);
+					a.appendChild(title);
+					li.appendChild(a);
+					featuresEl.appendChild(li);
+				});
+			})
+			.catch(function(err) {
+				console.error('Features grid failed to load:', err);
+			});
+
+	}
+
+})(jQuery);
