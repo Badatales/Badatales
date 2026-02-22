@@ -4409,16 +4409,19 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     color: #ffffff;         /* white icons on dark background */
 }
 
-.page-about .actions.stacked li .icons.major {
+.page-about .actions.stacked li:last-child {
     display: flex;
-    flex-direction: row;
+}
+
+.page-about .actions.stacked li .icons.major {
+    display: flex !important;
+    flex-direction: row !important;
     align-items: center;
     justify-content: flex-start;
     padding: 0;
     margin: 0;
     gap: 1em;
 }
-
 
 
 
@@ -4963,6 +4966,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
