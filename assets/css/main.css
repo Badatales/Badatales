@@ -4824,6 +4824,7 @@ body.page-articles #page-wrapper:after {
     font-size: 0.8em;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+	padding-top: 8em;
     padding: 3em 0;
     display: none;
     background: #ffffff;
@@ -4934,6 +4935,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
