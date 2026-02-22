@@ -4392,8 +4392,38 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 
+/* 5. Wrapper-style5 - major icons in the last section */
+.page-about .about-social {
+    display: flex;
+    gap: 0.75em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
+.page-about .about-social li {
+    padding: 0;
+}
 
+.page-about .about-social li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.125em;        /* matches button height */
+    height: 3.125em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    color: #ffffff;
+    font-size: 1.1em;
+    border-radius: 0;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.page-about .about-social li a:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
 
 
 
@@ -4935,6 +4965,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
