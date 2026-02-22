@@ -4491,123 +4491,154 @@ body.page-articles #page-wrapper:after {
 }
 
 /* =====================================================
-   FILTER BAR
-   - Both rows: #5B0F1A (your red)
-   - 1px white hairline between rows
-   - Each row: 3em (matches #header height)
-   - Font: 0.8em / letter-spacing: 0.225em / uppercase
-   - Tags: sharp corners, 1px border, no effects
-   - "All" absolutely positioned left; tags truly centred
+   FILTER BAR — New single-section design
+   Upper half: All Articles button (borrows .button.primary)
+   Lower half: tag groups with vertical divider
+   Background: #5B0F1A (red)
 ===================================================== */
 
 .filter-bar {
     width: 100%;
+    background-color: #5B0F1A;
     position: relative;
     z-index: 1;
 }
 
-/* ── Rows ──────────────────────────────────────────── */
+/* ── Upper half — button + hint text ──────────────── */
 
-.filter-row {
-    position: relative;          /* needed for absolute "All" */
+.filter-bar__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 1.5em 1.25em 1.5em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* The All Articles button inherits .button.primary exactly:
+   height: 3.125em, font-size: 0.8em, letter-spacing: 0.225em,
+   padding: 0 2.75em, yellow fill, uppercase.
+   We only override what differs from .button.primary defaults. */
+.filter-bar .all-btn.button.primary {
+    /* Remove border-radius from base .button (3px) — keep sharp */
+    border-radius: 0;
+    margin-bottom: 0.9em;
+    /* Active state stays yellow — no change needed */
+}
+
+/* When a tag is selected, All loses its yellow fill */
+.filter-bar .all-btn.button.primary:not(.active) {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.filter-bar__hint {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.7em;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    text-align: center;
+}
+
+/* ── Lower half — tag groups + divider ────────────── */
+
+.filter-bar__tags {
     display: flex;
     align-items: center;
-    justify-content: center;     /* tags centre by default */
-    width: 100%;
-    height: 5em;
+    justify-content: center;
+    height: 3em;              /* matches #header height */
     padding: 0 1.5em;
-    box-sizing: border-box;
+    gap: 0;
+}
+
+.filter-tag-group {
+    display: flex;
+    align-items: center;
     gap: 0.75em;
-    background-color: #5B0F1A;
+    flex-wrap: nowrap;
 }
 
-/* 1px white hairline between the two rows */
-.filter-row.filter-row--countries {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+/* Vertical divider — centred between groups */
+.filter-divider {
+    width: 1px;
+    height: 1.2em;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 0 1.25em;
+    flex-shrink: 0;
 }
 
-/* ── "All" button — absolute left, out of flow ─────── */
+/* ── Tag buttons (countries + types) ──────────────── */
 
-.filter-btn.all-btn {
-    position: absolute;
-    left: 1.5em;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* ── Filter buttons ────────────────────────────────── */
-
-.filter-btn {
+.filter-bar__tags .filter-btn {
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.8em;
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #ffffff;
-
     display: inline-flex;
     align-items: center;
-    height: auto;
-    padding: 0.9em 1.2em;   /* top/bottom controls vertical size */
+    height: 1.6em;
+    padding: 0.7em 1.2em;
     background: transparent;
-    border: 0.2px solid rgba(255, 255, 255, 0.2);
+    border: 0.3px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
     outline: none;
     line-height: 1;
-
     transition: border-color 0.15s ease,
                 background-color 0.15s ease,
                 color 0.15s ease;
 }
 
-.filter-btn:hover {
+.filter-bar__tags .filter-btn:hover {
     border-color: rgba(255, 255, 255, 0.75);
 }
 
-/* Active — yellow fill, no border */
-.filter-btn.active {
+.filter-bar__tags .filter-btn.active {
     background-color: #F2B705;
-    border-color: none;
+    border: none;
     color: #2e3842;
 }
 
-.filter-btn.active:hover {
+.filter-bar__tags .filter-btn.active:hover {
     background-color: #F2B705;
-    border-color: transparent;
+    border: none;
     color: #2e3842;
 }
 
-/* ── No results message ─────────────────────────────── */
-
-.articles-no-results {
-    text-align: center;
-    color: #aaa;
-    font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 0.8em;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 3rem 0 1rem 0;
-    display: none;
-}
-
-/* ── Mobile ─────────────────────────────────────────── */
+/* ── Mobile ───────────────────────────────────────── */
 
 @media screen and (max-width: 736px) {
 
-    .filter-row {
+    .filter-bar__top {
+        padding: 1.75em 1em 1em 1em;
+    }
+
+    /* Tags: two separate lines, countries then types */
+    .filter-bar__tags {
+        flex-direction: column;
         height: auto;
-        min-height: 3em;
-        padding: 0.6em 1em 0.6em 4em;  /* left padding makes room for absolute "All" */
-        flex-wrap: wrap;
+        padding: 0.75em 1em;
+        gap: 0.6em;
+        align-items: center;
+    }
+
+    .filter-tag-group {
+        flex-wrap: wrap;        /* overflow onto next line if needed */
         justify-content: center;
         gap: 0.5em;
     }
 
-    .filter-btn.all-btn {
-        left: 1em;
+    /* Hide vertical divider on mobile — groups are on separate lines */
+    .filter-divider {
+        display: none;
     }
 }
 
@@ -4901,6 +4932,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
