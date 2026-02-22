@@ -4400,30 +4400,41 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     color: #ffffff;
 }
 
+/* 1. Reset the stacked behavior for this specific list */
+.page-about #cta .actions.stacked li:last-child {
+    display: block !important; 
+    width: 100% !important;
+    text-align: center !important;
+}
+
+/* 2. Style the icon row */
 .page-about #cta .icons.major {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
-    align-items: flex-start !important;   
+    align-items: center !important;
+    gap: 1.5em !important; /* Managed gap instead of manual padding */
+    margin: 0 auto !important;
     padding: 0 !important;
 }
 
+/* 3. Ensure the LIs don't stretch or squish */
 .page-about #cta .icons.major li {
-    padding: 0 1em !important;
+    flex: 0 0 auto !important; /* Prevents the 'squishing' distortion */
+    width: auto !important;
+    padding: 0 !important;
     margin: 0 !important;
 }
 
-.page-about #cta .actions.stacked li:last-child {
-    padding-top: 1.5em;
-}
-
+/* 4. Mobile Responsiveness (The 'Parent' secret) */
 @media screen and (max-width: 736px) {
-    .page-about #cta .icons.major li {
-        flex-shrink: 0;
-        width: auto !important;
+    .page-about #cta .icons.major {
+        gap: 1em !important; /* Tighter gap for small screens */
+    }
+    .page-about #cta .icon.major {
+        font-size: 0.8em !important; /* Scales the diamond so it fits */
     }
 }
-
 
 
 
@@ -4963,83 +4974,3 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
