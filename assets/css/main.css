@@ -4405,6 +4405,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     flex-direction: row !important;
     justify-content: center !important;
     padding: 0 !important;
+	font-size: 0.8em;
 }
 
 .page-about #cta .icons.major li {
@@ -4415,6 +4416,14 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .page-about #cta .actions.stacked li:last-child {
     padding-top: 1.5em;
 }
+
+@media screen and (max-width: 736px) {
+    .page-about #cta .icons.major li {
+        flex-shrink: 0;
+        width: auto !important;
+    }
+}
+
 
 
 
@@ -4954,6 +4963,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
