@@ -4064,11 +4064,11 @@ body.is-mobile.landing #footer {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50%;
+    height: 30%;
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.7) 100%
+        rgba(0, 0, 0, 0.5) 100%
     );
     z-index: 2;
     opacity: 0;
@@ -5089,6 +5089,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
