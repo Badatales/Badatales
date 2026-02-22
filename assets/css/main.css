@@ -4397,12 +4397,28 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     font-size: 1.0em;       /* smaller diamonds */
 }
 
+.page-about .icons.major {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important; /* Change to flex-start if you want them left-aligned */
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    gap: 1.5rem !important; /* This creates the gap between the icons */
+}
+
 .page-about .icons.major li {
+    display: inline-block !important; /* Ensure they stay in a row */
+    padding: 0 !important;            /* Clean padding since we use 'gap' above */
+    margin: 0 !important;
+    border: 0 !important;             /* Remove any default template borders */
+}
+
+.page-about .icons.major li .icon.major {
     display: flex !important;
     align-items: center !important;
-	vertical-align: middle !important;
     justify-content: center !important;
-    padding-right: 0 !important;
     margin: 0 !important;
 }
 
@@ -4412,20 +4428,31 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     color: #ffffff;         /* white icons on dark background */
 }
 
+/* 1. Ensure the container item doesn't force vertical stacking */
 .page-about .actions.stacked li:last-child {
     display: flex !important;
+    justify-content: center !important; /* Centers the icon group on the page */
+    padding-top: 2em !important;        /* Adds space above the icons */
 }
 
+/* 2. Fix the icon row and the gap */
 .page-about .actions.stacked li .icons.major {
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: wrap !important;         /* Allows icons to wrap on small screens */
     align-items: center !important;
-    justify-content: flex-start !important;
+    justify-content: center !important; /* Centers icons horizontally */
     padding: 0 !important;
     margin: 0 !important;
-    gap: 1em !important;
+    gap: 2.5em !important;              /* Increased gap for the diamond icons */
 }
 
+/* 3. CRITICAL: Prevent the icons from stretching to full width */
+.page-about .actions.stacked li .icons.major li {
+    width: auto !important;             /* Prevents icons from being 100% wide */
+    padding: 0 !important;
+    margin: 0 !important;
+}
 
 
 
@@ -4969,6 +4996,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
