@@ -4294,7 +4294,7 @@ body.page-about #page-wrapper:after {
     left: 0;
     width: 100%;
     height: 100%;            /* Fill the full viewport, like the index does */
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/about-hero.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../../images/about-hero.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -4398,7 +4398,9 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 .page-about .icons.major li {
-    padding-right: 0.5em;
+    padding-right: 0;
+    margin: 0;
+    vertical-align: middle;    /* aligns all three to the same baseline */
 }
 
 .page-about .icon.style1,
@@ -4414,7 +4416,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     justify-content: flex-start;
     padding: 0;
     margin: 0;
-    gap: 0.5em;
+    gap: 1em;
 }
 
 
@@ -4961,6 +4963,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
