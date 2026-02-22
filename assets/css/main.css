@@ -4397,6 +4397,10 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     font-size: 1.0em;       /* smaller diamonds */
 }
 
+.page-about .icons.major li {
+    padding-right: 0.5em;
+}
+
 .page-about .icon.style1,
 .page-about .icon.style2,
 .page-about .icon.style3 {
@@ -4404,9 +4408,13 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 .page-about .actions.stacked li .icons.major {
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     padding: 0;
     margin: 0;
+    gap: 0.5em;
 }
 
 
@@ -4953,6 +4961,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
