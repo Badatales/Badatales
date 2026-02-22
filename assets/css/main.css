@@ -4398,9 +4398,9 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 .page-about .icons.major li {
-    padding-right: 0;
-    margin: 0;
-    vertical-align: middle;    /* aligns all three to the same baseline */
+    padding-right: 0 !important;
+    margin: 0 !important;
+    vertical-align: middle;
 }
 
 .page-about .icon.style1,
@@ -4963,6 +4963,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
