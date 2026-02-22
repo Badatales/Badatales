@@ -4444,8 +4444,8 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     padding: 0 !important;
     margin: 0 !important;
     flex-wrap: nowrap !important;    /* prevents third icon dropping */
-    gap: 1em !important;            
-}}
+    gap: 2em !important;            
+}
 
 /* 3. CRITICAL: Prevent the icons from stretching to full width */
 .page-about .actions.stacked li .icons.major li {
@@ -5004,6 +5004,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
