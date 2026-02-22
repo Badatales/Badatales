@@ -4393,7 +4393,15 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 /* 5. Wrapper-style5 - major icons in the last section */
+.page-about .icon.major {
+    font-size: 0.8em;       /* smaller diamonds */
+}
 
+.page-about .icon.style1,
+.page-about .icon.style2,
+.page-about .icon.style3 {
+    color: #ffffff;         /* white icons on dark background */
+}
 
 
 
@@ -4940,6 +4948,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
