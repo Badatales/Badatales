@@ -4398,9 +4398,12 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 .page-about .icons.major li {
+    display: flex !important;
+    align-items: center;
+	vertical-align: middle;
+    justify-content: center;
     padding-right: 0 !important;
     margin: 0 !important;
-    vertical-align: middle;
 }
 
 .page-about .icon.style1,
@@ -4966,6 +4969,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
