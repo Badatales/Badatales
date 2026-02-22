@@ -273,6 +273,15 @@
 					'rgba(0,0,0,0.21)'
 				];
 
+				var overlays = [
+					'rgba(242,183,5,0.3)',
+					'rgba(242,183,5,0.4)',
+					'rgba(242,183,5,0.5)',
+					'rgba(242,183,5,0.6)',
+					'rgba(242,183,5,0.65)',
+					'rgba(242,183,5,0.7)'
+				];
+
 				shuffled.forEach(function(article, i) {
 
 					var li = document.createElement('li');
@@ -293,11 +302,16 @@
 					img.alt = article.title;
 					img.loading = 'lazy';
 
+					var overlay = document.createElement('div');
+					overlay.className = 'feature-overlay';
+					overlay.style.background = overlays[i];
+
 					var title = document.createElement('h3');
 					title.className = 'feature-title';
 					title.textContent = article.title;
 
 					a.appendChild(img);
+					a.appendChild(overlay);
 					a.appendChild(title);
 					li.appendChild(a);
 					featuresEl.appendChild(li);
@@ -310,5 +324,3 @@
 	}
 
 })(jQuery);
-
-
