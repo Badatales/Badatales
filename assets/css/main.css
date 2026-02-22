@@ -4403,46 +4403,46 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     color: #ffffff;
 }
 
-/* 1. Neutralize the 'Stacked' container so it doesn't squash the icons */
+/* 1. Reset the 'Stacked' parent so it doesn't squash the children */
 .page-about #cta .actions.stacked li:last-child {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 2em 0 0 0 !important;
-    width: 100% !important;
     display: block !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 1.5em 0 0 0 !important; /* Space above the icon row */
 }
 
-/* 2. The Icon Row - Standard Flex */
+/* 2. The Icon Row - Forced Center and No Wrap */
 .page-about #cta .icons.major {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important; /* Forces them to stay in one line */
+    flex-wrap: nowrap !important;   /* Forces one row on all screens */
     justify-content: center !important;
     align-items: center !important;
-    margin: 0 auto !important;
     padding: 0 !important;
+    margin: 0 auto !important;
     list-style: none !important;
 }
 
-/* 3. The Individual Icon Spacing */
+/* 3. The Individual Icon Container - The Gap Fix */
 .page-about #cta .icons.major li {
-    display: inline-block !important;
-    margin: 0 0.75em !important; /* This is your gap */
+    display: block !important;
+    width: auto !important;          /* Stops the 100% width 'squish' */
+    flex: 0 0 auto !important;       /* Prevents the 'rodeo' distortion */
+    margin: 0 0.75em !important;     /* This creates the GAP */
     padding: 0 !important;
-    width: auto !important;      /* Prevents 'stacked' width:100% */
 }
 
-/* 4. MOBILE FIX: The key to stopping distortion */
+/* 4. Mobile Scaling - Prevent Overflow */
 @media screen and (max-width: 480px) {
     .page-about #cta .icon.major {
-        font-size: 0.7em !important; /* Shrinks the diamond to fit the screen */
+        font-size: 0.75em !important; /* Shrinks the diamonds so they fit on phones */
     }
     .page-about #cta .icons.major li {
-        margin: 0 0.4em !important; /* Tighter gap for small screens */
+        margin: 0 0.4em !important;   /* Tighter gap for small screens */
     }
 }
-
 
 
 
@@ -4991,4 +4991,5 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
