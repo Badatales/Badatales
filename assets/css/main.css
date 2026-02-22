@@ -4266,6 +4266,9 @@ YELLOW - #F2B705
 
 
 
+
+
+
 /* --- ABOUT PAGE CUSTOM STYLES --- */
 
 /* Hide homepage background on other pages */
@@ -4400,41 +4403,55 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     color: #ffffff;
 }
 
-/* 1. Reset the stacked behavior for this specific list */
+/* 1. Neutralize the 'Stacked' container so it doesn't squash the icons */
 .page-about #cta .actions.stacked li:last-child {
-    display: block !important; 
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 2em 0 0 0 !important;
     width: 100% !important;
-    text-align: center !important;
+    display: block !important;
 }
 
-/* 2. Style the icon row */
+/* 2. The Icon Row - Standard Flex */
 .page-about #cta .icons.major {
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Forces them to stay in one line */
     justify-content: center !important;
     align-items: center !important;
-    gap: 1.5em !important; /* Managed gap instead of manual padding */
     margin: 0 auto !important;
     padding: 0 !important;
+    list-style: none !important;
 }
 
-/* 3. Ensure the LIs don't stretch or squish */
+/* 3. The Individual Icon Spacing */
 .page-about #cta .icons.major li {
-    flex: 0 0 auto !important; /* Prevents the 'squishing' distortion */
-    width: auto !important;
+    display: inline-block !important;
+    margin: 0 0.75em !important; /* This is your gap */
     padding: 0 !important;
-    margin: 0 !important;
+    width: auto !important;      /* Prevents 'stacked' width:100% */
 }
 
-/* 4. Mobile Responsiveness (The 'Parent' secret) */
-@media screen and (max-width: 736px) {
-    .page-about #cta .icons.major {
-        gap: 1em !important; /* Tighter gap for small screens */
-    }
+/* 4. MOBILE FIX: The key to stopping distortion */
+@media screen and (max-width: 480px) {
     .page-about #cta .icon.major {
-        font-size: 0.8em !important; /* Scales the diamond so it fits */
+        font-size: 0.7em !important; /* Shrinks the diamond to fit the screen */
+    }
+    .page-about #cta .icons.major li {
+        margin: 0 0.4em !important; /* Tighter gap for small screens */
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4974,3 +4991,4 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
