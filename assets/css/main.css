@@ -4042,12 +4042,6 @@ body.is-mobile.landing #footer {
     padding: 0;
     overflow: hidden;
     cursor: pointer;
-	box-shadow: inset 0 0 0 0px rgba(255,255,255,0);
-    transition: box-shadow 0.6s ease;
-}
-
-#three .features li:hover {
-    box-shadow: inset 0 0 0 3px rgba(255,255,255,0.8);
 }
 
 #three .features li a.feature-card {
@@ -4060,17 +4054,21 @@ body.is-mobile.landing #footer {
     border: none;
 }
 
+/* Dark gradient — appears on hover only.
+   Sits in the bottom half of the image.
+   Sharp dark edge at the top of the gradient,
+   fading out toward the bottom edge of the image. */
 #three .features li a.feature-card::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    height: 60%;
+    height: 50%;
     background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0) 100%
+        to top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.7) 100%
     );
     z-index: 2;
     opacity: 0;
@@ -4109,10 +4107,10 @@ body.is-mobile.landing #footer {
     opacity: 0;
 }
 
+/* Title — always at bottom, always visible */
 #three .features li .feature-title {
-position: absolute;
-    top: 0;
-    bottom: auto;
+    position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
     padding: 1.5em;
@@ -4126,11 +4124,6 @@ position: absolute;
     text-transform: uppercase;
     text-align: center;
     margin: 0;
-    transition: opacity 0.6s ease;
-}
-
-#three .features li:hover .feature-title {
-    opacity: 0;
 }
 
 @media screen and (max-width: 736px) {
@@ -5096,6 +5089,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
