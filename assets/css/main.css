@@ -4404,12 +4404,12 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
+    align-items: flex-start !important;   
     padding: 0 !important;
-	font-size: 0.8em;
 }
 
 .page-about #cta .icons.major li {
-    padding: 0 1em !important;   /* matches global mobile rule exactly */
+    padding: 0 1em !important;
     margin: 0 !important;
 }
 
@@ -4963,6 +4963,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
