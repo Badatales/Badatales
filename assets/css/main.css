@@ -4439,13 +4439,13 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 .page-about .actions.stacked li .icons.major {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;         /* Allows icons to wrap on small screens */
     align-items: center !important;
     justify-content: center !important; /* Centers icons horizontally */
     padding: 0 !important;
     margin: 0 !important;
-    gap: 2.5em !important;              /* Increased gap for the diamond icons */
-}
+    flex-wrap: nowrap !important;    /* prevents third icon dropping */
+    gap: 1em !important;            
+}}
 
 /* 3. CRITICAL: Prevent the icons from stretching to full width */
 .page-about .actions.stacked li .icons.major li {
@@ -4454,7 +4454,15 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     margin: 0 !important;
 }
 
-
+@media screen and (max-width: 736px) {
+    .page-about .icons.major li {
+        padding: 0 1em !important;   /* matches the global mobile rule exactly */
+    }
+    
+    .page-about .actions.stacked li .icons.major {
+        gap: 0 !important;           /* let padding handle spacing on mobile */
+    }
+}
 
 
 
@@ -4996,6 +5004,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
