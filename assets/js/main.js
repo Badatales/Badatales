@@ -285,11 +285,11 @@
 
 					var a = document.createElement('a');
 					a.className = 'feature-card';
-					a.href = 'en/articles/' + article.slug + '/';
+					a.href = 'articles/' + article.slug + '/';
 
 					var img = document.createElement('img');
 					img.className = 'feature-img';
-					img.src = 'en/articles/' + article.slug + '/hero.jpg';
+					img.src = 'articles/' + article.slug + '/hero.jpg';
 					img.alt = article.title;
 					img.loading = 'lazy';
 
@@ -310,4 +310,5 @@
 	}
 
 })(jQuery);
+
 
