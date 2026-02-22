@@ -4026,6 +4026,149 @@ body.is-mobile.landing #footer {
 		background-attachment: scroll;
 	}
 
+
+
+/* =====================================================
+   FEATURES GRID — Dynamic article showcase
+   on index.html, section#three .wrapper.style3.special
+   
+   Each .features li becomes a clickable article card.
+   Image is strongly suppressed by default with yellow+grey
+   overlay. On hover: full brightness, dark gradient at
+   bottom keeps title readable.
+===================================================== */
+
+/* ── Make each li a positioned container for the image ── */
+
+#three .features li {
+    padding: 0;               /* remove default padding — image fills the block */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#three .features li a.feature-card {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 18em;         /* consistent block height */
+    position: relative;
+    text-decoration: none;
+    border: none;
+}
+
+/* ── Hero image — fills the block ───────────────────── */
+
+#three .features li .feature-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.6s ease, filter 0.6s ease;
+
+    /* Default: strongly suppressed */
+    opacity: 0.35;
+    filter: grayscale(40%) brightness(0.7);
+}
+
+/* ── Yellow+grey overlay — the tinted layer ─────────── */
+/* Sits above the image, below the text.
+   mix-blend-mode: multiply lets the image tint show through
+   while the existing nth-child rgba overlays add the
+   progressively darker yellow shading. */
+
+#three .features li a.feature-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(242, 183, 5, 0.55) 0%,     /* yellow tint */
+        rgba(46, 56, 66, 0.45) 100%      /* grey tint */
+    );
+    transition: opacity 0.6s ease;
+    z-index: 1;
+}
+
+/* ── Dark gradient at bottom — keeps title readable ─── */
+
+#three .features li a.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 2;
+    transition: opacity 0.6s ease;
+}
+
+/* ── Title over the image ────────────────────────────── */
+
+#three .features li .feature-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25em 1.5em;
+    z-index: 3;
+    color: #ffffff;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    text-transform: none;
+    margin: 0;
+}
+
+/* ── Hover — full brightness, overlay fades ─────────── */
+
+#three .features li:hover .feature-img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
+
+#three .features li:hover a.feature-card::before {
+    opacity: 0;         /* yellow+grey overlay disappears */
+}
+
+/* Bottom gradient stays on hover so title stays readable */
+#three .features li:hover a.feature-card::after {
+    opacity: 1;
+}
+
+/* ── Keep the nth-child background overlays ─────────── */
+/* They sit behind the image and tint the yellow background.
+   No change needed — they work as-is. */
+
+/* ── Mobile ──────────────────────────────────────────── */
+
+@media screen and (max-width: 736px) {
+
+    #three .features li a.feature-card {
+        min-height: 14em;
+    }
+
+    /* Restore border separator from original mobile style */
+    #three .features li {
+        border-top: solid 2px rgba(255, 255, 255, 0.3);
+    }
+
+    #three .features li:first-child {
+        border-top: 0;
+    }
+}
+
+
+
+
 /* Footer */
 
 	#footer {
@@ -4975,6 +5118,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
