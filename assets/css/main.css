@@ -4582,7 +4582,7 @@ body.page-articles #page-wrapper:after {
     color: #ffffff;
     display: inline-flex;
     align-items: center;
-    height: 3em;
+    height: auto;
     padding: 1em 2.25em;
 	padding-top: 1em;
     padding-bottom: 1em;
@@ -4934,6 +4934,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
