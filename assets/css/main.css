@@ -4398,7 +4398,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 /* 5. Wrapper-style5 - major icons in the last section */
 /* About page — CTA social icons */
 .page-about .icon.major {
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .page-about .icon.style1,
@@ -4426,14 +4426,9 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 @media screen and (max-width: 736px) {
-    .page-about #cta .icons.major {
-        width: auto !important;
-        align-self: center;
-    }
-
-    .page-about #cta .actions.stacked li:last-child {
-        display: flex !important;
-        justify-content: center !important;
+    .page-about #cta .inner .actions {
+        max-width: none !important;
+        width: 100% !important;
     }
 }
 
@@ -4979,6 +4974,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
