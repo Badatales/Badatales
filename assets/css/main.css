@@ -4396,56 +4396,34 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 /* 5. Wrapper-style5 - major icons in the last section */
-/* About page icons — minimal overrides only */
+/* About page — CTA social icons */
+.page-about .icon.major {
+    font-size: 0.8em;
+}
+
 .page-about .icon.style1,
 .page-about .icon.style2,
 .page-about .icon.style3 {
     color: #ffffff;
 }
 
-/* 1. Reset the 'Stacked' parent so it doesn't squash the children */
-.page-about #cta .actions.stacked li:last-child {
-    display: block !important;
-    width: 100% !important;
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    padding: 1.5em 0 0 0 !important; /* Space above the icon row */
-}
-
-/* 2. The Icon Row - Forced Center and No Wrap */
 .page-about #cta .icons.major {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important;   /* Forces one row on all screens */
     justify-content: center !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     padding: 0 !important;
-    margin: 0 auto !important;
-    list-style: none !important;
+    margin: 0 !important;
 }
 
-/* 3. The Individual Icon Container - The Gap Fix */
 .page-about #cta .icons.major li {
-    display: block !important;
-    width: auto !important;          /* Stops the 100% width 'squish' */
-    flex: 0 0 auto !important;       /* Prevents the 'rodeo' distortion */
-    margin: 0 0.75em !important;     /* This creates the GAP */
-    padding: 0 !important;
+    padding: 0 1em !important;
+    margin: 0 !important;
 }
 
-/* 4. Mobile Scaling - Prevent Overflow */
-@media screen and (max-width: 480px) {
-    .page-about #cta .icon.major {
-        font-size: 0.75em !important; /* Shrinks the diamonds so they fit on phones */
-    }
-    .page-about #cta .icons.major li {
-        margin: 0 0.4em !important;   /* Tighter gap for small screens */
-    }
+.page-about #cta .actions.stacked li:last-child {
+    padding-top: 1.5em;
 }
-
-
-
 
 
 
@@ -4991,5 +4969,6 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
