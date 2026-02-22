@@ -4393,78 +4393,28 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 
 /* 5. Wrapper-style5 - major icons in the last section */
-.page-about .icon.major {
-    font-size: 1.0em;       /* smaller diamonds */
-}
-
-.page-about .icons.major {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important; /* Change to flex-start if you want them left-aligned */
-    align-items: center !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-    gap: 1.5rem !important; /* This creates the gap between the icons */
-}
-
-.page-about .icons.major li {
-    display: inline-block !important; /* Ensure they stay in a row */
-    padding: 0 !important;            /* Clean padding since we use 'gap' above */
-    margin: 0 !important;
-    border: 0 !important;             /* Remove any default template borders */
-}
-
-.page-about .icons.major li .icon.major {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 !important;
-}
-
+/* About page icons — minimal overrides only */
 .page-about .icon.style1,
 .page-about .icon.style2,
 .page-about .icon.style3 {
-    color: #ffffff;         /* white icons on dark background */
+    color: #ffffff;
 }
 
-/* 1. Ensure the container item doesn't force vertical stacking */
-.page-about .actions.stacked li:last-child {
-    display: flex !important;
-    justify-content: center !important; /* Centers the icon group on the page */
-    padding-top: 2em !important;        /* Adds space above the icons */
-}
-
-/* 2. Fix the icon row and the gap */
-.page-about .actions.stacked li .icons.major {
+.page-about #cta .icons.major {
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important; /* Centers icons horizontally */
+    justify-content: center !important;
     padding: 0 !important;
-    margin: 0 !important;
-    flex-wrap: nowrap !important;    /* prevents third icon dropping */
-    gap: 2em !important;            
 }
 
-/* 3. CRITICAL: Prevent the icons from stretching to full width */
-.page-about .actions.stacked li .icons.major li {
-    width: auto !important;             /* Prevents icons from being 100% wide */
-    padding: 0 !important;
+.page-about #cta .icons.major li {
+    padding: 0 1em !important;   /* matches global mobile rule exactly */
     margin: 0 !important;
 }
 
-@media screen and (max-width: 736px) {
-    .page-about .icons.major li {
-        padding: 0 1em !important;   /* matches the global mobile rule exactly */
-    }
-    
-    .page-about .actions.stacked li .icons.major {
-        gap: 0 !important;           /* let padding handle spacing on mobile */
-    }
+.page-about #cta .actions.stacked li:last-child {
+    padding-top: 1.5em;
 }
-
-
 
 
 
@@ -5004,6 +4954,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
