@@ -4399,9 +4399,9 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 
 .page-about .icons.major li {
     display: flex !important;
-    align-items: center;
-	vertical-align: middle;
-    justify-content: center;
+    align-items: center !important;
+	vertical-align: middle !important;
+    justify-content: center !important;
     padding-right: 0 !important;
     margin: 0 !important;
 }
@@ -4413,17 +4413,17 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 }
 
 .page-about .actions.stacked li:last-child {
-    display: flex;
+    display: flex !important;
 }
 
 .page-about .actions.stacked li .icons.major {
     display: flex !important;
     flex-direction: row !important;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-    margin: 0;
-    gap: 1em;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 1em !important;
 }
 
 
@@ -4969,6 +4969,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
