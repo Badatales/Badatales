@@ -320,7 +320,6 @@
 					items.push(li);
 				});
 
-				// ── Auto-cycling highlight ──────────────────
 				var CYCLE_DURATION = 3000;
 				var currentIndex   = 0;
 				var cycleTimer     = null;
@@ -359,6 +358,99 @@
 			})
 			.catch(function(err) {
 				console.error('Features grid failed to load:', err);
+			});
+
+	}
+
+	/* =========================================================
+	   ARTICLE PAGE LOGIC
+	========================================================= */
+	if ($body.hasClass('page-article')) {
+
+		var pathParts = window.location.pathname.split('/').filter(Boolean);
+		var slug = pathParts[pathParts.length - 1] === 'index.html'
+			? pathParts[pathParts.length - 2]
+			: pathParts[pathParts.length - 1];
+
+		var titleEl     = document.getElementById('articleTitle');
+		var tagsEl      = document.getElementById('articleTags');
+		var suggestedEl = document.getElementById('suggestedArticles');
+
+		function capFirst(str) {
+			return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+		}
+
+		function buildSuggestedCard(article) {
+			var a = document.createElement('a');
+			a.className = 'article-card';
+			a.href = '../articles/' + article.slug + '/';
+
+			var tagText = [capFirst(article.type), capFirst(article.country)].filter(Boolean).join(' · ');
+
+			a.innerHTML =
+				'<div class="image">' +
+					'<img src="../articles/' + article.slug + '/hero.jpg" alt="' + article.title + '" loading="lazy" />' +
+				'</div>' +
+				'<div class="card-body">' +
+					'<span class="card-tag">' + tagText + '</span>' +
+					'<h3 class="card-title">' + article.title + '</h3>' +
+					'<p class="card-excerpt">' + article.excerpt + '</p>' +
+				'</div>';
+
+			return a;
+		}
+
+		fetch('../../articles.json')
+			.then(function(res) {
+				if (!res.ok) throw new Error('Could not load articles.json');
+				return res.json();
+			})
+			.then(function(articles) {
+
+				var current = articles.find(function(a) { return a.slug === slug; });
+				if (!current) {
+					console.error('Article not found in JSON for slug:', slug);
+					return;
+				}
+
+				// Apply colour class
+				var color = current.color || 'grey';
+				document.body.classList.add('color-' + color);
+
+				// Page title
+				document.title = current.title + ' | Badatales';
+
+				// Header title
+				titleEl.textContent = current.title;
+
+				// Tags — link to articles page with filter
+				if (current.country) {
+					var countryTag = document.createElement('a');
+					countryTag.href = '../articles.html?filter=' + current.country;
+					countryTag.textContent = capFirst(current.country);
+					tagsEl.appendChild(countryTag);
+				}
+				if (current.type) {
+					var typeTag = document.createElement('a');
+					typeTag.href = '../articles.html?filter=' + current.type;
+					typeTag.textContent = capFirst(current.type);
+					tagsEl.appendChild(typeTag);
+				}
+
+				// 2 random suggested articles excluding current
+				var others = articles.filter(function(a) { return a.slug !== slug; });
+				var suggested = others
+					.map(function(a) { return { a: a, sort: Math.random() }; })
+					.sort(function(x, y) { return x.sort - y.sort; })
+					.slice(0, 2)
+					.map(function(x) { return x.a; });
+
+				suggested.forEach(function(article) {
+					suggestedEl.appendChild(buildSuggestedCard(article));
+				});
+			})
+			.catch(function(err) {
+				console.error('Article page failed to load:', err);
 			});
 
 	}
