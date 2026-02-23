@@ -364,6 +364,9 @@
 
 	/* =========================================================
 	   ARTICLE PAGE LOGIC
+	   Path context: en/articles/slug/index.html
+	   ../../  = en/
+	   ../     = en/articles/
 	========================================================= */
 	if ($body.hasClass('page-article')) {
 
@@ -383,13 +386,14 @@
 		function buildSuggestedCard(article) {
 			var a = document.createElement('a');
 			a.className = 'article-card';
-			a.href = '../articles/' + article.slug + '/';
+			// from en/articles/slug/, go up one level to en/articles/, then into other slug
+			a.href = '../' + article.slug + '/';
 
 			var tagText = [capFirst(article.type), capFirst(article.country)].filter(Boolean).join(' · ');
 
 			a.innerHTML =
 				'<div class="image">' +
-					'<img src="../articles/' + article.slug + '/hero.jpg" alt="' + article.title + '" loading="lazy" />' +
+					'<img src="../' + article.slug + '/hero.jpg" alt="' + article.title + '" loading="lazy" />' +
 				'</div>' +
 				'<div class="card-body">' +
 					'<span class="card-tag">' + tagText + '</span>' +
@@ -400,6 +404,7 @@
 			return a;
 		}
 
+		// articles.json is at en/articles.json — two levels up from en/articles/slug/
 		fetch('../../articles.json')
 			.then(function(res) {
 				if (!res.ok) throw new Error('Could not load articles.json');
@@ -424,15 +429,16 @@
 				titleEl.textContent = current.title;
 
 				// Tags — link to articles page with filter
+				// articles.html is at en/articles.html — two levels up
 				if (current.country) {
 					var countryTag = document.createElement('a');
-					countryTag.href = '../articles.html?filter=' + current.country;
+					countryTag.href = '../../articles.html?filter=' + current.country;
 					countryTag.textContent = capFirst(current.country);
 					tagsEl.appendChild(countryTag);
 				}
 				if (current.type) {
 					var typeTag = document.createElement('a');
-					typeTag.href = '../articles.html?filter=' + current.type;
+					typeTag.href = '../../articles.html?filter=' + current.type;
 					typeTag.textContent = capFirst(current.type);
 					tagsEl.appendChild(typeTag);
 				}
