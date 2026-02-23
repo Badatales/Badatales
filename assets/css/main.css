@@ -5237,7 +5237,7 @@ figcaption {
 /* ── You might like ─────────────────────────────────── */
 
 #you-might-like {
-    background-color: rgba(0, 0, 0, 0.075);
+    background-color: #f2f2f0;
     padding: 4em 0;
 }
 
@@ -5378,6 +5378,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
