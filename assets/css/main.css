@@ -4037,13 +4037,6 @@ body.is-mobile.landing #footer {
    overlay. On hover: full brightness
 ===================================================== */
 
-/* ── Make each li a positioned container for the image ── */
-/* Countdown animation for the progress bar */
-@keyframes featureCountdown {
-    from { width: 100%; }
-    to   { width: 0%; }
-}
-
 #three .features li {
     padding: 0;
     overflow: hidden;
@@ -4069,15 +4062,20 @@ body.is-mobile.landing #footer {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.6;              /* slightly more visible than before */
+    opacity: 0.6;
     filter: grayscale(20%) brightness(0.8);
-    transition: opacity 0.6s ease, filter 0.6s ease;
+    transition: opacity 0.6s ease, filter 0.6s ease;  /* fast on manual hover */
 }
 
-#three .features li:hover .feature-img,
+#three .features li:hover .feature-img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
+
 #three .features li.feature-active .feature-img {
     opacity: 1;
     filter: grayscale(0%) brightness(1);
+    transition: opacity 1.8s ease, filter 1.8s ease;  /* slow on auto-cycle */
 }
 
 /* ── Yellow overlay ─────────────────────────────────── */
@@ -4089,12 +4087,16 @@ body.is-mobile.landing #footer {
     transition: opacity 0.6s ease;
 }
 
-#three .features li:hover .feature-overlay,
-#three .features li.feature-active .feature-overlay {
+#three .features li:hover .feature-overlay {
     opacity: 0;
 }
 
-/* ── Bottom gradient — appears on hover/active only ── */
+#three .features li.feature-active .feature-overlay {
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+
+/* ── Bottom gradient — on hover/active only ─────────── */
 
 #three .features li a.feature-card::after {
     content: '';
@@ -4113,9 +4115,13 @@ body.is-mobile.landing #footer {
     transition: opacity 0.6s ease;
 }
 
-#three .features li:hover a.feature-card::after,
+#three .features li:hover a.feature-card::after {
+    opacity: 1;
+}
+
 #three .features li.feature-active a.feature-card::after {
     opacity: 1;
+    transition: opacity 1.8s ease;
 }
 
 /* ── Title — always visible at bottom ───────────────── */
@@ -4138,18 +4144,6 @@ body.is-mobile.landing #footer {
     margin: 0;
 }
 
-/* ── Countdown progress bar ─────────────────────────── */
-
-.feature-progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1px;
-    width: 0%;
-    background: rgba(255, 255, 255, 0.85);
-    z-index: 4;
-}
-
 /* ── Mobile ─────────────────────────────────────────── */
 
 @media screen and (max-width: 736px) {
@@ -4162,10 +4156,10 @@ body.is-mobile.landing #footer {
     #three .features li:first-child {
         border-top: 0;
     }
-    .feature-progress {
-        display: none;
-    }
 }
+
+
+
 
 
 /* Footer */
@@ -5117,6 +5111,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
