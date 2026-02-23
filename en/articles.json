@@ -1,5 +1,11 @@
 [
-    
+     {
+        "slug": "Edinburgh-tips",
+        "title": "Visit Scotland's capital. But do it right!",
+        "country": "scotland",
+        "type": "locations",
+        "excerpt": "Uncover the magic of Edinburgh, from its haunting medieval wynds to its majestic volcanic peaks. This is what you should not miss."
+    },
     {
         "slug": "scotland-weather-tips",
         "title": "5 Tips for Surviving Scottish Weather",
@@ -8,17 +14,17 @@
         "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north."
     },
     {
-        "slug": "alaska",
-        "title": "alaska",
+        "slug": "alaska-icefield",
+        "title": "There is a lot of ice in Alaska",
         "country": "alaska",
-        "type": "tips",
+        "type": "stories",
         "excerpt": "Beenthere, donethat"
     },
     {
-        "slug": "glencoe",
-        "title": "Lost in Glencoe: Mist, Mountains, and Magic",
+        "slug": "puffins",
+        "title": "Find the Scottish magical creatures",
         "country": "scotland",
-        "type": "locations",
-        "excerpt": "Few places hold quite the same quiet drama. Three days in the valley and what they taught me about slowing down."
+        "type": "tips",
+        "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?"
     }
 ]
