@@ -1,10 +1,10 @@
 [
-     {
+    {
         "slug": "Edinburgh-tips",
         "title": "Visit Scotland's capital. But do it right!",
         "country": "scotland",
         "type": "locations",
-        "excerpt": "Uncover the magic of Edinburgh, from its haunting medieval wynds to its majestic volcanic peaks. This is what you should not miss."
+        "excerpt": "Uncover the magic of Edinburgh, from its haunting medieval wynds to its majestic volcanic peaks. This is what you should not miss.",
         "color": "red"
     },
     {
@@ -12,7 +12,7 @@
         "title": "5 Tips for Surviving Scottish Weather",
         "country": "scotland",
         "type": "tips",
-        "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north."
+        "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north.",
         "color": "yellow"
     },
     {
@@ -20,7 +20,7 @@
         "title": "There is a lot of ice in Alaska",
         "country": "alaska",
         "type": "stories",
-        "excerpt": "Beenthere, donethat"
+        "excerpt": "Beenthere, donethat",
         "color": "yellow"
     },
     {
@@ -28,7 +28,7 @@
         "title": "Find the Scottish magical creatures",
         "country": "scotland",
         "type": "tips",
-        "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?"
+        "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?",
         "color": "grey"
     }
 ]
