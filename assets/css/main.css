@@ -4038,6 +4038,12 @@ body.is-mobile.landing #footer {
 ===================================================== */
 
 /* ── Make each li a positioned container for the image ── */
+/* Countdown animation for the progress bar */
+@keyframes featureCountdown {
+    from { width: 100%; }
+    to   { width: 0%; }
+}
+
 #three .features li {
     padding: 0;
     overflow: hidden;
@@ -4054,10 +4060,42 @@ body.is-mobile.landing #footer {
     border: none;
 }
 
-/* Dark gradient — appears on hover only.
-   Sits in the bottom half of the image.
-   Sharp dark edge at the top of the gradient,
-   fading out toward the bottom edge of the image. */
+/* ── Image ─────────────────────────────────────────── */
+
+#three .features li .feature-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.6;              /* slightly more visible than before */
+    filter: grayscale(20%) brightness(0.8);
+    transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+#three .features li:hover .feature-img,
+#three .features li.feature-active .feature-img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
+
+/* ── Yellow overlay ─────────────────────────────────── */
+
+.feature-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: opacity 0.6s ease;
+}
+
+#three .features li:hover .feature-overlay,
+#three .features li.feature-active .feature-overlay {
+    opacity: 0;
+}
+
+/* ── Bottom gradient — appears on hover/active only ── */
+
 #three .features li a.feature-card::after {
     content: '';
     position: absolute;
@@ -4075,39 +4113,13 @@ body.is-mobile.landing #footer {
     transition: opacity 0.6s ease;
 }
 
-#three .features li:hover a.feature-card::after {
+#three .features li:hover a.feature-card::after,
+#three .features li.feature-active a.feature-card::after {
     opacity: 1;
 }
 
-#three .features li .feature-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.5;
-    filter: grayscale(20%) brightness(0.8);
-    transition: opacity 0.6s ease, filter 0.6s ease;
-}
+/* ── Title — always visible at bottom ───────────────── */
 
-#three .features li:hover .feature-img {
-    opacity: 1;
-    filter: grayscale(0%) brightness(1);
-}
-
-.feature-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    transition: opacity 0.6s ease;
-}
-
-#three .features li:hover .feature-overlay {
-    opacity: 0;
-}
-
-/* Title — always at bottom, always visible */
 #three .features li .feature-title {
     position: absolute;
     bottom: 0;
@@ -4126,18 +4138,34 @@ body.is-mobile.landing #footer {
     margin: 0;
 }
 
+/* ── Countdown progress bar ─────────────────────────── */
+
+.feature-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 0%;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 4;
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+
 @media screen and (max-width: 736px) {
     #three .features li a.feature-card {
         min-height: 14em;
     }
     #three .features li {
-        border-top: solid 2px rgba(255,255,255,0.3);
+        border-top: solid 2px rgba(255, 255, 255, 0.3);
     }
     #three .features li:first-child {
         border-top: 0;
     }
+    .feature-progress {
+        display: none;
+    }
 }
-
 
 
 /* Footer */
@@ -5089,6 +5117,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
