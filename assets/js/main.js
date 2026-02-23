@@ -264,18 +264,15 @@
 
 				featuresEl.innerHTML = '';
 
-				// Row-pair shading: 0+1 lightest, 2+3 medium, 4+5 darkest
-				// All keep yellow tint, differences subtle
 				var shades = [
-					'rgba(0,0,0,0.025)',   // row 1
 					'rgba(0,0,0,0.025)',
-					'rgba(0,0,0,0.065)',   // row 2
+					'rgba(0,0,0,0.025)',
 					'rgba(0,0,0,0.065)',
-					'rgba(0,0,0,0.11)',    // row 3
+					'rgba(0,0,0,0.065)',
+					'rgba(0,0,0,0.11)',
 					'rgba(0,0,0,0.11)'
 				];
 
-				// Overlay yellow tint — row pairs, lighter to darker
 				var overlays = [
 					'rgba(242,183,5,0.38)',
 					'rgba(242,183,5,0.38)',
@@ -315,21 +312,16 @@
 					title.className = 'feature-title';
 					title.textContent = article.title;
 
-					// Countdown progress bar
-					var progress = document.createElement('div');
-					progress.className = 'feature-progress';
-
 					a.appendChild(img);
 					a.appendChild(overlay);
 					a.appendChild(title);
-					a.appendChild(progress);
 					li.appendChild(a);
 					featuresEl.appendChild(li);
 					items.push(li);
 				});
 
 				// ── Auto-cycling highlight ──────────────────
-				var CYCLE_DURATION = 3000;  // ms
+				var CYCLE_DURATION = 3000;
 				var currentIndex   = 0;
 				var cycleTimer     = null;
 				var manualHover    = false;
@@ -337,16 +329,8 @@
 				function activateItem(index) {
 					items.forEach(function(item) {
 						item.classList.remove('feature-active');
-						var bar = item.querySelector('.feature-progress');
-						// Reset animation by removing and re-adding
-						bar.style.animation = 'none';
-						bar.offsetHeight;   // force reflow
-						bar.style.animation = '';
 					});
-
 					items[index].classList.add('feature-active');
-					var activeBar = items[index].querySelector('.feature-progress');
-					activeBar.style.animation = 'featureCountdown ' + (CYCLE_DURATION / 1000) + 's linear forwards';
 				}
 
 				function startCycle() {
@@ -359,7 +343,6 @@
 					}, CYCLE_DURATION);
 				}
 
-				// Pause cycle on manual hover
 				items.forEach(function(item) {
 					item.addEventListener('mouseenter', function() {
 						manualHover = true;
@@ -371,7 +354,6 @@
 					});
 				});
 
-				// Boot
 				activateItem(0);
 				startCycle();
 			})
