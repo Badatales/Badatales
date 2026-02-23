@@ -5095,7 +5095,7 @@ body.page-articles #page-wrapper:after {
 
 #article-header {
     display: flex;
-    align-items: flex-end;        /* content sits at bottom half */
+    align-items: center;      
     justify-content: center;
     min-height: 50vh;
     padding: 0;
@@ -5139,7 +5139,7 @@ body.page-articles #page-wrapper:after {
 /* Title */
 .article-header__title {
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 700;
     letter-spacing: 0.1em;
     line-height: 1.2;
@@ -5271,6 +5271,36 @@ figcaption {
     max-width: 30em;
 }
 
+/* Yellow article — button matches grey menu */
+.page-article.color-yellow #you-might-like .button {
+    box-shadow: inset 0 0 0 2px #2e3842;
+    color: #2e3842;
+}
+.page-article.color-yellow #you-might-like .button:hover {
+    background-color: #2e3842;
+    color: #ffffff;
+}
+
+/* Red article — button matches yellow menu */
+.page-article.color-red #you-might-like .button {
+    box-shadow: inset 0 0 0 2px #F2B705;
+    color: #F2B705;
+}
+.page-article.color-red #you-might-like .button:hover {
+    background-color: #F2B705;
+    color: #2e3842;
+}
+
+/* Grey article — button matches red menu */
+.page-article.color-grey #you-might-like .button {
+    box-shadow: inset 0 0 0 2px #5B0F1A;
+    color: #5B0F1A;
+}
+.page-article.color-grey #you-might-like .button:hover {
+    background-color: #5B0F1A;
+    color: #ffffff;
+}
+
 /* ── Mobile ─────────────────────────────────────────── */
 
 @media screen and (max-width: 736px) {
@@ -5378,6 +5408,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
