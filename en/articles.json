@@ -5,6 +5,7 @@
         "country": "scotland",
         "type": "locations",
         "excerpt": "Uncover the magic of Edinburgh, from its haunting medieval wynds to its majestic volcanic peaks. This is what you should not miss."
+        "color": "red"
     },
     {
         "slug": "scotland-weather-tips",
@@ -12,6 +13,7 @@
         "country": "scotland",
         "type": "tips",
         "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north."
+        "color": "yellow"
     },
     {
         "slug": "alaska-icefield",
@@ -19,6 +21,7 @@
         "country": "alaska",
         "type": "stories",
         "excerpt": "Beenthere, donethat"
+        "color": "yellow"
     },
     {
         "slug": "puffins",
@@ -26,5 +29,6 @@
         "country": "scotland",
         "type": "tips",
         "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?"
+        "color": "grey"
     }
 ]
