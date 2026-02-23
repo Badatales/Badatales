@@ -5015,45 +5015,278 @@ body.page-articles #page-wrapper:after {
 
 
 
+/* =====================================================
+   ARTICLE PAGE — en/articles/article-folder/index.html
+   Add to main.css
+===================================================== */
 
+/* ── Colour schemes for article header ────────────── */
+/* Apply via articles.json "color" field:
+   "yellow" → #F2B705 bg, dark text
+   "red"    → #5B0F1A bg, white text
+   "grey"   → #2e3842 bg, white text              */
 
-/* =========================================================
-   INDIVIDUAL ARTICLE PAGE STYLES
-========================================================= */
-
-.article-banner img {
-    width: 100%;
-    display: block;
+.page-article.color-yellow #article-header {
+    background-color: #F2B705;
 }
-
-.article-tags span {
-    display: inline-block;
-    margin-right: 1rem;
-    padding: 0.4em 1em;
-    background: #F2B705;
+.page-article.color-yellow .article-header__title,
+.page-article.color-yellow .article-header__tags a {
     color: #2e3842;
-    border-radius: 999px;
+}
+.page-article.color-yellow .article-header__tags a {
+    border-color: rgba(46, 56, 66, 0.35);
+}
+.page-article.color-yellow .article-header__tags a:hover {
+    border-color: rgba(46, 56, 66, 0.8);
 }
 
-.article-content {
-    max-width: 900px;
+.page-article.color-red #article-header {
+    background-color: #5B0F1A;
+}
+.page-article.color-red .article-header__title,
+.page-article.color-red .article-header__tags a {
+    color: #ffffff;
+}
+
+.page-article.color-grey #article-header {
+    background-color: #2e3842;
+}
+.page-article.color-grey .article-header__title,
+.page-article.color-grey .article-header__tags a {
+    color: #ffffff;
+}
+
+/* ── Article header block — half viewport height ───── */
+
+#article-header {
+    display: flex;
+    align-items: flex-end;        /* content sits at bottom half */
+    justify-content: center;
+    min-height: 50vh;
+    padding: 0;
+    position: relative;
+}
+
+.article-header__inner {
+    width: 100%;
+    max-width: 60em;
+    padding: 3em 2em 3em 2em;
     margin: 0 auto;
 }
 
-.article-image {
+/* Tags — clickable, link to articles page with filter */
+.article-header__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.article-header__tags a {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.4em 1em;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: border-color 0.2s ease;
+}
+
+.page-article.color-red .article-header__tags a:hover,
+.page-article.color-grey .article-header__tags a:hover {
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Title */
+.article-header__title {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    margin: 0;
+    text-transform: none;
+}
+
+/* ── Hero image — full width ────────────────────────── */
+
+#article-hero {
+    width: 100%;
+    max-height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#article-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ── Article body — narrow text column ─────────────── */
+
+#article-body {
+    background: #ffffff;
+    padding: 4em 0;
+}
+
+.article-body__inner {
+    max-width: 38em;        /* narrow text column */
+    margin: 0 auto;
+    padding: 0 2em;
+    color: #2e3842;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+.article-body__inner p {
+    margin-bottom: 1.5em;
+}
+
+.article-body__inner h2,
+.article-body__inner h3 {
+    color: #2e3842;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+/* Inline images — wider than text */
+.article-img {
+    margin: 2.5em -8em;    /* bleeds wider than text column */
     text-align: center;
-    margin: 2rem 0;
 }
 
-.article-image img {
-    width: 80%;
-    border-radius: 20px;
-    transition: transform 0.4s ease;
+.article-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
 }
 
-.article-image img:hover {
-    transform: scale(1.05);
+/* Wide images — 16:9, stretches beyond text column */
+.article-img--wide {
+    margin: 2.5em -8em;
 }
+
+.article-img--wide img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Portrait images — narrower than text column */
+.article-img--portrait {
+    margin: 2.5em auto;
+    max-width: 60%;        /* never wider than text */
+}
+
+.article-img--portrait img {
+    max-height: 32em;      /* height cap for very tall portraits */
+    object-fit: contain;
+    width: auto;
+    margin: 0 auto;
+}
+
+figcaption {
+    font-size: 0.75em;
+    color: #888;
+    letter-spacing: 0.05em;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+/* ── You might like ─────────────────────────────────── */
+
+#you-might-like {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 4em 0;
+}
+
+#you-might-like .inner {
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 0 2em;
+    text-align: center;
+}
+
+.you-might-like__heading {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 2em;
+}
+
+.you-might-like__cards {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    margin-bottom: 2.5em;
+}
+
+/* Reuse article-card styles from articles page */
+.you-might-like__cards .article-card {
+    flex: 1;
+    max-width: 30em;
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+
+@media screen and (max-width: 736px) {
+
+    .article-header__title {
+        font-size: 1.4em;
+    }
+
+    #article-header {
+        min-height: 50vh;
+        align-items: flex-end;
+    }
+
+    .article-img--wide,
+    .article-img {
+        margin: 2em -1em;   /* less bleed on mobile */
+    }
+
+    .article-img--portrait {
+        max-width: 90%;
+    }
+
+    .you-might-like__cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .you-might-like__cards .article-card {
+        max-width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+
+    .article-img--wide,
+    .article-img {
+        margin: 2em -3em;
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5111,6 +5344,7 @@ body.page-articles #page-wrapper:after {
     left: 0;
 }
 }
+
 
 
 
