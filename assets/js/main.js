@@ -264,23 +264,28 @@
 
 				featuresEl.innerHTML = '';
 
+				// Row-pair shading: 0+1 lightest, 2+3 medium, 4+5 darkest
+				// All keep yellow tint, differences subtle
 				var shades = [
-					'rgba(0,0,0,0.035)',
-					'rgba(0,0,0,0.07)',
-					'rgba(0,0,0,0.105)',
-					'rgba(0,0,0,0.14)',
-					'rgba(0,0,0,0.175)',
-					'rgba(0,0,0,0.21)'
+					'rgba(0,0,0,0.025)',   // row 1
+					'rgba(0,0,0,0.025)',
+					'rgba(0,0,0,0.065)',   // row 2
+					'rgba(0,0,0,0.065)',
+					'rgba(0,0,0,0.11)',    // row 3
+					'rgba(0,0,0,0.11)'
 				];
 
+				// Overlay yellow tint — row pairs, lighter to darker
 				var overlays = [
-					'rgba(242,183,5,0.3)',
-					'rgba(242,183,5,0.4)',
-					'rgba(242,183,5,0.5)',
-					'rgba(242,183,5,0.6)',
-					'rgba(242,183,5,0.65)',
-					'rgba(242,183,5,0.7)'
+					'rgba(242,183,5,0.38)',
+					'rgba(242,183,5,0.38)',
+					'rgba(242,183,5,0.48)',
+					'rgba(242,183,5,0.48)',
+					'rgba(242,183,5,0.58)',
+					'rgba(242,183,5,0.58)'
 				];
+
+				var items = [];
 
 				shuffled.forEach(function(article, i) {
 
@@ -310,12 +315,65 @@
 					title.className = 'feature-title';
 					title.textContent = article.title;
 
+					// Countdown progress bar
+					var progress = document.createElement('div');
+					progress.className = 'feature-progress';
+
 					a.appendChild(img);
 					a.appendChild(overlay);
 					a.appendChild(title);
+					a.appendChild(progress);
 					li.appendChild(a);
 					featuresEl.appendChild(li);
+					items.push(li);
 				});
+
+				// ── Auto-cycling highlight ──────────────────
+				var CYCLE_DURATION = 3000;  // ms
+				var currentIndex   = 0;
+				var cycleTimer     = null;
+				var manualHover    = false;
+
+				function activateItem(index) {
+					items.forEach(function(item) {
+						item.classList.remove('feature-active');
+						var bar = item.querySelector('.feature-progress');
+						// Reset animation by removing and re-adding
+						bar.style.animation = 'none';
+						bar.offsetHeight;   // force reflow
+						bar.style.animation = '';
+					});
+
+					items[index].classList.add('feature-active');
+					var activeBar = items[index].querySelector('.feature-progress');
+					activeBar.style.animation = 'featureCountdown ' + (CYCLE_DURATION / 1000) + 's linear forwards';
+				}
+
+				function startCycle() {
+					clearInterval(cycleTimer);
+					cycleTimer = setInterval(function() {
+						if (!manualHover) {
+							currentIndex = (currentIndex + 1) % items.length;
+							activateItem(currentIndex);
+						}
+					}, CYCLE_DURATION);
+				}
+
+				// Pause cycle on manual hover
+				items.forEach(function(item) {
+					item.addEventListener('mouseenter', function() {
+						manualHover = true;
+						items.forEach(function(i) { i.classList.remove('feature-active'); });
+					});
+					item.addEventListener('mouseleave', function() {
+						manualHover = false;
+						activateItem(currentIndex);
+					});
+				});
+
+				// Boot
+				activateItem(0);
+				startCycle();
 			})
 			.catch(function(err) {
 				console.error('Features grid failed to load:', err);
