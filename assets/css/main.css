@@ -5236,6 +5236,19 @@ figcaption {
 
 /* ── You might like ─────────────────────────────────── */
 
+/* Default fallback */
+#you-might-like {
+    background-color: #f2f2f0;
+    padding: 4em 0;
+}
+
+#you-might-like .inner {
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 0 2em;
+    text-align: center;
+}
+
 .you-might-like__heading {
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.8em;
@@ -5253,47 +5266,57 @@ figcaption {
     margin-bottom: 2.5em;
 }
 
-/* Reuse article-card styles from articles page */
 .you-might-like__cards .article-card {
     flex: 1;
     max-width: 30em;
 }
 
-/* Default fallback */
-#you-might-like {
-    background-color: #f2f2f0;
-    padding: 4em 0;
-}
-
-#you-might-like .inner {
-    max-width: 70em;
-    margin: 0 auto;
-    padding: 0 2em;
-    text-align: center;
-}
-
-/* Yellow article — grey background */
+/* Yellow article — grey background, matches grey menu */
 .page-article.color-yellow #you-might-like {
     background-color: #2e3842;
 }
 .page-article.color-yellow .you-might-like__heading {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
+}
+.page-article.color-yellow #you-might-like .button {
+    box-shadow: inset 0 0 0 2px #F2B705;
+    color: #F2B705;
+}
+.page-article.color-yellow #you-might-like .button:hover {
+    background-color: #F2B705;
+    color: #2e3842;
 }
 
-/* Red article — yellow background */
+/* Red article — yellow background, matches yellow menu */
 .page-article.color-red #you-might-like {
     background-color: #F2B705;
 }
 .page-article.color-red .you-might-like__heading {
-    color: rgba(46,56,66,0.6);
+    color: rgba(46, 56, 66, 0.6);
+}
+.page-article.color-red #you-might-like .button {
+    box-shadow: inset 0 0 0 2px #2e3842;
+    color: #2e3842;
+}
+.page-article.color-red #you-might-like .button:hover {
+    background-color: #2e3842;
+    color: #ffffff;
 }
 
-/* Grey article — red background */
+/* Grey article — red background, matches red menu */
 .page-article.color-grey #you-might-like {
     background-color: #5B0F1A;
 }
 .page-article.color-grey .you-might-like__heading {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
+}
+.page-article.color-grey #you-might-like .button {
+    box-shadow: inset 0 0 0 2px #ffffff;
+    color: #ffffff;
+}
+.page-article.color-grey #you-might-like .button:hover {
+    background-color: #ffffff;
+    color: #5B0F1A;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
@@ -5403,6 +5426,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
