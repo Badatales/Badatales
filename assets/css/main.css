@@ -5272,9 +5272,6 @@ figcaption {
 }
 
 /* Yellow article — grey background, matches grey menu */
-.page-article.color-yellow #you-might-like {
-    background-color: #2e3842;
-}
 .page-article.color-yellow .you-might-like__heading {
     color: rgba(255, 255, 255, 0.5);
 }
@@ -5288,9 +5285,6 @@ figcaption {
 }
 
 /* Red article — yellow background, matches yellow menu */
-.page-article.color-red #you-might-like {
-    background-color: #F2B705;
-}
 .page-article.color-red .you-might-like__heading {
     color: rgba(46, 56, 66, 0.6);
 }
@@ -5304,9 +5298,6 @@ figcaption {
 }
 
 /* Grey article — red background, matches red menu */
-.page-article.color-grey #you-might-like {
-    background-color: #5B0F1A;
-}
 .page-article.color-grey .you-might-like__heading {
     color: rgba(255, 255, 255, 0.5);
 }
@@ -5426,6 +5417,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
