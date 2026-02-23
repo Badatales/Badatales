@@ -5236,18 +5236,6 @@ figcaption {
 
 /* ── You might like ─────────────────────────────────── */
 
-#you-might-like {
-    background-color: #f2f2f0;
-    padding: 4em 0;
-}
-
-#you-might-like .inner {
-    max-width: 70em;
-    margin: 0 auto;
-    padding: 0 2em;
-    text-align: center;
-}
-
 .you-might-like__heading {
     font-family: "Open Sans", Helvetica, sans-serif;
     font-size: 0.8em;
@@ -5271,34 +5259,41 @@ figcaption {
     max-width: 30em;
 }
 
-/* Yellow article — button matches grey menu */
-.page-article.color-yellow #you-might-like .button {
-    box-shadow: inset 0 0 0 2px #2e3842;
-    color: #2e3842;
+/* Default fallback */
+#you-might-like {
+    background-color: #f2f2f0;
+    padding: 4em 0;
 }
-.page-article.color-yellow #you-might-like .button:hover {
+
+#you-might-like .inner {
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 0 2em;
+    text-align: center;
+}
+
+/* Yellow article — grey background */
+.page-article.color-yellow #you-might-like {
     background-color: #2e3842;
-    color: #ffffff;
+}
+.page-article.color-yellow .you-might-like__heading {
+    color: rgba(255,255,255,0.5);
 }
 
-/* Red article — button matches yellow menu */
-.page-article.color-red #you-might-like .button {
-    box-shadow: inset 0 0 0 2px #F2B705;
-    color: #F2B705;
-}
-.page-article.color-red #you-might-like .button:hover {
+/* Red article — yellow background */
+.page-article.color-red #you-might-like {
     background-color: #F2B705;
-    color: #2e3842;
+}
+.page-article.color-red .you-might-like__heading {
+    color: rgba(46,56,66,0.6);
 }
 
-/* Grey article — button matches red menu */
-.page-article.color-grey #you-might-like .button {
-    box-shadow: inset 0 0 0 2px #5B0F1A;
-    color: #5B0F1A;
-}
-.page-article.color-grey #you-might-like .button:hover {
+/* Grey article — red background */
+.page-article.color-grey #you-might-like {
     background-color: #5B0F1A;
-    color: #ffffff;
+}
+.page-article.color-grey .you-might-like__heading {
+    color: rgba(255,255,255,0.5);
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
@@ -5408,6 +5403,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
