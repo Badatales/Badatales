@@ -1,34 +1,34 @@
 [
     {
-        "slug": "Edinburgh-tips",
-        "title": "Visit Scotland's capital. But do it right!",
-        "country": "scotland",
-        "type": "locations",
-        "excerpt": "Uncover the magic of Edinburgh, from its haunting medieval wynds to its majestic volcanic peaks. This is what you should not miss.",
+        "slug": "Edinburgh-tipy",
+        "title": "Navštivte hlavní město Skotska. Ale udělejte to správně!",
+        "country": "skotsko",
+        "type": "lokace",
+        "excerpt": "Objevte kouzlo Edinburghu, jeko křivolaké uličky, nebo třeba kopce vulkanického původu. Tohle všechno byste neměli minout!",
         "color": "red"
     },
     {
-        "slug": "scotland-weather-tips",
-        "title": "5 Tips for Surviving Scottish Weather",
-        "country": "scotland",
-        "type": "tips",
-        "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north.",
+        "slug": "skotsko-pocasi",
+        "title": "Pět tipů, abyste přežili skotské počasí",
+        "country": "skotsko",
+        "type": "tipy",
+        "excerpt": "Déšť, vítr, a s pomocí shůry i trochu slunce. Přečtěte si, co byste měli vědět, než vyrazíte na sever.",
         "color": "yellow"
     },
     {
-        "slug": "alaska-icefield",
-        "title": "There is a lot of ice in Alaska",
-        "country": "alaska",
-        "type": "stories",
-        "excerpt": "Beenthere, donethat",
+        "slug": "alaska-ledova-krajina",
+        "title": "Na Aljašce je překvapivě hodně... ledu",
+        "country": "aljaška",
+        "type": "příběhy",
+        "excerpt": "Přišli jsme, viděli jsme, pochopili jsme.",
         "color": "yellow"
     },
     {
         "slug": "puffins",
-        "title": "Find the Scottish magical creatures",
-        "country": "scotland",
-        "type": "tips",
-        "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?",
+        "title": "Po stopách bájných skotských ptáčků",
+        "country": "skotsko",
+        "type": "tipy",
+        "excerpt": "Puffini, takřka magická malá stvoření, která chtějí všichni vidět. Ale víte, kde je najít?",
         "color": "grey"
     }
 ]
