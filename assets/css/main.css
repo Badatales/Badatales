@@ -3767,7 +3767,7 @@ input, select, textarea {
 					display: none;
 				}
 
-				#banner .more, #banner-about .more, #banner-articles .more {
+				#banner .more, #banner-about .more, #banner-articles .more, #article-header .more {
 					display: none;
 				}
 
@@ -5434,6 +5434,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
