@@ -5085,12 +5085,6 @@ body.page-articles #page-wrapper:after {
     position: relative;
 }
 
-@media screen and (max-width: 736px) {
-    #article-header {
-        min-height: 15vh;
-    }
-}
-
 .article-header__inner {
     width: 100%;
     max-width: 60em;
@@ -5319,7 +5313,7 @@ YELLOW - #F2B705
     }
 
     #article-header {
-        min-height: 50vh;
+        min-height: 30vh;
         align-items: flex-end;
     }
 
@@ -5417,6 +5411,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
