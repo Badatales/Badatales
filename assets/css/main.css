@@ -5344,8 +5344,11 @@ YELLOW - #F2B705
         margin: 2em -3em;
     }
 
-}
+    #article-header .more {
+        display: none;
+    }
 
+}
 
 
 
@@ -5411,6 +5414,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
