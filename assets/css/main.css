@@ -5111,7 +5111,7 @@ body.page-articles #page-wrapper:after {
 }
 
 #article-header .more { /* read arrow-button */
-    bottom: -13em;
+    bottom: -11em;
 }
 
 /* Tags — clickable, link to articles page with filter */
@@ -5276,7 +5276,13 @@ figcaption {
     max-width: 30em;
 }
 
-/* Yellow article — grey background, matches grey menu */
+/* ======== COLORS =========
+GREY - #2e3842
+RED - #5B0F1A
+YELLOW - #F2B705
+*/
+
+/* Yellow article — matches yellow menu */
 .page-article.color-yellow .you-might-like__heading {
     color: #2e3842;
 }
@@ -5289,16 +5295,16 @@ figcaption {
     color: #2e3842;
 }
 
-/* Red article — yellow background, matches yellow menu */
+/* Red article — matches red menu */
 .page-article.color-red .you-might-like__heading {
     color: #2e3842;
 }
 .page-article.color-red #you-might-like .button {
-    box-shadow: inset 0 0 0 2px #2e3842;
-    color: #2e3842;
+    box-shadow: inset 0 0 0 2px #5B0F1A;
+    color: #5B0F1A;
 }
 .page-article.color-red #you-might-like .button:hover {
-    background-color: #2e3842;
+    background-color: #5B0F1A;
     color: #ffffff;
 }
 
@@ -5307,12 +5313,12 @@ figcaption {
     color: #2e3842;
 }
 .page-article.color-grey #you-might-like .button {
-    box-shadow: inset 0 0 0 2px #ffffff;
-    color: #ffffff;
+    box-shadow: inset 0 0 0 2px #2e3842;
+    color: #2e3842;
 }
 .page-article.color-grey #you-might-like .button:hover {
-    background-color: #ffffff;
-    color: #5B0F1A;
+    background-color: #2e3842;
+    color: #ffffff;
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
@@ -5422,6 +5428,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
