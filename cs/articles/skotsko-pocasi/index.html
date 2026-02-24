@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-        <title>Article | Badatales</title>
+        <title>Článek | Badatales</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../../assets/css/main.css" />
@@ -19,9 +19,9 @@
                             <a href="#menu" class="menuToggle"><span>Menu</span></a>
                             <div id="menu">
                                 <ul>
-                                    <li><a href="../../index.html">Home</a></li>
-                                    <li><a href="../../about.html">About Us</a></li>
-                                    <li><a href="../../articles.html">Articles</a></li>
+                                    <li><a href="../../index.html">Domů</a></li>
+                                    <li><a href="../../about.html">O nás</a></li>
+                                    <li><a href="../../articles.html">Články</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -69,10 +69,10 @@
             <!-- You might like -->
             <section id="you-might-like">
                 <div class="inner">
-                    <h2 class="you-might-like__heading">You might like</h2>
+                    <h2 class="you-might-like__heading">Mohlo by se vám líbit</h2>
                     <div class="you-might-like__cards" id="suggestedArticles"></div>
                     <ul class="actions special">
-                        <li><a href="../../articles.html" class="button">More Articles</a></li>
+                        <li><a href="../../articles.html" class="button">Další články</a></li>
                     </ul>
                 </div>
             </section>
@@ -93,6 +93,8 @@
 
         </div>
 
+
+        <div id="copyMessage">Email zkopírován ✓</div>
         <script src="../../../assets/js/jquery.min.js"></script>
         <script src="../../../assets/js/jquery.scrollex.min.js"></script>
         <script src="../../../assets/js/jquery.scrolly.min.js"></script>
@@ -101,5 +103,16 @@
         <script src="../../../assets/js/util.js"></script>
         <script src="../../../assets/js/main.js"></script>
 
+        <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText("talesofbada@gmail.com").then(function() {
+                    const message = document.getElementById("copyMessage");
+                    message.classList.add("show");
+                    setTimeout(function() { message.classList.remove("show"); }, 1500);
+                }).catch(function(err) { console.error("Clipboard copy failed:", err); });
+            }
+        </script>
+        
     </body>
 </html>
