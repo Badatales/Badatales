@@ -5102,6 +5102,13 @@ body.page-articles #page-wrapper:after {
     position: relative;
 }
 
+#article-header .more {
+    position: absolute;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .article-header__inner {
     width: 100%;
     max-width: 60em;
@@ -5418,6 +5425,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
