@@ -93,6 +93,8 @@
 
         </div>
 
+        <div id="copyMessage">Email copied ✓</div>
+        
         <script src="../../../assets/js/jquery.min.js"></script>
         <script src="../../../assets/js/jquery.scrollex.min.js"></script>
         <script src="../../../assets/js/jquery.scrolly.min.js"></script>
@@ -100,6 +102,17 @@
         <script src="../../../assets/js/breakpoints.min.js"></script>
         <script src="../../../assets/js/util.js"></script>
         <script src="../../../assets/js/main.js"></script>
+
+         <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText("talesofbada@gmail.com").then(function() {
+                    const message = document.getElementById("copyMessage");
+                    message.classList.add("show");
+                    setTimeout(function() { message.classList.remove("show"); }, 1500);
+                }).catch(function(err) { console.error("Clipboard copy failed:", err); });
+            }
+        </script>
 
     </body>
 </html>
