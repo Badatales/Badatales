@@ -4934,12 +4934,12 @@ body.page-articles #page-wrapper:after {
 /* Title — dark, clean */
 .article-card .card-title {
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 700;
     color: #2e3842;
     line-height: 1.4;
     letter-spacing: 0.05em;
-    text-transform: none;
+    text-transform: uppercase;
     margin: 0 0 0.5em 0;
     /* Clamp to 2 lines */
     display: -webkit-box;
@@ -4951,7 +4951,7 @@ body.page-articles #page-wrapper:after {
 /* Excerpt — lighter grey */
 .article-card .card-excerpt {
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 0.8em;
+    font-size: 1.0em;
     font-weight: 400;
     color: #888;
     line-height: 1.6;
@@ -5417,6 +5417,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
