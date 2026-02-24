@@ -5102,6 +5102,12 @@ body.page-articles #page-wrapper:after {
     position: relative;
 }
 
+@media screen and (max-width: 736px) {
+    #article-header {
+        min-height: 30vh;
+    }
+}
+
 .article-header__inner {
     width: 100%;
     max-width: 60em;
@@ -5428,6 +5434,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
