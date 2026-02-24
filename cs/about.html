@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>About Us | Badatales</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+        <link rel="alternate" hreflang="en" href="https://badatales.github.io/Badatales/en/about.html" />
+        <link rel="alternate" hreflang="cs" href="https://badatales.github.io/Badatales/cs/about.html" />
+    </head>
+    <body class="landing page-about">
+
+        <div id="page-wrapper">
+
+            <header id="header" class="alt">
+                <h1><a href="index.html">Badatales</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="articles.html">Articles</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            
+<section id="banner-about">
+    <div class="inner">
+            <h2>Heya!</h2>
+            <p>We are Bára and David, <br>
+            Czech couple that fell in love with travelling!</p>
+        
+    </div>
+    					<a href="#main" class="more scrolly">Next</a>
+
+</section>
+            <article id="main">
+                <section class="wrapper style4 special about-intro">
+                    <div class="inner">
+                        <header class="major">
+                            <h2>About Us</h2>
+                            <p>Join us exploring the beauty of Scotland and other countries we visit.</p>
+                        </header>
+                    </div>
+                </section>
+
+                <section class="wrapper style3">
+                    <div class="inner">
+                        <div class="content">
+                            <p>Scotland is our second home. We have spent years exploring both known and unknown and it is only natural that Badatales focuses most of its attention on the northernmost part of Great Britain.</p>
+                            
+                            <p class="alt-shade">
+                                We also travel to other northern regions, so you can join us exploring Alaska, the rest of the USA and Northern Europe on our social media channels.
+                            </p>
+                            
+                            <p>This is where you can add more detailed information about Bára and David, your mission, or the history of your travels.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+
+	<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>Reach out!</h2>
+								<p>If you want to contact us or start a coopeartion, do not hesitate to leave a message.</p>
+							</header>
+							<ul class="actions stacked">
+    <li><a href="talesofbada@gmail.com" class="button fit primary" onclick="copyEmail(event)">Contact Us</a></li>
+    <li>
+        <ul class="icons major">
+            <li><a href="https://www.instagram.com/badatales/" target="_blank" class="icon brands fa-instagram major style1"><span class="label">Instagram</span></a></li>
+            <li><a href="https://www.tiktok.com/@badatales" target="_blank" class="icon brands fa-tiktok major style2"><span class="label">TikTok</span></a></li>
+            <li><a href="https://www.youtube.com/@Badatales" target="_blank" class="icon brands fa-youtube major style3"><span class="label">YouTube</span></a></li>
+        </ul>
+    </li>
+</ul>
+						</div>
+					</section>
+            
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.instagram.com/badatales/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://www.tiktok.com/@badatales" target="_blank" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
+                    <li><a href="https://www.youtube.com/@Badatales" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                    <li><a href="#" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="mailto:talesofbada@gmail.com" class="icon solid fa-envelope" onclick="copyEmail(event)"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Spectral by ajlkn. Edited by Badatales</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <div id="copyMessage">Email copied ✓</div>
+
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+        
+        <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText("talesofbada@gmail.com").then(function() {
+                    const message = document.getElementById("copyMessage");
+                    message.classList.add("show");
+                    setTimeout(function() { message.classList.remove("show"); }, 1500);
+                }).catch(function(err) { console.error("Clipboard copy failed:", err); });
+            }
+        </script>
+
+    </body>
+</html>

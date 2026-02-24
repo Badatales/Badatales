@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Our Stories | Badatales</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+        <link rel="alternate" hreflang="en" href="https://badatales.github.io/Badatales/en/articles.html" />
+        <link rel="alternate" hreflang="cs" href="https://badatales.github.io/Badatales/cs/clanky.html" />
+    </head>
+    <body class="landing page-articles">
+
+        <div id="page-wrapper">
+
+            <header id="header" class="alt">
+                <h1><a href="index.html">Badatales</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="articles.html">Articles</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section id="banner-articles">
+                <div class="inner">
+                    <h2>Our Stories</h2>
+                    <p>Read about our journeys <br>from all around the world!</p>
+                </div>
+
+					<a href="#one" class="more scrolly">Next</a>
+            </section>
+            
+<div class="filter-bar" id="one">
+
+    <!-- Upper half: All Articles button + hint text -->
+    <div class="filter-bar__top">
+        <button class="button primary filter-btn all-btn active" data-filter="all">
+            All Articles
+        </button>
+        <p class="filter-bar__hint">Or filter our articles by tags</p>
+    </div>
+
+    <!-- Lower half: countries | vertical divider | types -->
+    <div class="filter-bar__tags">
+
+        <div class="filter-tag-group">
+            <button class="filter-btn" data-filter="scotland">Scotland</button>
+            <button class="filter-btn" data-filter="alaska">Alaska</button>
+            <button class="filter-btn" data-filter="usa">USA</button>
+        </div>
+
+        <div class="filter-divider" aria-hidden="true"></div>
+
+        <div class="filter-tag-group">
+            <button class="filter-btn" data-filter="locations">Locations</button>
+            <button class="filter-btn" data-filter="stories">Stories</button>
+            <button class="filter-btn" data-filter="tips">Tips</button>
+        </div>
+
+    </div>
+
+</div>
+
+            <article id="main">
+                <div id="articlesContainer"></div>
+                <p class="articles-no-results" id="noResults" style="display:none;">No articles found for this combination.</p>
+                <div class="load-more-wrapper" id="loadMoreWrapper" style="display:none;">
+                    <a href="#" id="loadMore">
+                        <span class="icon solid fa-chevron-down"></span>
+                    </a>
+                </div>
+            </article>
+
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.instagram.com/badatales/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://www.tiktok.com/@badatales" target="_blank" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
+                    <li><a href="https://www.youtube.com/@Badatales" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                    <li><a href="#" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="mailto:talesofbada@gmail.com" class="icon solid fa-envelope" onclick="copyEmail(event)"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Spectral by ajlkn. Edited by Badatales</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <div id="copyMessage">Email copied ✓</div>
+
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+        <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText("talesofbada@gmail.com").then(function() {
+                    const message = document.getElementById("copyMessage");
+                    message.classList.add("show");
+                    setTimeout(function() { message.classList.remove("show"); }, 1500);
+                }).catch(function(err) { console.error("Clipboard copy failed:", err); });
+            }
+        </script>
+
+    </body>
+</html>
