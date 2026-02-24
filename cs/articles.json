@@ -2,32 +2,32 @@
     {
         "slug": "Edinburgh-tipy",
         "title": "Navštivte hlavní město Skotska. Ale udělejte to správně!",
-        "country": "skotsko",
-        "type": "lokace",
+        "country": "scotland",
+        "type": "locations",
         "excerpt": "Objevte kouzlo Edinburghu, jeko křivolaké uličky, nebo třeba kopce vulkanického původu. Tohle všechno byste neměli minout!",
         "color": "red"
     },
     {
         "slug": "skotsko-pocasi",
         "title": "Pět tipů, abyste přežili skotské počasí",
-        "country": "skotsko",
-        "type": "tipy",
+        "country": "scotland",
+        "type": "tips",
         "excerpt": "Déšť, vítr, a s pomocí shůry i trochu slunce. Přečtěte si, co byste měli vědět, než vyrazíte na sever.",
         "color": "yellow"
     },
     {
         "slug": "alaska-ledova-krajina",
         "title": "Na Aljašce je překvapivě hodně... ledu",
-        "country": "aljaška",
-        "type": "příběhy",
+        "country": "alaska",
+        "type": "stories",
         "excerpt": "Přišli jsme, viděli jsme, pochopili jsme.",
         "color": "yellow"
     },
     {
         "slug": "puffins",
         "title": "Po stopách bájných skotských ptáčků",
-        "country": "skotsko",
-        "type": "tipy",
+        "country": "scotland",
+        "type": "tips",
         "excerpt": "Puffini, takřka magická malá stvoření, která chtějí všichni vidět. Ale víte, kde je najít?",
         "color": "grey"
     }
