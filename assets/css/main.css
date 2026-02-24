@@ -4951,7 +4951,7 @@ body.page-articles #page-wrapper:after {
 /* Excerpt — lighter grey */
 .article-card .card-excerpt {
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 1.0em;
+    font-size: 0.9em;
     font-weight: 400;
     color: #888;
     line-height: 1.6;
@@ -5246,7 +5246,7 @@ figcaption {
     max-width: 70em;
     margin: 0 auto;
     padding: 0 2em;
-    text-align: center;
+    text-align: left;
 }
 
 .you-might-like__heading {
@@ -5255,8 +5255,9 @@ figcaption {
     font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #888;
+    color: #2e3842;
     margin-bottom: 2em;
+	text-align: center;
 }
 
 .you-might-like__cards {
@@ -5417,6 +5418,7 @@ figcaption {
     left: 0;
 }
 }
+
 
 
 
