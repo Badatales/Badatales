@@ -1,0 +1,12 @@
+{
+    "countries": {
+        "scotland": { "en": "Scotland",  "cs": "Skotsko" },
+        "alaska":   { "en": "Alaska",    "cs": "Aljaška" },
+        "usa":      { "en": "USA",       "cs": "USA"     }
+    },
+    "types": {
+        "locations": { "en": "Locations", "cs": "Místa"    },
+        "stories":   { "en": "Stories",   "cs": "Příběhy"  },
+        "tips":      { "en": "Tips",      "cs": "Tipy"     }
+    }
+}
