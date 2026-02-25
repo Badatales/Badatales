@@ -73,32 +73,16 @@
 	   SHARED HELPERS
 	========================================================= */
 
-	// Detect page language from <html lang="...">
 	var lang = document.documentElement.lang || 'en';
 
-	// Tag translations
-	var tagTranslations = {
-		en: {
-			scotland:  'Scotland',
-			alaska:    'Alaska',
-			usa:       'USA',
-			locations: 'Locations',
-			stories:   'Stories',
-			tips:      'Tips'
-		},
-		cs: {
-			scotland:  'Skotsko',
-			alaska:    'Aljaška',
-			usa:       'USA',
-			locations: 'Místa',
-			stories:   'Příběhy',
-			tips:      'Tipy'
-		}
-	};
+	var tagsData = null;
 
 	function translateTag(key) {
-		var dict = tagTranslations[lang] || tagTranslations.en;
-		return dict[key] || (key ? key.charAt(0).toUpperCase() + key.slice(1) : '');
+		if (tagsData) {
+			var dict = tagsData.countries[key] || tagsData.types[key];
+			if (dict) return dict[lang] || dict['en'];
+		}
+		return key ? key.charAt(0).toUpperCase() + key.slice(1) : '';
 	}
 
 	function tagLabel(country, type) {
@@ -106,40 +90,138 @@
 		return parts.join(' · ');
 	}
 
-	// Get language-specific fields from article, fall back to 'en'
 	function localized(article) {
 		return article[lang] || article['en'];
 	}
 
+	// Fetch tags.json first, then run page logic
+	fetch('../tags.json')
+		.then(function(res) { return res.json(); })
+		.then(function(data) {
+			tagsData = data;
+			initPages();
+		})
+		.catch(function() {
+			// tags.json failed — continue without translations
+			initPages();
+		});
+
+	function initPages() {
+
 	/* =========================================================
-	   ARTICLES PAGE LOGIC — JSON driven
-	   Path context: en/articles.html or cs/articles.html
-	   ../articles.json = root articles.json
+	   ARTICLES PAGE LOGIC
 	========================================================= */
 	if ($body.hasClass('page-articles')) {
 
-		const BATCH          = 6;
-		const container      = document.getElementById('articlesContainer');
-		const noResults      = document.getElementById('noResults');
-		const loadMoreWrap   = document.getElementById('loadMoreWrapper');
-		const loadMoreBtn    = document.getElementById('loadMore');
-		const filterBtns     = document.querySelectorAll('.filter-btn');
+		const BATCH        = 6;
+		const container    = document.getElementById('articlesContainer');
+		const noResults    = document.getElementById('noResults');
+		const loadMoreWrap = document.getElementById('loadMoreWrapper');
+		const loadMoreBtn  = document.getElementById('loadMore');
 
-		const countryFilters = ['scotland', 'alaska', 'usa'];
-		const typeFilters    = ['locations', 'stories', 'tips'];
+		const countryGroup = document.getElementById('countryFilters');
+		const typeGroup    = document.getElementById('typeFilters');
 
 		let allArticles   = [];
 		let activeCountry = null;
 		let activeType    = null;
 		let visibleCount  = BATCH;
+		let countryKeys   = [];
+		let typeKeys      = [];
+
+		// Build filter buttons dynamically from tags.json
+		function buildFilterButtons() {
+			if (!tagsData) return;
+
+			countryKeys = Object.keys(tagsData.countries);
+			typeKeys    = Object.keys(tagsData.types);
+
+			countryKeys.forEach(function(key) {
+				var btn = document.createElement('button');
+				btn.className = 'filter-btn';
+				btn.dataset.filter = key;
+				btn.textContent = tagsData.countries[key][lang] || tagsData.countries[key]['en'];
+				countryGroup.appendChild(btn);
+			});
+
+			typeKeys.forEach(function(key) {
+				var btn = document.createElement('button');
+				btn.className = 'filter-btn';
+				btn.dataset.filter = key;
+				btn.textContent = tagsData.types[key][lang] || tagsData.types[key]['en'];
+				typeGroup.appendChild(btn);
+			});
+
+			// Re-attach listeners after buttons are built
+			attachFilterListeners();
+		}
+
+		function attachFilterListeners() {
+			var filterBtns = document.querySelectorAll('.filter-btn');
+
+			filterBtns.forEach(function(btn) {
+				btn.addEventListener('click', function() {
+					var filter = this.dataset.filter;
+
+					if (filter === 'all') {
+						activeCountry = null;
+						activeType    = null;
+						filterBtns.forEach(function(b) { b.classList.remove('active'); });
+						this.classList.add('active');
+						visibleCount = BATCH;
+						render();
+						return;
+					}
+
+					var isCountry = countryKeys.includes(filter);
+					var isType    = typeKeys.includes(filter);
+
+					if (isCountry) {
+						if (activeCountry === filter) {
+							activeCountry = null;
+							this.classList.remove('active');
+						} else {
+							countryKeys.forEach(function(c) {
+								var el = document.querySelector('[data-filter="' + c + '"]');
+								if (el) el.classList.remove('active');
+							});
+							activeCountry = filter;
+							this.classList.add('active');
+						}
+					} else if (isType) {
+						if (activeType === filter) {
+							activeType = null;
+							this.classList.remove('active');
+						} else {
+							typeKeys.forEach(function(t) {
+								var el = document.querySelector('[data-filter="' + t + '"]');
+								if (el) el.classList.remove('active');
+							});
+							activeType = filter;
+							this.classList.add('active');
+						}
+					}
+
+					var allBtn = document.querySelector('[data-filter="all"]');
+					if (!activeCountry && !activeType) {
+						if (allBtn) allBtn.classList.add('active');
+					} else {
+						if (allBtn) allBtn.classList.remove('active');
+					}
+
+					visibleCount = BATCH;
+					render();
+				});
+			});
+		}
 
 		function buildCard(article) {
 			var loc = localized(article);
-			const a = document.createElement('a');
-			a.className        = 'article-card';
-			a.href             = 'articles/' + loc.slug + '/';
-			a.dataset.country  = article.country || '';
-			a.dataset.type     = article.type    || '';
+			var a = document.createElement('a');
+			a.className       = 'article-card';
+			a.href            = 'articles/' + loc.slug + '/';
+			a.dataset.country = article.country || '';
+			a.dataset.type    = article.type    || '';
 
 			a.innerHTML =
 				'<div class="image">' +
@@ -155,16 +237,11 @@
 		}
 
 		function buildRow(cardA, cardB, rowIndex) {
-			const shades = [
-				'rgba(0,0,0,0.075)',
-				'rgba(0,0,0,0.15)',
-				'rgba(0,0,0,0.225)'
-			];
-			const section = document.createElement('section');
+			var shades = ['rgba(0,0,0,0.075)', 'rgba(0,0,0,0.15)', 'rgba(0,0,0,0.225)'];
+			var section = document.createElement('section');
 			section.className = 'article-row';
 			section.style.backgroundColor = shades[rowIndex % 3];
-
-			const inner = document.createElement('div');
+			var inner = document.createElement('div');
 			inner.className = 'inner';
 			inner.appendChild(cardA);
 			if (cardB) inner.appendChild(cardB);
@@ -173,17 +250,17 @@
 		}
 
 		function getMatching() {
-			return allArticles.filter(a => {
-				const countryOk = !activeCountry || a.country === activeCountry;
-				const typeOk    = !activeType    || a.type    === activeType;
+			return allArticles.filter(function(a) {
+				var countryOk = !activeCountry || a.country === activeCountry;
+				var typeOk    = !activeType    || a.type    === activeType;
 				return countryOk && typeOk;
 			});
 		}
 
 		function render() {
 			container.innerHTML = '';
-			const matching = getMatching();
-			const slice    = matching.slice(0, visibleCount);
+			var matching = getMatching();
+			var slice    = matching.slice(0, visibleCount);
 
 			if (matching.length === 0) {
 				noResults.style.display    = 'block';
@@ -193,83 +270,32 @@
 
 			noResults.style.display = 'none';
 
-			for (let i = 0; i < slice.length; i += 2) {
-				const cardA = buildCard(slice[i]);
-				const cardB = slice[i + 1] ? buildCard(slice[i + 1]) : null;
+			for (var i = 0; i < slice.length; i += 2) {
+				var cardA = buildCard(slice[i]);
+				var cardB = slice[i + 1] ? buildCard(slice[i + 1]) : null;
 				container.appendChild(buildRow(cardA, cardB, Math.floor(i / 2)));
 			}
 
 			loadMoreWrap.style.display = visibleCount >= matching.length ? 'none' : 'block';
 		}
 
-		filterBtns.forEach(btn => {
-			btn.addEventListener('click', function () {
-				const filter = this.dataset.filter;
-
-				if (filter === 'all') {
-					activeCountry = null;
-					activeType    = null;
-					filterBtns.forEach(b => b.classList.remove('active'));
-					this.classList.add('active');
-					visibleCount = BATCH;
-					render();
-					return;
-				}
-
-				const isCountry = countryFilters.includes(filter);
-				const isType    = typeFilters.includes(filter);
-
-				if (isCountry) {
-					if (activeCountry === filter) {
-						activeCountry = null;
-						this.classList.remove('active');
-					} else {
-						countryFilters.forEach(c => {
-							document.querySelector('[data-filter="' + c + '"]')?.classList.remove('active');
-						});
-						activeCountry = filter;
-						this.classList.add('active');
-					}
-				} else if (isType) {
-					if (activeType === filter) {
-						activeType = null;
-						this.classList.remove('active');
-					} else {
-						typeFilters.forEach(t => {
-							document.querySelector('[data-filter="' + t + '"]')?.classList.remove('active');
-						});
-						activeType = filter;
-						this.classList.add('active');
-					}
-				}
-
-				if (!activeCountry && !activeType) {
-					document.querySelector('[data-filter="all"]').classList.add('active');
-				} else {
-					document.querySelector('[data-filter="all"]').classList.remove('active');
-				}
-
-				visibleCount = BATCH;
-				render();
-			});
-		});
-
-		loadMoreBtn.addEventListener('click', function (e) {
+		loadMoreBtn.addEventListener('click', function(e) {
 			e.preventDefault();
 			visibleCount += BATCH;
 			render();
 		});
 
 		fetch('../articles.json')
-			.then(res => {
+			.then(function(res) {
 				if (!res.ok) throw new Error('Could not load articles.json');
 				return res.json();
 			})
-			.then(data => {
+			.then(function(data) {
 				allArticles = data;
+				buildFilterButtons();
 				render();
 			})
-			.catch(err => {
+			.catch(function(err) {
 				console.error('Articles failed to load:', err);
 				noResults.textContent   = 'Articles could not be loaded.';
 				noResults.style.display = 'block';
@@ -279,8 +305,6 @@
 
 	/* =========================================================
 	   FEATURES GRID — Random articles for index.html
-	   Path context: en/index.html or cs/index.html
-	   ../articles.json = root articles.json
 	========================================================= */
 	var featuresEl = document.querySelector('#three .features');
 	if (featuresEl) {
@@ -301,21 +325,15 @@
 				featuresEl.innerHTML = '';
 
 				var shades = [
-					'rgba(0,0,0,0.025)',
-					'rgba(0,0,0,0.025)',
-					'rgba(0,0,0,0.065)',
-					'rgba(0,0,0,0.065)',
-					'rgba(0,0,0,0.11)',
-					'rgba(0,0,0,0.11)'
+					'rgba(0,0,0,0.025)', 'rgba(0,0,0,0.025)',
+					'rgba(0,0,0,0.065)', 'rgba(0,0,0,0.065)',
+					'rgba(0,0,0,0.11)',  'rgba(0,0,0,0.11)'
 				];
 
 				var overlays = [
-					'rgba(242,183,5,0.38)',
-					'rgba(242,183,5,0.38)',
-					'rgba(242,183,5,0.48)',
-					'rgba(242,183,5,0.48)',
-					'rgba(242,183,5,0.58)',
-					'rgba(242,183,5,0.58)'
+					'rgba(242,183,5,0.38)', 'rgba(242,183,5,0.38)',
+					'rgba(242,183,5,0.48)', 'rgba(242,183,5,0.48)',
+					'rgba(242,183,5,0.58)', 'rgba(242,183,5,0.58)'
 				];
 
 				var items = [];
@@ -363,9 +381,7 @@
 				var manualHover    = false;
 
 				function activateItem(index) {
-					items.forEach(function(item) {
-						item.classList.remove('feature-active');
-					});
+					items.forEach(function(item) { item.classList.remove('feature-active'); });
 					items[index].classList.add('feature-active');
 				}
 
@@ -401,8 +417,6 @@
 
 	/* =========================================================
 	   ARTICLE PAGE LOGIC
-	   Path context: en/articles/slug/index.html
-	   ../../../articles.json = root articles.json
 	========================================================= */
 	if ($body.hasClass('page-article')) {
 
@@ -426,7 +440,7 @@
 					'<img src="../' + loc.slug + '/hero.jpg" alt="' + loc.title + '" loading="lazy" />' +
 				'</div>' +
 				'<div class="card-body">' +
-					'<span class="card-tag">' + tagLabel(article.type, article.country) + '</span>' +
+					'<span class="card-tag">' + tagLabel(article.country, article.type) + '</span>' +
 					'<h3 class="card-title">' + loc.title + '</h3>' +
 					'<p class="card-excerpt">' + loc.excerpt + '</p>' +
 				'</div>';
@@ -441,7 +455,6 @@
 			})
 			.then(function(articles) {
 
-				// Find current article by matching slug in the correct language
 				var current = articles.find(function(a) {
 					var loc = localized(a);
 					return loc.slug === slug;
@@ -454,17 +467,12 @@
 
 				var loc = localized(current);
 
-				// Apply colour class
 				var color = current.color || 'grey';
 				document.body.classList.add('color-' + color);
 
-				// Page title
 				document.title = loc.title + ' | Badatales';
-
-				// Header title
 				titleEl.textContent = loc.title;
 
-				// Tags — link to articles page with filter
 				if (current.country) {
 					var countryTag = document.createElement('a');
 					countryTag.href = '../../articles.html?filter=' + current.country;
@@ -478,10 +486,8 @@
 					tagsEl.appendChild(typeTag);
 				}
 
-				// 2 random suggested articles excluding current
 				var others = articles.filter(function(a) {
-					var l = localized(a);
-					return l.slug !== slug;
+					return localized(a).slug !== slug;
 				});
 				var suggested = others
 					.map(function(a) { return { a: a, sort: Math.random() }; })
@@ -498,5 +504,7 @@
 			});
 
 	}
+
+	} // end initPages
 
 })(jQuery);
