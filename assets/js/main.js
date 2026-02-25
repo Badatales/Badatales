@@ -70,7 +70,51 @@
 		}
 
 	/* =========================================================
+	   SHARED HELPERS
+	========================================================= */
+
+	// Detect page language from <html lang="...">
+	var lang = document.documentElement.lang || 'en';
+
+	// Tag translations
+	var tagTranslations = {
+		en: {
+			scotland:  'Scotland',
+			alaska:    'Alaska',
+			usa:       'USA',
+			locations: 'Locations',
+			stories:   'Stories',
+			tips:      'Tips'
+		},
+		cs: {
+			scotland:  'Skotsko',
+			alaska:    'Aljaška',
+			usa:       'USA',
+			locations: 'Místa',
+			stories:   'Příběhy',
+			tips:      'Tipy'
+		}
+	};
+
+	function translateTag(key) {
+		var dict = tagTranslations[lang] || tagTranslations.en;
+		return dict[key] || (key ? key.charAt(0).toUpperCase() + key.slice(1) : '');
+	}
+
+	function tagLabel(country, type) {
+		var parts = [translateTag(type), translateTag(country)].filter(Boolean);
+		return parts.join(' · ');
+	}
+
+	// Get language-specific fields from article, fall back to 'en'
+	function localized(article) {
+		return article[lang] || article['en'];
+	}
+
+	/* =========================================================
 	   ARTICLES PAGE LOGIC — JSON driven
+	   Path context: en/articles.html or cs/articles.html
+	   ../articles.json = root articles.json
 	========================================================= */
 	if ($body.hasClass('page-articles')) {
 
@@ -89,33 +133,23 @@
 		let activeType    = null;
 		let visibleCount  = BATCH;
 
-		function cap(str) {
-			return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
-		}
-
-		function tagLabel(country, type) {
-			const parts = [cap(type), cap(country)].filter(Boolean);
-			return parts.join(' · ');
-		}
-
 		function buildCard(article) {
+			var loc = localized(article);
 			const a = document.createElement('a');
 			a.className        = 'article-card';
-			a.href             = 'articles/' + article.slug + '/';
+			a.href             = 'articles/' + loc.slug + '/';
 			a.dataset.country  = article.country || '';
 			a.dataset.type     = article.type    || '';
 
-			a.innerHTML = `
-				<div class="image">
-					<img src="articles/${article.slug}/hero.jpg"
-					     alt="${article.title}"
-					     loading="lazy" />
-				</div>
-				<div class="card-body">
-					<span class="card-tag">${tagLabel(article.country, article.type)}</span>
-					<h3 class="card-title">${article.title}</h3>
-					<p class="card-excerpt">${article.excerpt}</p>
-				</div>`;
+			a.innerHTML =
+				'<div class="image">' +
+					'<img src="articles/' + loc.slug + '/hero.jpg" alt="' + loc.title + '" loading="lazy" />' +
+				'</div>' +
+				'<div class="card-body">' +
+					'<span class="card-tag">' + tagLabel(article.country, article.type) + '</span>' +
+					'<h3 class="card-title">' + loc.title + '</h3>' +
+					'<p class="card-excerpt">' + loc.excerpt + '</p>' +
+				'</div>';
 
 			return a;
 		}
@@ -226,7 +260,7 @@
 			render();
 		});
 
-		fetch('articles.json')
+		fetch('../articles.json')
 			.then(res => {
 				if (!res.ok) throw new Error('Could not load articles.json');
 				return res.json();
@@ -245,11 +279,13 @@
 
 	/* =========================================================
 	   FEATURES GRID — Random articles for index.html
+	   Path context: en/index.html or cs/index.html
+	   ../articles.json = root articles.json
 	========================================================= */
 	var featuresEl = document.querySelector('#three .features');
 	if (featuresEl) {
 
-		fetch('articles.json')
+		fetch('../articles.json')
 			.then(function(res) {
 				if (!res.ok) throw new Error('Could not load articles.json');
 				return res.json();
@@ -285,6 +321,7 @@
 				var items = [];
 
 				shuffled.forEach(function(article, i) {
+					var loc = localized(article);
 
 					var li = document.createElement('li');
 					li.style.backgroundColor = shades[i];
@@ -296,12 +333,12 @@
 
 					var a = document.createElement('a');
 					a.className = 'feature-card';
-					a.href = 'articles/' + article.slug + '/';
+					a.href = 'articles/' + loc.slug + '/';
 
 					var img = document.createElement('img');
 					img.className = 'feature-img';
-					img.src = 'articles/' + article.slug + '/hero.jpg';
-					img.alt = article.title;
+					img.src = 'articles/' + loc.slug + '/hero.jpg';
+					img.alt = loc.title;
 					img.loading = 'lazy';
 
 					var overlay = document.createElement('div');
@@ -310,7 +347,7 @@
 
 					var title = document.createElement('h3');
 					title.className = 'feature-title';
-					title.textContent = article.title;
+					title.textContent = loc.title;
 
 					a.appendChild(img);
 					a.appendChild(overlay);
@@ -365,8 +402,7 @@
 	/* =========================================================
 	   ARTICLE PAGE LOGIC
 	   Path context: en/articles/slug/index.html
-	   ../../  = en/
-	   ../     = en/articles/
+	   ../../../articles.json = root articles.json
 	========================================================= */
 	if ($body.hasClass('page-article')) {
 
@@ -379,72 +415,74 @@
 		var tagsEl      = document.getElementById('articleTags');
 		var suggestedEl = document.getElementById('suggestedArticles');
 
-		function capFirst(str) {
-			return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
-		}
-
 		function buildSuggestedCard(article) {
+			var loc = localized(article);
 			var a = document.createElement('a');
 			a.className = 'article-card';
-			// from en/articles/slug/, go up one level to en/articles/, then into other slug
-			a.href = '../' + article.slug + '/';
-
-			var tagText = [capFirst(article.type), capFirst(article.country)].filter(Boolean).join(' · ');
+			a.href = '../' + loc.slug + '/';
 
 			a.innerHTML =
 				'<div class="image">' +
-					'<img src="../' + article.slug + '/hero.jpg" alt="' + article.title + '" loading="lazy" />' +
+					'<img src="../' + loc.slug + '/hero.jpg" alt="' + loc.title + '" loading="lazy" />' +
 				'</div>' +
 				'<div class="card-body">' +
-					'<span class="card-tag">' + tagText + '</span>' +
-					'<h3 class="card-title">' + article.title + '</h3>' +
-					'<p class="card-excerpt">' + article.excerpt + '</p>' +
+					'<span class="card-tag">' + tagLabel(article.type, article.country) + '</span>' +
+					'<h3 class="card-title">' + loc.title + '</h3>' +
+					'<p class="card-excerpt">' + loc.excerpt + '</p>' +
 				'</div>';
 
 			return a;
 		}
 
-		// articles.json is at en/articles.json — two levels up from en/articles/slug/
-		fetch('../../articles.json')
+		fetch('../../../articles.json')
 			.then(function(res) {
 				if (!res.ok) throw new Error('Could not load articles.json');
 				return res.json();
 			})
 			.then(function(articles) {
 
-				var current = articles.find(function(a) { return a.slug === slug; });
+				// Find current article by matching slug in the correct language
+				var current = articles.find(function(a) {
+					var loc = localized(a);
+					return loc.slug === slug;
+				});
+
 				if (!current) {
 					console.error('Article not found in JSON for slug:', slug);
 					return;
 				}
+
+				var loc = localized(current);
 
 				// Apply colour class
 				var color = current.color || 'grey';
 				document.body.classList.add('color-' + color);
 
 				// Page title
-				document.title = current.title + ' | Badatales';
+				document.title = loc.title + ' | Badatales';
 
 				// Header title
-				titleEl.textContent = current.title;
+				titleEl.textContent = loc.title;
 
 				// Tags — link to articles page with filter
-				// articles.html is at en/articles.html — two levels up
 				if (current.country) {
 					var countryTag = document.createElement('a');
 					countryTag.href = '../../articles.html?filter=' + current.country;
-					countryTag.textContent = capFirst(current.country);
+					countryTag.textContent = translateTag(current.country);
 					tagsEl.appendChild(countryTag);
 				}
 				if (current.type) {
 					var typeTag = document.createElement('a');
 					typeTag.href = '../../articles.html?filter=' + current.type;
-					typeTag.textContent = capFirst(current.type);
+					typeTag.textContent = translateTag(current.type);
 					tagsEl.appendChild(typeTag);
 				}
 
 				// 2 random suggested articles excluding current
-				var others = articles.filter(function(a) { return a.slug !== slug; });
+				var others = articles.filter(function(a) {
+					var l = localized(a);
+					return l.slug !== slug;
+				});
 				var suggested = others
 					.map(function(a) { return { a: a, sort: Math.random() }; })
 					.sort(function(x, y) { return x.sort - y.sort; })
