@@ -4709,16 +4709,23 @@ body.page-articles #page-wrapper:after {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5em;             
-    padding: 0 1.5em;
+    min-height: 5em;
+    height: auto;
+    padding: 0.75em 1.5em;
     gap: 0;
 }
 
 .filter-tag-group {
     display: flex;
     align-items: center;
+    justify-content: flex-end;   /* right-align first group */
     gap: 0.75em;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    flex: 1;                     /* each group takes equal space */
+}
+
+.filter-tag-group + .filter-divider + .filter-tag-group {
+    justify-content: flex-start; /* left-align second group */
 }
 
 /* Vertical divider — centred between groups */
@@ -5414,6 +5421,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
