@@ -2,7 +2,8 @@
     "countries": {
         "scotland": { "en": "Scotland",  "cs": "Skotsko" },
         "alaska":   { "en": "Alaska",    "cs": "Aljaška" },
-        "usa":      { "en": "USA",       "cs": "USA"     }
+        "usa":      { "en": "USA",       "cs": "USA"     },
+        "canada":   { "en": "Canada",    "cs": "Kanada"  }
     },
     "types": {
         "locations": { "en": "Locations", "cs": "Místa"    },
