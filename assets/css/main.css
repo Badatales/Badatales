@@ -4789,25 +4789,28 @@ body.page-articles #page-wrapper:after {
         padding: 1.75em 1em 1em 1em;
     }
 
-    /* Tags: two separate lines, countries then types */
     .filter-bar__tags {
         flex-direction: column;
         height: auto;
         padding: 0.75em 1em;
-        gap: 0.6em;
+        gap: 0;
         align-items: center;
     }
 
     .filter-tag-group {
-        flex-wrap: wrap;        /* overflow onto next line if needed */
         justify-content: center;
         gap: 0.5em;
+        margin-bottom: 1em;
     }
 
-    /* Hide vertical divider on mobile — groups are on separate lines */
+    .filter-tag-group:last-child {
+        margin-bottom: 0;
+    }
+
     .filter-divider {
         display: none;
     }
+
 }
 
 /* =====================================================
@@ -4979,6 +4982,11 @@ body.page-articles #page-wrapper:after {
     text-align: center;
     padding: 3em 0 2em 0;
     background-color: rgba(0, 0, 0, 0.225); /* matches last row shade */
+}
+
+#loadMore .fa-chevron-down {
+    font-size: 2em;
+    color: #5B0F1A;
 }
 
 /* ── No results message ─────────────────────────── */
@@ -5421,6 +5429,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
