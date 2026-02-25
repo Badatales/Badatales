@@ -3,11 +3,13 @@
         "scotland": { "en": "Scotland",  "cs": "Skotsko" },
         "alaska":   { "en": "Alaska",    "cs": "Aljaška" },
         "usa":      { "en": "USA",       "cs": "USA"     },
+        "faroes":   { "en": "Faroe Islands",       "cs": "Faerské ostrovy"     },
         "canada":   { "en": "Canada",    "cs": "Kanada"  }
     },
     "types": {
         "locations": { "en": "Locations", "cs": "Místa"    },
         "stories":   { "en": "Stories",   "cs": "Příběhy"  },
+        "nonsense":   { "en": "Nonsenses",   "cs": "Blbosti"  },
         "tips":      { "en": "Tips",      "cs": "Tipy"     }
     }
 }
