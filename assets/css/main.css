@@ -4798,9 +4798,9 @@ body.page-articles #page-wrapper:after {
     }
 
     .filter-tag-group {
-        justify-content: center;
+        justify-content: center !important;
         gap: 0.5em;
-        margin-bottom: 1em;
+        margin-bottom: 2em;                    
     }
 
     .filter-tag-group:last-child {
@@ -4810,7 +4810,6 @@ body.page-articles #page-wrapper:after {
     .filter-divider {
         display: none;
     }
-
 }
 
 /* =====================================================
@@ -5434,6 +5433,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
