@@ -2975,7 +2975,10 @@ input, select, textarea {
 				.wrapper.style1 .features li {
 					border-top-color: rgba(0, 0, 0, 0.125);
 				}
-
+				 .wrapper.style1 .inner {
+      				padding-left: 0.5em;
+        			padding-right: 0.5em;
+  				}
 			}
 
 /* --- GLOBAL STYLES (Mobile & PC) --- */
