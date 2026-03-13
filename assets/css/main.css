@@ -3417,7 +3417,7 @@ input, select, textarea {
 				border-bottom: solid 1px transparent;
     			margin: 0.5em 0 0 0;
     			padding: 0.5em 0 0 0;
-    			transition: border-top-color 0.2s ease;
+    			transition: border-bottom-color 0.4s ease 0.1s;
 			}
 
 			#menu ul > li:hover {
