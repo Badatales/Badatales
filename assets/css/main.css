@@ -4475,6 +4475,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     padding: 1.5em !important;
     border-radius: 4px !important;
     margin-bottom: 2em !important;
+	text-align: center;
 }
 
 .page-about .wrapper.style3 h2,
@@ -5203,6 +5204,14 @@ body.page-articles #page-wrapper:after {
     margin-bottom: 0.75em;
 }
 
+.article-body__inner p.alt-shade {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 1.5em;
+    border-radius: 4px;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
 /* Inline images — wider than text */
 .article-img {
     margin: 2.5em -8em;    /* bleeds wider than text column */
@@ -5440,6 +5449,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
