@@ -5420,18 +5420,27 @@ YELLOW - #F2B705
 /* --- THE MOBILE TWIN OVERRIDE (max-width: 736px) --- */
 @media screen and (max-width: 736px) {
 
-    /* 1. Force all banners to same height and padding */
-    #banner, 
-    .page-articles #banner-articles, 
-    .page-about #banner-about {
-        height: 50vh !important;
-        min-height: 0 !important;
-        overflow: visible !important;
-        padding: 3em 1.5em !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-    }
+	/* 1. Force all banners to same height and padding */
+	#banner {
+    	height: 50vh !important;
+	    min-height: 0 !important;
+ 		overflow: visible !important;
+ 		padding: 6em 1.5em 3em 1.5em !important;
+		display: flex !important;
+ 		flex-direction: column !important;
+  		justify-content: flex-start !important;
+	}
+
+	.page-articles #banner-articles,
+	.page-about #banner-about {
+    	height: 50vh !important;
+    	min-height: 0 !important;
+    	overflow: visible !important;
+    	padding: 3em 1.5em !important;
+    	display: flex !important;
+    	flex-direction: column !important;
+    	justify-content: center !important;
+	}
 
     /* 2. Sync the text container */
     #banner .inner, #banner-articles .inner, #banner-about .inner {
