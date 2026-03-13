@@ -4442,6 +4442,11 @@ body.page-about #page-wrapper:after {
 .page-about .about-intro h2 {
     margin-bottom: 0.5em;
     border-bottom: none !important;
+	font-size: 2em;
+}
+
+.page-about .about-intro p {
+    font-size: 1.3em;
 }
 
 /* --- mobile specific files --- */
@@ -5449,6 +5454,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
