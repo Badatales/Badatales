@@ -5481,40 +5481,12 @@ YELLOW - #F2B705
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   /* ----- EMBEDS ----- */
+.instagram-embed {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
 
 
 
