@@ -69,6 +69,18 @@
 			});
 		}
 
+	// Hide language switcher on scroll
+	var $langSwitcher = $('.language-switcher');
+	if ($langSwitcher.length) {
+		$window.on('scroll', function() {
+			if ($window.scrollTop() > 10) {
+				$langSwitcher.fadeOut(200);
+			} else {
+				$langSwitcher.fadeIn(200);
+			}
+		});
+	}
+
 	/* =========================================================
 	   SHARED HELPERS
 	========================================================= */
