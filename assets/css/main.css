@@ -4469,11 +4469,18 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
     background-color: #ffffff !important;
     color: #2e3842 !important;
 }
+
 #main .wrapper.style3 p.alt-shade {
     background: rgba(0, 0, 0, 0.05) !important;
     padding: 1.5em !important;
     border-radius: 4px !important;
     margin-bottom: 2em !important;
+}
+
+.page-about .wrapper.style3 h2,
+.page-about .wrapper.style3 h3,
+.page-about .wrapper.style3 h4 {
+    color: #2e3842;
 }
 
 /* 4. Header & Menu Logic for About Page */
@@ -5433,6 +5440,7 @@ YELLOW - #F2B705
     left: 0;
 }
 }
+
 
 
 
