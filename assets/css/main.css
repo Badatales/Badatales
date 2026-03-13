@@ -4520,6 +4520,7 @@ body.is-mobile.page-about .wrapper.style4.about-intro {
 /* Slide-out Hamburger Menu - Yellow background with dark text */
 .page-about #menu {
     background-color: #F2B705 !important;
+	color: #2e3842 !important;
 }
 .page-about #menu ul li a {
     color: #2e3842 !important;
