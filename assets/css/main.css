@@ -5152,13 +5152,13 @@ body.page-articles #page-wrapper:after {
 
 .article-header__tags a {
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 0.7em;
+    font-size: 0.9em;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0.4em 1em;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
     transition: border-color 0.2s ease;
 }
 
@@ -5201,7 +5201,7 @@ body.page-articles #page-wrapper:after {
 }
 
 .article-body__inner {
-    max-width: 38em;        /* narrow text column */
+    max-width: 39.5em;        /* narrow text column */
     margin: 0 auto;
     padding: 0 2em;
     color: #2e3842;
