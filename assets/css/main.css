@@ -5366,8 +5366,16 @@ YELLOW - #F2B705
 
     #article-header {
         min-height: 27vh;
-        align-items: flex-end;
+        align-items: flex-start;
     }
+
+	.article-header__inner {
+   		padding-top: 5em; 
+	}
+
+	.article-header__tags {
+    	margin-bottom: 1.8em; 
+	}
 
     .article-img--wide,
     .article-img {
