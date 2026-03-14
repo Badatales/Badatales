@@ -1,5 +1,20 @@
 [
     {
+        "country": "scotland",
+        "type": "tips",
+        "color": "red",
+        "en": {
+            "slug": "highland-coos-where-to-find-them-scotland",
+            "title": "Where to find Highland Coos, Scotland’s hairy cows?",
+            "excerpt": "Our 3 proven tips so you don't have to crisscross all of Scotland and still leave empty-handed!"
+        },
+        "cs": {
+            "slug": "kde-najit-chlupate-kravy-skotsko",
+            "title": "Kde ve Skotsku najdete Highland Coos, místní chlupaté krávy?",
+            "excerpt": "Tohle jsou naše 3 osvědčené tipy, abyste nemuseli projet Skotsko křížem krážem a stejně odjet s nepořízenou!"
+        }
+    },
+    {
         "country": "alaska",
         "type": "stories",
         "color": "yellow",
