@@ -5201,7 +5201,7 @@ body.page-articles #page-wrapper:after {
 }
 
 .article-body__inner {
-    max-width: 39.5em;        /* narrow text column */
+    max-width: 41em;        /* narrow text column */
     margin: 0 auto;
     padding: 0 2em;
     color: #2e3842;
