@@ -1,5 +1,20 @@
 [
     {
+        "country": "alaska",
+        "type": "stories",
+        "color": "yellow",
+        "en": {
+            "slug": "alaska-honeymoon-trip",
+            "title": "Our honeymoon in the wilderness for the bold",
+            "excerpt": "When else to visit a life-changing country, if not on your honeymoon?"
+        },
+        "cs": {
+            "slug": "svatebni-cesta-aljaska",
+            "title": "Naše svatební cesta v zemi jenom pro odvážné",
+            "excerpt": "Kdy jindy navštívit zemi, která změní váš život, když ne na své svatební cestě?"
+        }
+    },
+    {
         "country": "scotland",
         "type": "locations",
         "color": "red",
@@ -32,7 +47,7 @@
     {
         "country": "alaska",
         "type": "stories",
-        "color": "yellow",
+        "color": "grey",
         "en": {
             "slug": "alaska-icefield",
             "title": "There is a lot of ice in Alaska",
