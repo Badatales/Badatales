@@ -5370,11 +5370,11 @@ YELLOW - #F2B705
     }
 
 	.article-header__inner {
-   		padding-top: 3.5em; 
+   		padding-top: 2em; 
 	}
 
 	.article-header__tags {
-    	margin-bottom: 2.5em; 
+    	margin-bottom: 3.5em; 
 	}
 
     .article-img--wide,
@@ -5409,15 +5409,6 @@ YELLOW - #F2B705
     }
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
