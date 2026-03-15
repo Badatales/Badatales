@@ -9,7 +9,7 @@
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-		gtag('config', 'G-DBM67G6JRH');
+		gtag('config', 'G-TYM1BRCVBX');
 	})();
 
 	var	$window = $(window),
