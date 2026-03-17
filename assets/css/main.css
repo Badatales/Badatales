@@ -5253,6 +5253,12 @@ body.page-articles #page-wrapper:after {
     text-align: left;
 }
 
+.article-body__inner .alt-shade > *:first-child {
+    margin-top: 0;
+}
+	.article-body__inner .alt-shade > *:last-child {
+    margin-bottom: 0;
+}
 
 /* Inline images — wider than text */
 .article-img {
@@ -5321,7 +5327,7 @@ figcaption {
     text-transform: uppercase;
     color: #2e3842;
 	margin-top: 0;
-    margin-bottom: 1em;
+    margin-bottom: 4em;
 	text-align: center;
 }
 
