@@ -5245,9 +5245,9 @@ body.page-articles #page-wrapper:after {
 /* ── body - grey div block ── */
 .article-body__inner .alt-shade {
     background: rgba(0, 0, 0, 0.05);
-    margin-left: -4em;
-    margin-right: -4em;
-    padding: 1.5em 4em;  /* compensate so text stays aligned */
+    margin-left: -8em;
+    margin-right: -8em;
+    padding: 1.5em 4em;  /* sets the text borders */
     border-radius: 4px;
     margin-bottom: 2em;
     text-align: left;
