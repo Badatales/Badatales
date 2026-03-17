@@ -2,6 +2,21 @@
     {
         "country": "scotland",
         "type": "tips",
+        "color": "grey",
+        "en": {
+            "slug": "where-to-see-puffins-scotland-guide",
+            "title": "Puffins in Scotland: Where to find these "clowns of the north",
+            "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?"
+        },
+        "cs": {
+            "slug": "puffins-kde-najit-papuchalky-ve-skotsku",
+            "title": "Klauni severu: Kde ve Skotsku potkat papuchalky?",
+            "excerpt": "Puffini, takřka magická malá stvoření, která chtějí všichni vidět. Ale víte, kde je najít?"
+        } 
+    },
+    {
+        "country": "scotland",
+        "type": "tips",
         "color": "red",
         "en": {
             "slug": "highland-coos-where-to-find-them-scotland",
@@ -31,21 +46,6 @@
     },
     {
         "country": "scotland",
-        "type": "locations",
-        "color": "red",
-        "en": {
-            "slug": "Edinburgh-tips",
-            "title": "Visit Scotland's capital. But do it right!",
-            "excerpt": "Uncover the magic of Edinburgh, from its haunting medieval wynds to its majestic volcanic peaks. This is what you should not miss."
-        },
-        "cs": {
-            "slug": "Edinburgh-tipy",
-            "title": "Navštivte hlavní město Skotska. Ale udělejte to správně!",
-            "excerpt": "Objevte kouzlo Edinburghu, jeho křivolaké uličky, nebo třeba kopce vulkanického původu. Tohle všechno byste neměli minout!"
-        }
-    },
-    {
-        "country": "scotland",
         "type": "tips",
         "color": "yellow",
         "en": {
@@ -58,35 +58,5 @@
             "title": "Pět tipů, abyste přežili skotské počasí",
             "excerpt": "Déšť, vítr, a s pomocí shůry i trochu slunce. Přečtěte si, co byste měli vědět, než vyrazíte na sever."
         }
-    },
-    {
-        "country": "alaska",
-        "type": "stories",
-        "color": "grey",
-        "en": {
-            "slug": "alaska-icefield",
-            "title": "There is a lot of ice in Alaska",
-            "excerpt": "Beenthere, donethat"
-        },
-        "cs": {
-            "slug": "alaska-ledova-krajina",
-            "title": "Na Aljašce je překvapivě hodně... ledu",
-            "excerpt": "Přišli jsme, viděli jsme, pochopili jsme."
-        }
-    },
-    {
-        "country": "scotland",
-        "type": "tips",
-        "color": "grey",
-        "en": {
-            "slug": "puffins",
-            "title": "Find the Scottish magical creatures",
-            "excerpt": "Puffins, almost magical little birds that everyone wants to see. But do you know where to find them?"
-        },
-        "cs": {
-            "slug": "puffins",
-            "title": "Po stopách bájných skotských ptáčků",
-            "excerpt": "Puffini, takřka magická malá stvoření, která chtějí všichni vidět. Ale víte, kde je najít?"
-        } 
     }
 ]
