@@ -5320,6 +5320,7 @@ figcaption {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #2e3842;
+	margin-top: 0;
     margin-bottom: 2em;
 	text-align: center;
 }
@@ -5410,6 +5411,19 @@ YELLOW - #F2B705
     .article-img--portrait {
         max-width: 90%;
     }
+
+	.article-body__inner .alt-shade {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.5em;
+	}
+
+	.article-body__inner .alt-shade > *:first-child {
+    margin-top: 0;
+	}
+	.article-body__inner .alt-shade > *:last-child {
+    margin-bottom: 0;
+	}
 
     .you-might-like__cards {
         flex-direction: column;
