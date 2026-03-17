@@ -5210,7 +5210,7 @@ body.page-articles #page-wrapper:after {
     line-height: 1.8;
 }
 
-.article-body__inner p {
+.article-body__inner {
     margin-bottom: 1.5em;
 }
 
@@ -5221,12 +5221,34 @@ body.page-articles #page-wrapper:after {
     margin-bottom: 0.75em;
 }
 
-.article-body__inner p.alt-shade {
+/* ── body - bulletpoints ── */
+.article-body__inner ul,
+.article-body__inner ol {
+    margin: 0 0 1.5em 1.5em;
+    padding: 0;
+}
+
+.article-body__inner ul li,
+.article-body__inner ol li {
+    margin-bottom: 0.5em;
+    line-height: 1.8;
+}
+
+.article-body__inner ul {
+    list-style: disc;
+}
+
+.article-body__inner ol {
+    list-style: decimal;
+}
+
+/* ── body - grey div block ── */
+.article-body__inner .alt-shade {
     background: rgba(0, 0, 0, 0.05);
     padding: 1.5em;
     border-radius: 4px;
     margin-bottom: 2em;
-    text-align: center;
+    text-align: left;
 }
 
 /* Inline images — wider than text */
