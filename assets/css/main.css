@@ -5245,11 +5245,14 @@ body.page-articles #page-wrapper:after {
 /* ── body - grey div block ── */
 .article-body__inner .alt-shade {
     background: rgba(0, 0, 0, 0.05);
-    padding: 1.5em;
+    margin-left: -4em;
+    margin-right: -4em;
+    padding: 1.5em 4em;  /* compensate so text stays aligned */
     border-radius: 4px;
     margin-bottom: 2em;
     text-align: left;
 }
+
 
 /* Inline images — wider than text */
 .article-img {
