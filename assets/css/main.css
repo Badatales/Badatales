@@ -5424,13 +5424,6 @@ YELLOW - #F2B705
     padding: 1.5em;
 	}
 
-	.article-body__inner .alt-shade > *:first-child {
-    margin-top: 0;
-	}
-	.article-body__inner .alt-shade > *:last-child {
-    margin-bottom: 0;
-	}
-
     .you-might-like__cards {
         flex-direction: column;
         align-items: center;
