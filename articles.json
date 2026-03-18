@@ -1,4 +1,19 @@
 [
+     {
+        "country": "scotland",
+        "type": "tips",
+        "color": "red",
+        "en": {
+            "slug": "scotland-weather-travel-guide",
+            "title": "The Guide to Surviving Scottish Weather",
+            "excerpt": "When it rains, it pours! But in Scotland, that’s just part of the charm."
+        },
+        "cs": {
+            "slug": "pocasi-ve-skotsku-prakticke-tipy",
+            "title": "Jak přežít skotské počasí (a nezbláznit se)",
+            "excerpt": "Skotsko vás rychle naučí, že déšť není nepřítel, ale filtr, přes který je tahle krajina nejvíc svá"
+        }
+    },
     {
         "country": "scotland",
         "type": "tips",
@@ -42,21 +57,6 @@
             "slug": "svatebni-cesta-aljaska",
             "title": "Naše svatební cesta v zemi jenom pro odvážné",
             "excerpt": "Kdy jindy navštívit zemi, která změní váš život, když ne na své svatební cestě?"
-        }
-    },
-    {
-        "country": "scotland",
-        "type": "tips",
-        "color": "yellow",
-        "en": {
-            "slug": "scotland-weather-tips",
-            "title": "Five tips for surviving Scottish weather",
-            "excerpt": "Rain, wind, and the occasional miracle of sunshine. Here's what you actually need to know before heading north."
-        },
-        "cs": {
-            "slug": "skotsko-pocasi",
-            "title": "Pět tipů, abyste přežili skotské počasí",
-            "excerpt": "Déšť, vítr, a s pomocí shůry i trochu slunce. Přečtěte si, co byste měli vědět, než vyrazíte na sever."
         }
     }
 ]
