@@ -5245,18 +5245,23 @@ body.page-articles #page-wrapper:after {
 /* ── excerpt / perex style ── */
 #article-excerpt {
     background: #ffffff;
-    padding: 2em 2em 0 2em;
+    padding: 2em 2em 2em 2em;
     text-align: center;
 }
 
-.article-excerpt {
-    max-width: 55em;
-    margin: 0 auto;
-    font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 1.3em;
-    font-style: italic;
-    color: #2e3842;
-    line-height: 1.6;
+#article-excerpt::after {
+    content: '';
+    display: block;
+    width: 2em;
+    height: 1px;
+    background: #2e3842;
+    margin: 1.5em auto 0 auto;
+    opacity: 0.3;
+}
+
+#article-body {
+    background: #ffffff;
+    padding: 2em 0 4em 0; 
 }
 
 /* ── body - grey div block ── */
