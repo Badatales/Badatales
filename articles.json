@@ -1,7 +1,7 @@
 [
      {
         "country": "alaska",
-        "type": "location",
+        "type": "locations",
         "color": "grey",
         "en": {
             "slug": "scotland-weather-travel-guide",
