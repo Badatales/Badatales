@@ -5253,11 +5253,8 @@ body.page-articles #page-wrapper:after {
     max-width: 55em;
     margin: 0 auto;
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 1.1em;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-size: 1.15em;
+    font-style: italic;
     color: #7a8a96;
     line-height: 1.6;
 }
