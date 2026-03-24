@@ -1,12 +1,27 @@
 [
      {
+        "country": "alaska",
+        "type": "location",
+        "color": "grey",
+        "en": {
+            "slug": "scotland-weather-travel-guide",
+            "title": "Talkeetna: Alaska’s Gateway to the Wild with a Cat Mayor",
+            "excerpt": "The real Alaska starts where the highway ends"
+        },
+        "cs": {
+            "slug": "talkeetna-aljaska-denali-pruvodce",
+            "title": "Talkeetna: Brána do divočiny a město kočičích starostů",
+            "excerpt": "Ta pravá Aljaška začíná mimo hlavní silnice"
+        }
+    },
+     {
         "country": "scotland",
         "type": "tips",
         "color": "red",
         "en": {
             "slug": "scotland-weather-travel-guide",
             "title": "The Guide to Surviving Scottish Weather",
-            "excerpt": "When it rains, it pours! But in Scotland, that’s just part of the charm."
+            "excerpt": "When it rains, it pours! But in Scotland, that’s just part of the charm"
         },
         "cs": {
             "slug": "pocasi-ve-skotsku-prakticke-tipy",
