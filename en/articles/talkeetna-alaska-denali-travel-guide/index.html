@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Article | Badatales</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../../../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="page-article" data-root="../../">
+ 
+        <div id="page-wrapper">
+ 
+            <header id="header">
+                <h1><a href="../../index.html">Badatales</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul id="nav-links"></ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Article header — colour + title + tags injected by JS -->
+            <section id="article-header">
+                <div class="article-header__inner">
+                    <div class="article-header__tags" id="articleTags"></div>
+                    <h1 class="article-header__title" id="articleTitle"></h1>
+                </div>
+
+            	<a href="#one" class="more scrolly" id="scrollRead"></a>
+            </section>
+
+            <!-- Hero image -->
+            <div id="article-hero">
+                <img id="articleHero" src="hero.jpg" alt="" />
+            </div>
+
+            <!-- Article body — paste content here -->
+            <article id="article-body">
+                <div class="article-body__inner" id="one">
+
+<p>If you’re planning a trip to Alaska, you’ll likely be looking for inspiration on what to visit. Glaciers, hikes, national parks… you can find all of that easily, and we’ll be writing about those places here on Badatales, too. However, from our own experience, we know it’s actually much harder to find charming little villages worth a visit amidst the ubiquitous wilderness. There are a few, though, and perhaps the most interesting one lies just off the main highway, within sight of the mountain peaks that include the "Mountain of Mountains": Denali.</p>
+<p>You could easily miss Talkeetna. While it’s one of the few villages north of Palmer - the largest town in the area until you hit Fairbanks - it sits completely tucked away from the Parks Hwy. In fact, you might not find a reason to turn off the main road at all. But it would be a mistake not to make that roughly 15kilometer dead-end detour. Not only is there plenty to do in Talkeetna, but the town itself breathes an atmosphere unlike almost anywhere else in Alaska.</p>
+<p>Just three people shy of a thousand inhabitants, at least according to the last census. Talkeetna is a small settlement sitting at the confluence of three rivers (Susitna, Chulitna, and Talkeetna). Its origins date back to the early 20th century, and the original houses have preserved their historic face to this day. Although the main street with its shops and restaurants is quite small and you can walk it at a very slow pace in an hour, Talkeetna is primarily an outdoor town. Thanks to its prime location, it continues to grow, with a fair number of houses, hotels, and Airbnbs in the surrounding area.</p>
+
+<div class="alt-shade" style="text-align: left;">
+<h2>Under the Paw</h2>
+<p>We don’t want to - and probably even can’t - explain exactly how Alaska is administratively divided. However, Talkeetna falls into the category of "unincorporated areas",meaning the locals handle their governance their own way. That’s why, for twenty years until 2017, the mayor was a cat named Stubbs. Currently, the town is "under the paw" of Aurora.</p>
+</div>
+
+<p>The biggest draw here is the local airport, the base for flightseeing tours into Denali National Park and to the mountain itself. You have two main choices: Talkeetna Air Taxi and K2 Aviation, and you can’t go wrong with either. Their offerings are virtually identical, including the option of a glacier landing right in the heart of the national park. Even if the weather doesn't play along (as was our case), the flight itself is a once-in-a-lifetime experience.</p>
+<p>Thanks to the three rivers, it’s also a base from which you can head out on a raft, go fishing, or take mountain bikes into the surrounding forests. You can literally smell the wilderness all around you (that said, bear spray is a must!), and it’s entirely up to you where you venture. Just like everywhere else in Alaska, riding ATVs (or snowmobiles in winter) is popular here. If you’re looking for a real adrenaline rush, you can even be flown out into the bush to try camping miles away from the nearest human. The possibilities are endless, they’ll just cost you a bit (money-wise, hopefully not your neck).</p>
+<p>One final tip: birch syrup! Birch trees grow everywhere around Talkeetna, and the locals have learned to process birch syrup much like maple syrup. Just a few kilometers back toward the main highway, you’ll find the headquarters of the Alaska Birch Syrup company, which produces and sells it statewide. Visiting their small shop is well worth it, if only to see the production with your own eyes and taste the syrup itself to find out which version you like best.</p>
+
+                </div>
+            </article>
+
+            <!-- You might like -->
+            <section id="you-might-like">
+                <div class="inner">
+                    <h2 class="you-might-like__heading" id="youMightLikeHeading"></h2>
+                    <div class="you-might-like__cards" id="suggestedArticles"></div>
+                    <ul class="actions special">
+                        <li><a href="../../articles.html" class="button" id="moreArticlesBtn"></a></li>
+                    </ul>
+                </div>
+            </section>
+
+            
+
+		<!-- Footer SET UP IN main.js-->
+		<footer id="footer"></footer>
+
+
+            
+
+        </div>
+
+        <div id="copyMessage">Email copied ✓</div>
+        
+        <script src="../../../assets/js/jquery.min.js"></script>
+        <script src="../../../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../../../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../../../assets/js/browser.min.js"></script>
+        <script src="../../../assets/js/breakpoints.min.js"></script>
+        <script src="../../../assets/js/util.js"></script>
+        <script src="../../../assets/js/main.js"></script>
+
+         <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText("talesofbada@gmail.com").then(function() {
+                    const message = document.getElementById("copyMessage");
+                    message.classList.add("show");
+                    setTimeout(function() { message.classList.remove("show"); }, 1500);
+                }).catch(function(err) { console.error("Clipboard copy failed:", err); });
+            }
+        </script>
+
+    </body>
+</html>
