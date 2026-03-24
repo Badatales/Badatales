@@ -583,7 +583,7 @@
 				titleEl.textContent = loc.title;
 				var excerptEl = document.createElement('div');
 				excerptEl.id = 'article-excerpt';
-				excerptEl.innerHTML = '<p class="article-excerpt">' + loc.excerpt + '</p>';
+				excerptEl.innerHTML = '<p class="article-excerpt">' + loc.excerpt + '</p><div class="article-excerpt__divider"></div>';
 				document.getElementById('article-hero').insertAdjacentElement('afterend', excerptEl);
 				
 
