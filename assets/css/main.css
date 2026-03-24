@@ -5242,6 +5242,23 @@ body.page-articles #page-wrapper:after {
     list-style: decimal;
 }
 
+/* ── excerpt / perex style ── */
+#article-excerpt {
+    background: #ffffff;
+    padding: 2em 2em 0 2em;
+    text-align: center;
+}
+
+.article-excerpt {
+    max-width: 55em;
+    margin: 0 auto;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #2e3842;
+    line-height: 1.6;
+}
+
 /* ── body - grey div block ── */
 .article-body__inner .alt-shade {
     background: rgba(0, 0, 0, 0.05);
