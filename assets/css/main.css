@@ -4152,10 +4152,10 @@ body.is-mobile.landing #footer {
     #three .features li:first-child {
         border-top: 0;
     }
+	#three .features li .feature-title {
+    padding: 1.5em 0.75em;
+	}
 }
-
-
-
 
 
 /* Footer */
