@@ -5253,15 +5253,18 @@ body.page-articles #page-wrapper:after {
     max-width: 55em;
     margin: 0 auto;
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 1.3em;
-    font-style: italic;
-    color: #2e3842;
+    font-size: 1.1em;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #7a8a96;
     line-height: 1.6;
 }
 
 .article-excerpt__divider {
-    width: 2em;
-    height: 1px;
+    width: 4em;
+    height: 2px;
     background: #2e3842;
     margin: 1.5em auto 0 auto;
     opacity: 0.3;
