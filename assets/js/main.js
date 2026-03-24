@@ -581,6 +581,8 @@
 
 				document.title = loc.title + ' | Badatales';
 				titleEl.textContent = loc.title;
+				var excerptEl = document.getElementById('article-excerpt');
+				if (excerptEl) excerptEl.textContent = loc.excerpt;
 
 				if (current.country) {
 					var countryTag = document.createElement('a');
