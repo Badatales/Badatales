@@ -5524,6 +5524,10 @@ YELLOW - #F2B705
         margin: 0 0 1em 0 !important;
     }
 
+	#banner h2 {
+    	margin: 0 0 2.5em 0 !important;
+	}
+
    /* 4. Fix both pages - switch :before from fixed to absolute */
 .page-about #banner-about:before,
 .page-articles #banner-articles:before {
