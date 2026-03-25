@@ -5490,7 +5490,7 @@ YELLOW - #F2B705
  		padding: 6em 1.5em 3em 1.5em !important;
 		display: flex !important;
  		flex-direction: column !important;
-  		justify-content: center !important;
+  		justify-content: flex-start !important;
 	}
 
 	.page-articles #banner-articles,
@@ -5510,6 +5510,10 @@ YELLOW - #F2B705
         margin: 0 !important;
     }
 
+		#banner .inner {
+    	padding-top: 35% !important;
+	}
+
     /* 3. Sync the H2 */
     #banner h2, #banner-articles h2, #banner-about h2 {
         font-size: 1.75em !important;
@@ -5525,7 +5529,7 @@ YELLOW - #F2B705
     }
 
 	#banner p {
-    	margin-top: 3.5em !important;
+    	margin-top: 5em !important;
 	}
 
    /* 4. Fix both pages - switch :before from fixed to absolute */
