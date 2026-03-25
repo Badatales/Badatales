@@ -5484,7 +5484,7 @@ YELLOW - #F2B705
 
 	/* 1. Force all banners to same height and padding */
 	#banner {
-    	height: 50vh !important;
+    	height: 75vh !important;
 	    min-height: 0 !important;
  		overflow: visible !important;
  		padding: 6em 1.5em 3em 1.5em !important;
