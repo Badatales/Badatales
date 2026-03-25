@@ -5511,7 +5511,7 @@ YELLOW - #F2B705
     }
 
 		#banner .inner {
-    	padding-top: 20vh !important;
+    	padding-top: 12vh !important;
 	}
 
     /* 3. Sync the H2 */
@@ -5529,7 +5529,7 @@ YELLOW - #F2B705
     }
 
 	#banner p {
-    	margin-top: 9vh !important;
+    	margin-top: 14vh !important;
 	}
 
    /* 4. Fix both pages - switch :before from fixed to absolute */
