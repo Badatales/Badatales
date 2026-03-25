@@ -5490,7 +5490,7 @@ YELLOW - #F2B705
  		padding: 6em 1.5em 3em 1.5em !important;
 		display: flex !important;
  		flex-direction: column !important;
-  		justify-content: flex-start !important;
+  		justify-content: center !important;
 	}
 
 	.page-articles #banner-articles,
