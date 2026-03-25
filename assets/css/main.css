@@ -5511,7 +5511,7 @@ YELLOW - #F2B705
     }
 
 		#banner .inner {
-    	padding-top: clamp(32px, 12vh, 120px) !important;
+  		padding-top: clamp(50px, -372.73px + 112.73vw, 112px) !important;
 	}
 
     /* 3. Sync the H2 */
